@@ -5,6 +5,10 @@
 * [Sobre mi](README.md)
 * [Repositorio](informacion/repositorio.md)
 
+## 🛠 Herramientas
+
+* [Git](herramientas/git.md)
+
 ## 💻 Programación
 
 * [CUDA](programacion/cuda.md)
