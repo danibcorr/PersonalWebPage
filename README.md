@@ -1,10 +1,10 @@
 ---
-description: Una pequeña descripción sobre mi
+description: Una pequeña descripción sobre mi.
 cover: .gitbook/assets/IMG_0607.JPEG
 coverY: 0
 ---
 
-# Daniel Bazo
+# Sobre mi
 
 Hola 👋, soy Daniel, estudiante de Ingeniería de Sistemas Electrónicos en la Universidad de Málaga.
 

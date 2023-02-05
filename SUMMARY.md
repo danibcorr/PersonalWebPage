@@ -1,8 +1,9 @@
 # Table of contents
 
-## 👨💻 Sobre mi
+## 👨💻 Información
 
-* [Daniel Bazo](README.md)
+* [Sobre mi](README.md)
+* [Repositorio](informacion/repositorio.md)
 
 ## 💻 Programación
 
