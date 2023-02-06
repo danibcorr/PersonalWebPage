@@ -6,50 +6,63 @@ description: Contribuyentes @AsuncionBueneke, @iamcay y @LuisMiguelCG
 
 ## 1. Conceptos mínimos sobre el control de versiones
 
-* _**Definir brevemente en qué consiste el control de versiones:**_
-  * Es un sistema que registra los cambios que ha sufrido un fichero, de manera que se pueda recuperar cualquier versión pasada si fuera necesario.
-* _**Explicar los siguientes conceptos: repositorio local, copia local, repositorio remoto, log, conflicto**_:
-  * _**REPOSITORIO LOCAL (Local Repository)**_: Es una base de datos centralizado donde se guardan las distintas versiones de los ficheros sometidos a control de versiones.
-  * _**COPIA LOCAL (working copy)**_: Es la copia que hacen los usuarios de un fichero sometido a controlde versiones. El DIRECTORIO LOCAL (working directory/working tree/workspace) es el que contiene todas las copias locales.
-  * _**REPOSITORIO REMOTO (Remote Repository)**_: Los repositorios remotos son versiones de nuestros proyectos que están hospedadas en Internet o en cualquier otra red.
-  * _**HISTÓRICO (LOG)**_: Registro de todos los cambios que se han producido en el repositorio. Es responsabilidad del cliente añadir información al log cuando se produce un cambio.
-  * _**CONFLICTO**_: se crean cuando dos desarrolladores han cambiado las mismas líneas en un archivo, o si un desarrollador eliminó un archivo mientras otro lo estaba modificando. En estos casos, Git no puede determinar automáticamente qué es correcto.
-* _**Explicar los siguientes estados de un fichero: sin seguimiento, confirmado, modificado, preparado, ignorado.**_
-  * _**SIN SEGUIMIENTO**_: significa básicamente que Git ve un archivo que no estaba en la instantánea anterior; Git no empezará a incluirlo en las confirmaciones de tus instantáneas hasta que se lo indiques explícitamente. Lo hace para que no incluyas accidentalmente archivos binarios generados u otros archivos que no tenías intención de incluir.
-  * _**CONFIRMADO**_: significa que los datos están almacenados de manera segura en tu base de datos local.
-  * _**MODIFICADO**_: significa que has modificado el archivo pero todavía no lo has confirmado a tu base de datos.
-  * _**PREPARADO**_: significa que has marcado un archivo modificado en su versión actual para que vaya en tu próxima confirmación
-  * _**IGNORADO**_: Un archivo que se le ha indicado explícitamente a Git que ignore. Los archivos ignorados suelen ser artefactos de compilación y archivos generados por el equipo que pueden derivarse de tu fuente de repositorios o que no deberían confirmarse por algún otro motivo.
-* _**Explicar las siguientes operaciones: Clone, Add, Commit, Push, Pull, Fork y Pull Request.**_
-  * **CLONE**: hace un clon o copia local de un repositorio remoto
-  * **ADD**: añade contenido del directorio de trabajo al área de ensayo (staging area o 'index') para la próxima confirmación.
-  * **COMMIT**: toma todos los contenidos de los archivos a los que se les realiza el seguimiento con git add y registra una nueva instantánea permanente en la base de datos y luego avanza el puntero de la rama en la rama actual.
-  * **PUSH**: se utiliza para comunicar con otro repositorio, calcular lo que tu base de datos local tiene que la remota no tiene, y luego subir (push) la diferencia al otro repositorio. Se requiere acceso de escritura al otro repositorio y por tanto normalmente se autentica de alguna manera.
-  * _**PULL**_:se emplea para extraer y descargar contenido desde un repositorio remoto y actualizar al instante el repositorio local para reflejar ese contenido.
-  * _**FORK**_: copiar un proyecto y partir de este, hacerle modificaciones. Cuando trabajamos con repositorios Git, supone hacer una copia exacta del proyecto, generando dos URL distintas.
-  * _**PULL REQUEST**_: solicitudes de integración, forma de contribuir a un proyecto grupal o de código abierto.
-* _**Traducir entre inglés y español la terminología de los tres puntos anteriores.**_
-  * COPIA LOCAL (working copy)
-  * REPOSITORIO LOCAL (Local Repository)
-  * REPOSITORIO REMOTO (Remote Repository)
-  * HISTÓRICO (LOG)
-  * CONFLICTOS (Conflicts)
-  * SIN SEGUIMIENTO ( No tracking)
-  * CONFIRMADO (Confirmed o committed)
-  * MODIFICADO (Modified)
-  * PREPARADO (Prepared)
-  * IGNORADO (Ignored)
-  * CLONE (Clonar)
-  * ADD (Añadir)
-  * COMMIT(Comprometerse)
-  * PULL (Extraer)
-  * PUSH (Cargar)
-  * FORK (Bifurcar/Tenedor)
-  * PULL REQUEST (Solicitud de extracción9
-* _**Nombrar al menos dos servicios de repositorio remoto para el control de versiones.**_
-  * Git, Mercurial, Bazaar o Darcs
-* _**Nombrar al menos un cliente gráfico (GUI) para el control de versiones.**_
-  * GITHUB, GITG
+**En qué consiste el control de versiones:**
+
+Es un sistema que registra los cambios que ha sufrido un fichero, de manera que se pueda recuperar cualquier versión pasada si fuera necesario.
+
+_**Explicar los siguientes conceptos: repositorio local, copia local, repositorio remoto, log, conflicto**_:
+
+* _**REPOSITORIO LOCAL (Local Repository)**_: Es una base de datos centralizado donde se guardan las distintas versiones de los ficheros sometidos a control de versiones.
+* _**COPIA LOCAL (working copy)**_: Es la copia que hacen los usuarios de un fichero sometido a controlde versiones. El DIRECTORIO LOCAL (working directory/working tree/workspace) es el que contiene todas las copias locales.
+* _**REPOSITORIO REMOTO (Remote Repository)**_: Los repositorios remotos son versiones de nuestros proyectos que están hospedadas en Internet o en cualquier otra red.
+* _**HISTÓRICO (LOG)**_: Registro de todos los cambios que se han producido en el repositorio. Es responsabilidad del cliente añadir información al log cuando se produce un cambio.
+* _**CONFLICTO**_: se crean cuando dos desarrolladores han cambiado las mismas líneas en un archivo, o si un desarrollador eliminó un archivo mientras otro lo estaba modificando. En estos casos, Git no puede determinar automáticamente qué es correcto.
+
+_**Explicar los siguientes estados de un fichero: sin seguimiento, confirmado, modificado, preparado, ignorado.**_
+
+* _**SIN SEGUIMIENTO**_: significa básicamente que Git ve un archivo que no estaba en la instantánea anterior; Git no empezará a incluirlo en las confirmaciones de tus instantáneas hasta que se lo indiques explícitamente. Lo hace para que no incluyas accidentalmente archivos binarios generados u otros archivos que no tenías intención de incluir.
+* _**CONFIRMADO**_: significa que los datos están almacenados de manera segura en tu base de datos local.
+* _**MODIFICADO**_: significa que has modificado el archivo pero todavía no lo has confirmado a tu base de datos.
+* _**PREPARADO**_: significa que has marcado un archivo modificado en su versión actual para que vaya en tu próxima confirmación
+* _**IGNORADO**_: Un archivo que se le ha indicado explícitamente a Git que ignore. Los archivos ignorados suelen ser artefactos de compilación y archivos generados por el equipo que pueden derivarse de tu fuente de repositorios o que no deberían confirmarse por algún otro motivo.
+
+_**Explicar las siguientes operaciones: Clone, Add, Commit, Push, Pull, Fork y Pull Request.**_
+
+* **CLONE**: hace un clon o copia local de un repositorio remoto
+* **ADD**: añade contenido del directorio de trabajo al área de ensayo (staging area o 'index') para la próxima confirmación.
+* **COMMIT**: toma todos los contenidos de los archivos a los que se les realiza el seguimiento con git add y registra una nueva instantánea permanente en la base de datos y luego avanza el puntero de la rama en la rama actual.
+* **PUSH**: se utiliza para comunicar con otro repositorio, calcular lo que tu base de datos local tiene que la remota no tiene, y luego subir (push) la diferencia al otro repositorio. Se requiere acceso de escritura al otro repositorio y por tanto normalmente se autentica de alguna manera.
+* _**PULL**_:se emplea para extraer y descargar contenido desde un repositorio remoto y actualizar al instante el repositorio local para reflejar ese contenido.
+* _**FORK**_: copiar un proyecto y partir de este, hacerle modificaciones. Cuando trabajamos con repositorios Git, supone hacer una copia exacta del proyecto, generando dos URL distintas.
+* _**PULL REQUEST**_: solicitudes de integración, forma de contribuir a un proyecto grupal o de código abierto.
+
+_**Traducir entre inglés y español la terminología de los tres puntos anteriores.**_
+
+* COPIA LOCAL (working copy)
+* REPOSITORIO LOCAL (Local Repository)
+* REPOSITORIO REMOTO (Remote Repository)
+* HISTÓRICO (LOG)
+* CONFLICTOS (Conflicts)
+* SIN SEGUIMIENTO ( No tracking)
+* CONFIRMADO (Confirmed o committed)
+* MODIFICADO (Modified)
+* PREPARADO (Prepared)
+* IGNORADO (Ignored)
+* CLONE (Clonar)
+* ADD (Añadir)
+* COMMIT(Comprometerse)
+* PULL (Extraer)
+* PUSH (Cargar)
+* FORK (Bifurcar/Tenedor)
+* PULL REQUEST (Solicitud de extracción9
+
+_**Nombrar al menos dos servicios de repositorio remoto para el control de versiones.**_
+
+* Git, Mercurial, Bazaar o Darcs
+
+_**Nombrar al menos un cliente gráfico (GUI) para el control de versiones.**_
+
+* GITHUB, GITG
 
 ## 2. Conceptos sobre Git y GitHub
 
