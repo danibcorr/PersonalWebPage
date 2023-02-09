@@ -8,6 +8,7 @@
 ## 🛠 Herramientas
 
 * [Git](herramientas/git.md)
+* [Linux](herramientas/linux.md)
 
 ## 💻 Programación
 

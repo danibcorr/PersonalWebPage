@@ -20,7 +20,7 @@ Existen diferentes gamas de GPU para NVidia:
 * **GeForce**: enfocadas al mercado doméstico (consumidor general).
 * **Quadro**: enfocadas al sector profesional. Sobre todo en el uso de renderización o aplicaciones similares.
 * **Tegra**: utilizado en sistemas de bajo consumo como móviles o sistemas empotrados.
-* **Tesla**: llevado a nivel industrial/empresa. Por ejemplo, este tipo de gráficas son las que suele dar Google en Google Colab.
+* **Tesla**: llevado a nivel industrial/empresa. Por ejemplo, este tipo de gráficas nos la podemos encontrar en servicios como Google Colab.
 
 CUDA cuenta con un amplio ecosistema aunque nosotros nos centraremos en C/C++.
 
@@ -28,20 +28,16 @@ CUDA cuenta con un amplio ecosistema aunque nosotros nos centraremos en C/C++.
 
 Existen 3 cualidades principales que han hecho que la GPU sea un elemento único y fundamental en CUDA:
 
-* **Simplicidad**: el control de un hilo se amortiza en otros 31. Esto se conoce como warp size, cuyo valor es de 32.
+* **Simplicidad**: el control de un hilo se amortiza en otros 31. Esto se conoce como _warp size_, cuyo valor es de 32.
 * **Escalabilidad**: gracias a la gran cantidad de datos existentes en la actualidad se consiguen sistemas/modelos de paralelización sostenible. La paralelización sólo sería necesario implementar en aplicaciones a gran escala permitiendo crear el paralelismo de datos (SIMT).
 * **Productividad**: cuando un hilo pasa a realizar operaciones que no permitan su ejecución veloz, otro hilo oculta su latencia tomando el procesador de forma inmediata (conmutan de forma inmediata). Decir que lo hilos no tienen dependencia.
 
 Algunos conceptos a conocer son:
 
-*   **Warp**: visto desde el hardware, un bloque de hilos se compone de "warps". Un warp es un conjunto de 32 hilos (32 es la resolución del planificador para emitir hilos por grupos a las unidades de ejecución) dentro de un bloque de hilos, de manera que todos los hilos de un warp ejecutan la misma instrucción. Una vez que se lanza un bloque de hilos en un multiprocesador, todos sus warps son residentes hasta que finaliza su ejecución. Así, un nuevo bloque no se lanza en un multiprocesador hasta que haya un número suficiente de registros libres para todos los warps del nuevo bloque, y hasta que haya suficiente memoria compartida libre para el nuevo bloque.
+* **Warp**: visto desde el hardware, un bloque de hilos se compone de _warps_. Un _warp_ es un conjunto de 32 hilos (32 es la resolución del planificador para emitir hilos por grupos a las unidades de ejecución) dentro de un bloque de hilos, de manera que todos los hilos de un _warp_ ejecutan la misma instrucción. Una vez que se lanza un bloque de hilos en un multiprocesador, todos sus _warps_ son residentes hasta que finaliza su ejecución. Así, un nuevo bloque no se lanza en un multiprocesador hasta que haya un número suficiente de registros libres para todos los _warps_ del nuevo bloque, y hasta que haya suficiente memoria compartida libre para el nuevo bloque. Estos hilos, se caracterizan por conmutar entre ellos de forma inmediata. A modo de resumen, vemos que los hilos se agrupan en warps, los warps en bloques y los bloques en mallas.
+* **SIMT**: _Single Instruction, Multiple Thread_.
 
-    Estos hilos, se caracterizan por conmutar entre ellos de forma inmediata.
-
-    A modo de resumen, vemos que los hilos se agrupan en warps, los warps en bloques y los bloques en mallas.
-* **SIMT**: Single Instruction, Multiple Thread.
-
-CUDA (Compute Unified Device Architecture) es una plataforma diseñada a partir de la unión de software, firmware y hardware:
+CUDA (_Compute Unified Device Architecture_) es una plataforma diseñada a partir de la unión de software, firmware y hardware:
 
 * **Software**: permite programar la GPU con extensiones SIMD (agrupaciones de multiprocesadores que comparten una misma unidad de control, _Single Instruction Multiple Data_) permitiendo ejecuciones eficientes y escalables.
 * **Firmware**: ofrece drivers para la programación GPGPU compatible con trabajos de renderizar, manejo de APIs, manejo de memoria, etc.
@@ -51,7 +47,7 @@ A pesar de que CUDA introduzca ventajas favorables para la computación tenemos 
 
 <figure><img src="../.gitbook/assets/EEA7EE5C-1D79-4B88-8DF7-37E17BF0D2FF.jpeg" alt=""><figcaption></figcaption></figure>
 
-Por tanto, vemos que el pararelismo por el que CUDA destaca es en el parelilismo de datos (**data parallelism**).
+Por tanto, vemos que el paralelismo por el que CUDA destaca es en el paralelismo de datos (_**data parallelism**_).
 
 ### 1.2. Hardware de CUDA
 
@@ -63,13 +59,13 @@ Algunas de las familias de GPU de la familia Tesla de NVidia son:
 
 <figure><img src="../.gitbook/assets/Untitled (1).png" alt=""><figcaption></figcaption></figure>
 
-Cada multiprocesador cuenta con su banco de registros, memoria compartida y una caché de constantes y otra de texturas (ambas de sólo lectura y uso marginal). También, se cuenta con una memoria global de la memoria de vídeo de tipo GDDR la cual es 3 veces más rápida que la memoria principal de la CPU pero mucho más lenta que la memoria compartida de tipo SRAM. Un bloque de hilos en CUDA se puede asignar a cualquier multriprocesador de la CPU para su ejecución. Si lanzamos un Kernel que tiene un solo bloque, sólo aprovecharemos uno de los multiprocesadores de la GPU.
+Cada multiprocesador cuenta con su banco de registros, memoria compartida y una caché de constantes y otra de texturas (ambas de sólo lectura y uso marginal). También, se cuenta con una memoria global de la memoria de vídeo de tipo GDDR la cual es 3 veces más rápida que la memoria principal de la CPU pero mucho más lenta que la memoria compartida de tipo SRAM. Un bloque de hilos en CUDA se puede asignar a cualquier multiprocesador de la CPU para su ejecución. Si lanzamos un _Kernel_ que tiene un solo bloque, sólo aprovecharemos uno de los multiprocesadores de la GPU.
 
 <figure><img src="../.gitbook/assets/Untitled 1 (1).png" alt=""><figcaption></figcaption></figure>
 
 A modo de ejemplo, cogeremos la generación Volta para estudiar su interior. En concreto, veremos la GPU GV100 que cuenta con 84 SMs y 8 controladores de memoria de 512 bits.
 
-El multiprocesador de Volta cuenta con 64 cores de tipo int32, 64 cores de tipo float32, 32 cores de tipo float64 y 8 unidades tensor.
+El multiprocesador de Volta cuenta con 64 _cores_ de tipo int32, 64 _cores_ de tipo float 32, 32 _cores_ de tipo float 64 y 8 unidades tensor.
 
 <figure><img src="../.gitbook/assets/Untitled 2.png" alt=""><figcaption></figcaption></figure>
 
@@ -77,7 +73,7 @@ De la imagen anterior vemos que se realiza el diseño de un solo bloque para pos
 
 <figure><img src="../.gitbook/assets/Untitled 3.png" alt=""><figcaption></figcaption></figure>
 
-La estructura del core tensor permite realizar operaciones matriciales a mayor velocidad (entrenar modelos de Deep Learning con mayor eficiencia). La imagen siguiente muestra el proceso:
+La estructura del _core_ tensor permite realizar operaciones matriciales a mayor velocidad (entrenar modelos de _Deep Learning_ con mayor eficiencia u otros procesos donde las operaciones matriciales abundan). La imagen siguiente muestra el proceso:
 
 <figure><img src="../.gitbook/assets/Untitled 4 (2).png" alt=""><figcaption></figcaption></figure>
 
@@ -120,22 +116,22 @@ using namespace std;
 
 void hola_cpu(void)
 {
-	printf("Esto es un saludo desde la CPU");
+    printf("Esto es un saludo desde la CPU");
 }
 
 __global__ void ejemplo_kernel(void)
 {
-	printf("Hola, esto se está ejecutando de forma paralela en GPU");
+    printf("Hola, esto se está ejecutando de forma paralela en GPU");
 }
 
 int main(void)
 {
-	hola_cpu();
-	ejemplo_kernel<<<1, 1>>>();
-	
-	cudaDeviceSynchronize();
-	
-	return 0;
+    hola_cpu();
+    ejemplo_kernel<<<1, 1>>>();
+    
+    cudaDeviceSynchronize();
+    
+    return 0;
 }
 ```
 
@@ -159,15 +155,15 @@ Podemos utilizar CUDA para agilizar los bucles durante la programación. Por eje
 ```c
 void incremento_en_cpu(float *a, float b, int N)
 {
-	for (int idx = 0; idx<N; idx++)
-	{
-		a[idx] = a[idx] + b;
-	}
+    for (int idx = 0; idx<N; idx++)
+    {
+        a[idx] = a[idx] + b;
+    }
 }
 void main()
 {
-	...
-	incremento_en_cpu(a, b, N);
+    ...
+    incremento_en_cpu(a, b, N);
 }
 ```
 
@@ -189,20 +185,20 @@ Con ello, la única consideración a realizar es que hay que programar el Kernel
 ```c
 __global__ void incremento_en_gpu(float *a, float b, int N)
 {
-	int idx = blockIdx.x * blockDim.x + threadIdx.x;
+    int idx = blockIdx.x * blockDim.x + threadIdx.x;
 
-	if (idx < N)
-	{
-		a[idx] = a[idx] + b;
-	}
+    if (idx < N)
+    {
+        a[idx] = a[idx] + b;
+    }
 }
 
 void main()
 {
-	...
-	dim3 dimBlock (blocksize);
-	dim3 dimGrid (ceil(N/(float)blocksize));
-	incremento_en_gpu<<<dimGrid, dimBlock>>>(a, b, N);
+    ...
+    dim3 dimBlock (blocksize);
+    dim3 dimGrid (ceil(N/(float)blocksize));
+    incremento_en_gpu<<<dimGrid, dimBlock>>>(a, b, N);
 }
 ```
 
@@ -224,7 +220,7 @@ Con la imagen anterior, **tenemos que considerar casos en los que existe un mayo
 
 <figure><img src="../.gitbook/assets/Untitled 8 (1).png" alt=""><figcaption></figcaption></figure>
 
-**En estos casos, habría que asegurarnos que el índice obtenido $i\_{x}$ es menor al número de datos.**
+**En estos casos, habría que asegurarnos que el índice obtenido** $$i_{x}$$ **es menor al número de datos.**
 
 #### 1.3.2. Asignación de memoria
 
@@ -292,15 +288,15 @@ __device__ __managed__ int x, y = 2; // Memoria unificada
 
 __global__ void mykernel() // Territorio GPU
 {
-	x = 10;
+    x = 10;
 }
 
 int main() // Territorio CPU
 {
-	mykernel <<<1,1>>> ();
-	y = 20; // ERROR: Acceso desde CPU concurrente con GPU
+    mykernel <<<1,1>>> ();
+    y = 20; // ERROR: Acceso desde CPU concurrente con GPU
 
-	return 0;
+    return 0;
 }
 ```
 
@@ -311,16 +307,16 @@ __device__ __managed__ int x, y = 2; // Memoria unificada
 
 __global__ void mykernel() // Territorio GPU
 {
-	x = 10;
+    x = 10;
 }
 
 int main() // Territorio CPU
 {
-	mykernel <<<1,1>>> ();
-	cudaDeviceSynchronize();
-	y = 20; 
+    mykernel <<<1,1>>> ();
+    cudaDeviceSynchronize();
+    y = 20; 
 
-	return 0;
+    return 0;
 }
 ```
 
@@ -350,17 +346,17 @@ Estos casos se pueden abordar de diferentes maneras:
 
     some_kernel<<<num_bloques, num_hebras_bloque>>>(N);
     ```
-3.  Después de calcular el índice las hebras con la función $i\_{x}=(blockIdx.x \cdot blockDim.x)+threadIdx.x$ indicar con un `if()` que el índice no supere el número total de datos.
+3.  Después de calcular el índice las hebras con la función$$i_{x}=(blockIdx.x \cdot blockDim.x)+threadIdx.x$$, indicar con un `if()` que el índice no supere el número total de datos.
 
     ```c
     __global__ some_kernel(int N)
     {
-    	int i = (blockIdx.x * blockDim.x) + threadIdx.x;
-    	
-    	if (i < N)
-    	{
-    		// Solo hace el trabajo necesario
-    	}
+        int i = (blockIdx.x * blockDim.x) + threadIdx.x;
+
+        if (i < N)
+        {
+            // Solo hace el trabajo necesario
+        }
     }
     ```
 
@@ -428,18 +424,18 @@ O podemos utilizar una función similar a la siguiente:
 
 inline cudaError_t checkCuda(cudaError_t result)
 {
-	if (result != cudaSuccess) 
-	{
-		fprintf(stderr, "CUDA Runtime Error: %s\n", cudaGetErrorString(result));
-		assert(result == cudaSuccess);
-	}
+    if (result != cudaSuccess) 
+    {
+        fprintf(stderr, "CUDA Runtime Error: %s\n", cudaGetErrorString(result));
+        assert(result == cudaSuccess);
+    }
 
-	return result;
+    return result;
 }
 
 int main()
 {
-	checkCuda(todas_las_funciones_a_gestionar_errores);
+    checkCuda(todas_las_funciones_a_gestionar_errores);
 }
 ```
 
@@ -462,7 +458,7 @@ Tenemos diferentes tipos de operadores:
 
     for(int i = 0; i < N; i++)
     {
-    	luminancia[i] = 255 * (0.2999 * r[i] + 0.587 * g[i] + 0.114 + b[i])
+        luminancia[i] = 255 * (0.2999 * r[i] + 0.587 * g[i] + 0.114 + b[i])
     }
     ```
 *   Operadores sobre vectores: ora expresión típica de un bucle _forall._ Aquí, declararíamos un hilo CUDA por cada iteración del bucle para aprovechar al máximo paralelismo y escalabilidad.
@@ -476,7 +472,7 @@ Tenemos diferentes tipos de operadores:
 
     for(int i = 0;i < N; i++)
     {
-    	c[i] = a[i] + b[i];
+        c[i] = a[i] + b[i];
     }
     ```
 *   Operadores patrón (stencil operators): las iteraciones del bucle externo deben serializarse debido a la presencia de dependencias pero podemos explotar todo el paralelismo para cada partícula. La carga computacional depende del número de iteraciones.
@@ -484,27 +480,27 @@ Tenemos diferentes tipos de operadores:
     Todos los hilos deben sincronizarse entre asignaciones.
 
     ```c
-    int i, j, iter, N, Niters;	
+    int i, j, iter, N, Niters;  
 
-    float in[N][N], out[N][N];	
+    float in[N][N], out[N][N];  
 
-    for (iter = 0; iter < Niters; iter++)	
-    {	
-    	for (i = 1; i< N-1; i++)
-    	{
-    		for (j = 1; j < N - 1; j++)
-    		{
-    			out[i][j] = 0.2	* (in[i][j] + in[i-1][j] + in[i+1][j] + in[i][j-1] + in[i][j+1]);	
-    		}
-    	}	
-    			
-    	for (i = 1; i < N - 1; i++)
-    	{
-    		for (j = 1; j < N - 1; j++)
-    		{
-    			in[i][j] = out[i][j];
-    		}	
-    	}	
+    for (iter = 0; iter < Niters; iter++)   
+    {   
+        for (i = 1; i< N-1; i++)
+        {
+            for (j = 1; j < N - 1; j++)
+            {
+                out[i][j] = 0.2 * (in[i][j] + in[i-1][j] + in[i+1][j] + in[i][j-1] + in[i][j+1]);   
+            }
+        }   
+                
+        for (i = 1; i < N - 1; i++)
+        {
+            for (j = 1; j < N - 1; j++)
+            {
+                in[i][j] = out[i][j];
+            }   
+        }   
     }
     ```
 
@@ -527,21 +523,21 @@ Tenemos diferentes tipos de operadores:
 *   Histogramas: veremos un ejemplo:
 
     ```c
-    int histo[Nbins], image[N][N];	
+    int histo[Nbins], image[N][N];  
 
-    sum = 0;	
+    sum = 0;    
 
     for (i = 0; i < Nbins; i++)
     {
-    	histo[Nbins] = 0;	
+        histo[Nbins] = 0;   
     }
 
     for (i = 0; i < N; i++)
     {
-    	for (j = 0; j < N; j++)
-    	{
-    		histo[image[i][j]]++;
-    	}
+        for (j = 0; j < N; j++)
+        {
+            histo[image[i][j]]++;
+        }
     }
     ```
 
@@ -594,14 +590,14 @@ import numpy as np
 # Cambiar por cualquier otro decorador dependiendo de lo necesitado
 @jit(nopython = True)
 def bucle(lista1, lista2, num_filas):
-	
-	lista3 = []
+    
+    lista3 = []
 
-	for fila in num_filas:
-		
-		if (lista1[fila] >= 1) && (lista2[fila] <= 5):
-			
-			lista3.append(np.mean(lista[fila], lista2[fila])) 
+    for fila in num_filas:
+        
+        if (lista1[fila] >= 1) && (lista2[fila] <= 5):
+            
+            lista3.append(np.mean(lista[fila], lista2[fila])) 
 ```
 
 ### 2.2. Cupy
