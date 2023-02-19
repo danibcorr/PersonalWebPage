@@ -14,7 +14,7 @@ A continuación se muestra una imagen con algunas de las anotaciones para aclara
 
 ```python
 import tensorflow as tf
-from tensorflow.keras import layers, models, datasets, losses
+from tensorflow.keras import layers, datasets, losses
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import normalize
@@ -26,7 +26,7 @@ from keras.utils.np_utils import to_categorical
 tf.config.list_physical_devices('GPU')
 
 # Creamos la clase LeNet
-class LeNet(models.Model):
+class LeNet(tf.keras.Model):
 
     def __init__(self, num_clases):
 
