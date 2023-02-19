@@ -1,6 +1,6 @@
 # Table of contents
 
-## 👨💻 Información
+## 👨💻 👨💻 Información
 
 * [Sobre mi](README.md)
 * [Repositorio](informacion/repositorio.md)
@@ -28,3 +28,6 @@
 ## 📄 Implementación de papers
 
 * [LeNet](implementacion-de-papers/lenet.md)
+* [ResNet](implementacion-de-papers/resnet.md)
+* [GoogleLeNet](implementacion-de-papers/googlelenet.md)
+* [Transformer](implementacion-de-papers/transformer.md)
