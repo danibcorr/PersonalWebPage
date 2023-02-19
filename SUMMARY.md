@@ -1,6 +1,6 @@
 # Table of contents
 
-## 👨💻 👨💻 Información
+## 👨💻 Información
 
 * [Sobre mi](README.md)
 * [Repositorio](informacion/repositorio.md)
