@@ -18,4 +18,6 @@ Además de utilizar Python, he empleado otros lenguajes de programación como C 
 
 {% embed url="https://github.com/danibcorr/Embedded_systems_TivaC" %}
 
-Para compartir mi progreso y conocimientos sobre inteligencia artificial y programación, he creado esta página web. Si estás interesado en aprender juntos, te invito a seguir en el apartado de Información sección Repositorio de esta misma web. Allí encontrarás más información y tendrás la oportunidad de acompañarme en este apasionante camino. ¡Gracias por tu interés!
+Para compartir mi progreso y conocimientos sobre inteligencia artificial y programación, he creado esta página web. Si estás interesado en aprender juntos, te invito a seguir en el apartado de Información sección Repositorio de esta misma web. Allí encontrarás más información y tendrás la oportunidad de acompañarme en este apasionante camino.&#x20;
+
+¡Gracias por tu interés!

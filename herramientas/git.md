@@ -1,16 +1,18 @@
 ---
-description: Contribuyentes @AsuncionBueneke, @iamcay y @LuisMiguelCG
+description: >-
+  Conceptos básicos sobre la herramienta Git. Contribuyentes @AsuncionBueneke,
+  @iamcay y @LuisMiguelCG.
 ---
 
 # Git
 
 ## 1. Conceptos mínimos sobre el control de versiones
 
-**En qué consiste el control de versiones:**
+### **1.1. En qué consiste el control de versiones**
 
 Es un sistema que registra los cambios que ha sufrido un fichero, de manera que se pueda recuperar cualquier versión pasada si fuera necesario.
 
-_**Explicar los siguientes conceptos: repositorio local, copia local, repositorio remoto, log, conflicto**_:
+### _**1.2. Conceptos**_
 
 * _**REPOSITORIO LOCAL (Local Repository)**_: Es una base de datos centralizado donde se guardan las distintas versiones de los ficheros sometidos a control de versiones.
 * _**COPIA LOCAL (working copy)**_: Es la copia que hacen los usuarios de un fichero sometido a controlde versiones. El DIRECTORIO LOCAL (working directory/working tree/workspace) es el que contiene todas las copias locales.
@@ -18,7 +20,7 @@ _**Explicar los siguientes conceptos: repositorio local, copia local, repositori
 * _**HISTÓRICO (LOG)**_: Registro de todos los cambios que se han producido en el repositorio. Es responsabilidad del cliente añadir información al log cuando se produce un cambio.
 * _**CONFLICTO**_: se crean cuando dos desarrolladores han cambiado las mismas líneas en un archivo, o si un desarrollador eliminó un archivo mientras otro lo estaba modificando. En estos casos, Git no puede determinar automáticamente qué es correcto.
 
-_**Explicar los siguientes estados de un fichero: sin seguimiento, confirmado, modificado, preparado, ignorado.**_
+### _**1.3. Estados de un fichero**_
 
 * _**SIN SEGUIMIENTO**_: significa básicamente que Git ve un archivo que no estaba en la instantánea anterior; Git no empezará a incluirlo en las confirmaciones de tus instantáneas hasta que se lo indiques explícitamente. Lo hace para que no incluyas accidentalmente archivos binarios generados u otros archivos que no tenías intención de incluir.
 * _**CONFIRMADO**_: significa que los datos están almacenados de manera segura en tu base de datos local.
@@ -26,7 +28,7 @@ _**Explicar los siguientes estados de un fichero: sin seguimiento, confirmado, m
 * _**PREPARADO**_: significa que has marcado un archivo modificado en su versión actual para que vaya en tu próxima confirmación
 * _**IGNORADO**_: Un archivo que se le ha indicado explícitamente a Git que ignore. Los archivos ignorados suelen ser artefactos de compilación y archivos generados por el equipo que pueden derivarse de tu fuente de repositorios o que no deberían confirmarse por algún otro motivo.
 
-_**Explicar las siguientes operaciones: Clone, Add, Commit, Push, Pull, Fork y Pull Request.**_
+### _**1.4. Operaciones con Git**_
 
 * **CLONE**: hace un clon o copia local de un repositorio remoto
 * **ADD**: añade contenido del directorio de trabajo al área de ensayo (staging area o 'index') para la próxima confirmación.
@@ -36,7 +38,7 @@ _**Explicar las siguientes operaciones: Clone, Add, Commit, Push, Pull, Fork y P
 * _**FORK**_: copiar un proyecto y partir de este, hacerle modificaciones. Cuando trabajamos con repositorios Git, supone hacer una copia exacta del proyecto, generando dos URL distintas.
 * _**PULL REQUEST**_: solicitudes de integración, forma de contribuir a un proyecto grupal o de código abierto.
 
-_**Traducir entre inglés y español la terminología de los tres puntos anteriores.**_
+### _**1.5. Términos traducidos**_
 
 * COPIA LOCAL (working copy)
 * REPOSITORIO LOCAL (Local Repository)
@@ -56,17 +58,9 @@ _**Traducir entre inglés y español la terminología de los tres puntos anterio
 * FORK (Bifurcar/Tenedor)
 * PULL REQUEST (Solicitud de extracción9
 
-_**Nombrar al menos dos servicios de repositorio remoto para el control de versiones.**_
-
-* Git, Mercurial, Bazaar o Darcs
-
-_**Nombrar al menos un cliente gráfico (GUI) para el control de versiones.**_
-
-* GITHUB, GITG
-
 ## 2. Conceptos sobre Git y GitHub
 
-### 2.1. En el intérprete de comandos de git-bash
+### 2.1. Comandos de git-bash
 
 | Comando   | Argumentos           | Función                                                                                                                                                  |
 | --------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -77,7 +71,7 @@ _**Nombrar al menos un cliente gráfico (GUI) para el control de versiones.**_
 | **rm**    | \<fichero>           | Borrar un fichero.                                                                                                                                       |
 | **mv**    | \<origen> \<destino> | Cambiar (mover) un fichero de directorio.                                                                                                                |
 
-### 2.2. En control de versiones local
+### 2.2. Control de versiones local
 
 |         Comando        |    Argumentos   |                                                           Función                                                          |
 | :--------------------: | :-------------: | :------------------------------------------------------------------------------------------------------------------------: |
@@ -96,9 +90,9 @@ _**Nombrar al menos un cliente gráfico (GUI) para el control de versiones.**_
 |     **git switch**     | \<nombre\_rama> |                                             Cambiar de rama en la copia local.                                             |
 |   **git checkout -b**  | \<nombre\_rama> |                           Crea una rama y cambia a ella sin realizar un commit en la rama master.                          |
 
-### 2.3. En control de versiones centralizado
+### 2.3. Control de versiones centralizado
 
-#### 2.3.1. Configurar git para que trabaje tras un proxy:
+#### 2.3.1. Configurar git para que trabaje tras un proxy
 
 *   Para configurar un proxy global para todos los repositorios:
 
@@ -113,7 +107,7 @@ _**Nombrar al menos un cliente gráfico (GUI) para el control de versiones.**_
     git config --global https.<https://domain.com>.proxy https://<proxyUsername>:<proxyPassword>@<proxy.server.com>:<port>
     ```
 
-#### 2.3.2. Replicar un repositorio remoto localmente en nuestra máquina:
+#### 2.3.2. Replicar un repositorio remoto localmente en nuestra máquina
 
 ```bash
 git clone <url>
@@ -171,7 +165,7 @@ Una vez tengamos subidos nuestros cambios a nuestra rama de desarrollo, podremos
 
 Por ultimo, quedaría que el dueño del repositorio o algún usuario con los permisos necesarios validase los cambios y aceptara el pull request.
 
-### 2.4. En control de versiones distribuido
+### 2.4. Control de versiones distribuido
 
 Operaciones con Git Bash:
 

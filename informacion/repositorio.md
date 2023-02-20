@@ -1,10 +1,10 @@
 ---
-description: Descripción del repositorio
+description: Descripción del repositorio/web.
 ---
 
 # Repositorio
 
-Esta página realizada con Gitbook se encuentra sincronizada con un repositorio de GitHub. Dicho repositorio ha sido creado con el fin de recopilar todas la utilidades, herramientas y documentación que he necesitado a la hora de programar.&#x20;
+Esta página realizada con Gitbook se encuentra sincronizada con un repositorio de GitHub, el cual ha sido creado con el fin de recopilar todas la utilidades, herramientas y documentación que he necesitado a la hora de programar.&#x20;
 
 {% embed url="https://github.com/danibcorr/Biblioteca_IA" %}
 

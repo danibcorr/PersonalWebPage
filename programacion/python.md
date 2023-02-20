@@ -54,13 +54,13 @@ En el caso de estar utilizando Anaconda en Linux:
 | +, -, \*, /, %     | suma, resta, producto, división y módulo (devuelve el resto de la división), respectivamente.            |
 | numero = -x        | Python permite mostrar números negativos.                                                                |
 | abs(numero)        | Valor absoluto del numero.                                                                               |
-| pow(x ,y) = x\*\*y | x^y (’x’ elevado a ‘y’).                                                                                 |
-| max(x, y)          | Me muestra el mayor número de los que le paso. El contrario sería → min(…).                              |
+| pow(x ,y) = x\*\*y | $$x^y$$.                                                                                                 |
+| max(x, y)          | Me muestra el mayor número de los que le paso. El contrario sería → `min(…)`.                            |
 | round(math.pi, 2)  | Redondear números con unos decimales especificados. Por ejemplo, redondear el numero pi con 2 decimales. |
-| floor(x)           | Redondea las unidades hacia abajo. Necesita → import math                                                |
-| ceil(x)            | Redondea las unidades hacia arriba. Necesita → import math                                               |
-| math.sqrt(x)       | Devuelve la raíz cuadrada, necesita importar la librería→ import math                                    |
-| math.pi            | Valor numérico de Pi, necesita importar la librería → import math                                        |
+| floor(x)           | Redondea las unidades hacia abajo. Necesita → `import math`                                              |
+| ceil(x)            | Redondea las unidades hacia arriba. Necesita → `import math`                                             |
+| math.sqrt(x)       | Devuelve la raíz cuadrada, necesita importar la librería→ `import math`                                  |
+| math.pi            | Valor numérico de Pi, necesita importar la librería → `import math`                                      |
 | hex(512)           | Convertir números a hexadecimal.                                                                         |
 | bin(1234)          | Convertir números a binario.                                                                             |
 
@@ -74,7 +74,7 @@ Reglas a seguir a la hora de crear variables:
 
 Es considerado como buena práctica usar nombres de variables en minúsculas.
 
-Python usa _**Dynamic Typing**_, \*\*\*\*es decir, no hace falta indicar el tipo de dato (int, double, ...) ya que dependiendo del valor que se le asigne lo interpretará acorde al dato. Podríamos por ejemplo crear una variable que contenga un tipo de dato y posteriormente en el código asignarle otro tipo de datos:
+Python usa _**Dynamic Typing**_, es decir, no hace falta indicar el tipo de dato (int, double, ...) ya que dependiendo del valor que se le asigne lo interpretará acorde al dato. Podríamos por ejemplo crear una variable que contenga un tipo de dato y posteriormente en el código asignarle otro tipo de datos:
 
 ```python
 mis_perros = 2
@@ -88,7 +88,7 @@ Al escribir **`type(variable)`** Python nos muestra el tipo (int, string, bool..
 La función empleada para imprimir en pantalla es **`print()`**:
 
 ```python
-**print(**"Esto es una prueba"**)**
+print("Esto es una prueba")
 ```
 
 Podemos concatenar variables que contienen strings o métodos/funciones que devuelvan un valor utilizando el operador **+,** por ejemplo:
@@ -193,7 +193,7 @@ Si queremos mostrar un dato de tipo float (número con coma flotante) pero con u
 
 ```python
 pi = math.pi
-**print(f"El número pi con 5 decimales es: {pi:.5}")**
+print(f"El número pi con 5 decimales es: {pi:.5}")
 ```
 
 ### 1.6. Listas
@@ -260,7 +260,7 @@ fahrenheit = [((9/5)*temp + 32) for temp in celcius]
 mi_lista = [numero ** 2 for numero in range(0,15,2) if numero % 2 == 0]
 ```
 
-#### 1.6.2. Listas en 2D (Matrices)
+#### 1.6.2. Listas en 2D (matrices)
 
 Ejemplo de como hacer una lista dentro de otra lista creando una especie de malla o matriz:
 
@@ -783,7 +783,7 @@ else:
 
 ### 3.3. Break, continue y pass
 
-\*\*`break`\*\*→ Rompe con el bucle que se esté ejecutando en ese momento, ejemplo:
+`break`→ Rompe con el bucle que se esté ejecutando en ese momento, ejemplo:
 
 ```python
 mi_string = "Daniel"
@@ -798,7 +798,7 @@ for letra in mi_string:
 	print(letra)
 ```
 
-\*\*`continue`\*\*→ Va a la parte superior del bucle de cierre más cercano, ejemplo:
+`continue`→ Va a la parte superior del bucle de cierre más cercano, ejemplo:
 
 ```python
 mi_string = "Daniel"
@@ -815,7 +815,7 @@ for letra in mi_string:
 	print(letra)
 ```
 
-\*\*`pass`\*\*→ No hace nada del bucle para evitar errores.
+`pass`→ No hace nada del bucle para evitar errores.
 
 ## 4. Métodos y funciones
 
@@ -1090,7 +1090,7 @@ def mifuncion(*args, **kwargs):
 mifuncion(1,2,3,4,fruta = "manzana",verdurra = "zanahoria",animal = "Misifu")
 ```
 
-### 4.4. Expresiones Lambda, funciones Map y Filter
+### 4.4. Expresiones lambda, funciones map y filter
 
 Este tipo de expresiones son útiles para procesar los datos de una manera avanzada. Primero, hay que tener en cuenta que el orden en el que se pasan los parámetros a la hora de llamar a la función es importante, de lo contrario Python saltará con un error.
 
@@ -1198,7 +1198,7 @@ list(map(lambda person: person.split()[0] + ' ' + person.split()[-1], people))
 
 Tener en cuenta que podemos pasar múltiples argumentos en la expresión lambda.
 
-### 4.5. Declaraciones anidadas (Nested statements) y el alcance del código (Scope)
+### 4.5. Declaraciones anidadas (nested statements) y el alcance del código (scope)
 
 Ya hemos tratado con funciones en Python pero es importante comprender como trata Python las variables que creamos. Estas variables se almacenan y estos tienen un alcance. Dicho alcance determina la visibilidad de la variable a otras partes del código. Por ejemplo:
 
@@ -1343,7 +1343,7 @@ class NombreDeClase():
 # pasa de llamarse funcion a llamarse método
 ```
 
-### 6.2. Atributos y Clases
+### 6.2. Atributos y clases
 
 La clase es un plano que define la naturaleza de un objeto. Podemos construir un objeto en una instancia, esta instancia es un objeto especifico creado a partir de una clase en particular. Ejemplo de una clase junto con sus atributos y sus métodos:
 
@@ -1404,7 +1404,7 @@ for persona in mi_coche.acceso_coche:
 	print(f"{persona} tiene acceso a mi coche")
 ```
 
-### 6.3. Atributos de la clase objeto y Métodos
+### 6.3. Atributos de la clase objeto y métodos
 
 Los atributos de los objetos de clase van a ser los mismos para cualquier instancia de la clase y los métodos son acciones que realizamos con el objeto que hemos creado. Ejemplo:
 
@@ -1445,7 +1445,7 @@ mi_perro = Perro(raza,name,edad)
 mi_perro.informacion()
 ```
 
-### 6.4. Herencia y el Polimorfismo
+### 6.4. Herencia y el polimorfismo
 
 La herencia es una manera de formar nuevas clases usando clases ya definidas. La principal ventaja de la herencia es reutilizar el código para así reducir la complejidad del programa. Ejemplo de herencia:
 
@@ -1657,7 +1657,7 @@ def sub_report():
 	print("Hola soy una funcion dentro de mi subscript")
 ```
 
-### 7.3. name y "main"
+### 7.3. Name y "main"
 
 Partiendo del código siguiente:
 
@@ -2119,7 +2119,7 @@ for carpeta,sub_carpetas,archivos in os.walk(directorio):
 print('\\n')
 ```
 
-### 11.3. Módulo de Fecha y Hora
+### 11.3. Módulo de fecha y hora
 
 Permite crear objetos que tienen información no solo sobre la fecha o la hora, también objetos con zona horaria, operaciones con fecha y hora (como cuantos segundos han pasado o cuantos días han pasado):
 
@@ -2157,7 +2157,7 @@ fecha2 = date(2020,11,2)
 print(fecha1 - fecha2)
 ```
 
-### 11.4. Modulo Math y Random
+### 11.4. Modulo math y random
 
 Algunos ejemplos de utilización de la librería Math:
 
