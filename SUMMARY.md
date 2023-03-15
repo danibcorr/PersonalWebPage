@@ -15,6 +15,7 @@
 * [CUDA](programacion/cuda.md)
 * [Python](programacion/python.md)
 * [Pandas](programacion/pandas.md)
+* [NumPy](programacion/numpy.md)
 
 ## 📊 Machine Learning
 
