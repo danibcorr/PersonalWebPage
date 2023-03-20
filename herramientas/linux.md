@@ -4,6 +4,8 @@ description: Pasos para la instalación de diferentes herramientas/utilidades.
 
 # Linux
 
+Los comandos pueden variar según la distribución, en este caso se está utilizando PopOS que se encuentra basada en Ubuntu (Debian).
+
 ## Instalar drivers de Nvidia
 
 Los pasos a seguir son:

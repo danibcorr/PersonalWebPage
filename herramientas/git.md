@@ -34,29 +34,9 @@ Es un sistema que registra los cambios que ha sufrido un fichero, de manera que 
 * **ADD**: añade contenido del directorio de trabajo al área de ensayo (staging area o 'index') para la próxima confirmación.
 * **COMMIT**: toma todos los contenidos de los archivos a los que se les realiza el seguimiento con git add y registra una nueva instantánea permanente en la base de datos y luego avanza el puntero de la rama en la rama actual.
 * **PUSH**: se utiliza para comunicar con otro repositorio, calcular lo que tu base de datos local tiene que la remota no tiene, y luego subir (push) la diferencia al otro repositorio. Se requiere acceso de escritura al otro repositorio y por tanto normalmente se autentica de alguna manera.
-* _**PULL**_:se emplea para extraer y descargar contenido desde un repositorio remoto y actualizar al instante el repositorio local para reflejar ese contenido.
+* _**PULL**_: se emplea para extraer y descargar contenido desde un repositorio remoto y actualizar al instante el repositorio local para reflejar ese contenido.
 * _**FORK**_: copiar un proyecto y partir de este, hacerle modificaciones. Cuando trabajamos con repositorios Git, supone hacer una copia exacta del proyecto, generando dos URL distintas.
 * _**PULL REQUEST**_: solicitudes de integración, forma de contribuir a un proyecto grupal o de código abierto.
-
-### _**1.5. Términos traducidos**_
-
-* COPIA LOCAL (working copy)
-* REPOSITORIO LOCAL (Local Repository)
-* REPOSITORIO REMOTO (Remote Repository)
-* HISTÓRICO (LOG)
-* CONFLICTOS (Conflicts)
-* SIN SEGUIMIENTO ( No tracking)
-* CONFIRMADO (Confirmed o committed)
-* MODIFICADO (Modified)
-* PREPARADO (Prepared)
-* IGNORADO (Ignored)
-* CLONE (Clonar)
-* ADD (Añadir)
-* COMMIT(Comprometerse)
-* PULL (Extraer)
-* PUSH (Cargar)
-* FORK (Bifurcar/Tenedor)
-* PULL REQUEST (Solicitud de extracción9
 
 ## 2. Conceptos sobre Git y GitHub
 
@@ -94,18 +74,19 @@ Es un sistema que registra los cambios que ha sufrido un fichero, de manera que 
 
 #### 2.3.1. Configurar git para que trabaje tras un proxy
 
-*   Para configurar un proxy global para todos los repositorios:
+Para configurar un proxy global para todos los repositorios:
 
-    ```bash
-    git config --global http.proxy http://<proxyUsername>:<proxyPassword>@<proxy.server.com>:<port>
-    git config --global https.proxy https://<proxyUsername>:<proxyPassword>@<proxy.server.com>:<port>
-    ```
-*   Para configurarlo en un dominio en especifico:
+```bash
+git config --global http.proxy http://<proxyUsername>:<proxyPassword>@<proxy.server.com>:<port>
+git config --global https.proxy https://<proxyUsername>:<proxyPassword>@<proxy.server.com>:<port>
+```
 
-    ```bash
-    git config --global http.<http://domain.com>.proxy http://<proxyUsername>:<proxyPassword>@<proxy.server.com>:<port>
-    git config --global https.<https://domain.com>.proxy https://<proxyUsername>:<proxyPassword>@<proxy.server.com>:<port>
-    ```
+Para configurarlo en un dominio en especifico:
+
+```bash
+git config --global http.<http://domain.com>.proxy http://<proxyUsername>:<proxyPassword>@<proxy.server.com>:<port>
+git config --global https.<https://domain.com>.proxy https://<proxyUsername>:<proxyPassword>@<proxy.server.com>:<port>
+```
 
 #### 2.3.2. Replicar un repositorio remoto localmente en nuestra máquina
 

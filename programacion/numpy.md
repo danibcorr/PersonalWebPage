@@ -6,6 +6,8 @@ description: Realizado por Daniel Bazo Correa.
 
 ## Capítulo 1: Utilidades con NumPy
 
+A continuación se mostrarán algunas utilidades con NumPy.
+
 ### 1.1. Aplicar condiciones
 
 ```python

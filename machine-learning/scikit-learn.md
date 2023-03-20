@@ -12,24 +12,21 @@ description: Realizado por Daniel Bazo Correa.
 
 ## 1. Algoritmos de Clustering
 
-La función principal de la agrupación o _clustering_ consiste en reducir la distancia entre los puntos de un grupo y maximizar la distancia entre el resto de grupos, es decir, que los puntos de datos que pertenezcan a un mismo grupo se encuentren lo más cerca posible pero alejados del resto de puntos de datos del resto de grupos. Este problema se vuelve más complejo conforme se aumenta la dimensión del cluster, ya que puntos de datos que parecían alejados pueden pasar a estar más cerca.
+La función principal de la agrupación o _clustering_ consiste en reducir la distancia entre los puntos de un grupo y maximizar la distancia entre el resto de grupos, es decir, que los puntos de datos que pertenezcan a un mismo grupo se encuentren lo más cerca posible pero alejados del resto de puntos de datos del resto de grupos. <mark style="background-color:yellow;">**Este problema se vuelve más complejo conforme se aumenta la dimensión del cluster**</mark>, ya que puntos de datos que parecían alejados pueden pasar a estar más cerca.
 
-Por ello, es muy común el uso de procesos para la reducción de la dimensionalidad en los datos que tienen alta dimensionalidad. El motivo de este proceso es reducir el número de características consideradas debido a que cada característica es una dimensión que representa una parte de los datos. Por tanto, al añadir más características, los datos se vuelven dispersos y el análisis sufre de la denominada _**curse of dimensionality**_ o _**maldición de dimensionalidad.**_
+Por ello, <mark style="background-color:yellow;">**es muy común el uso de procesos para la reducción de la dimensionalidad en los datos que tienen alta dimensionalidad**</mark> ya que al añadir más características a la entrada del _cluster_, los datos se vuelven dispersos y el análisis sufre de la denominada _**curse of dimensionality**_ o _**maldición de dimensionalidad.**_
 
-Veremos que la dimensionalidad puede realizarse mediante dos métodos diferentes:
+Algunas de las técnicas de extracción de características son el análisis de componentes principales (_**Principle Component Analysis**_, _**PCA**_) y los _**Autoencoders**_. El _PCA_ garantiza la búsqueda de la mejor transformación lineal que reduzca el número de dimensiones con una pérdida mínima de información. A veces, la información que se pierde se considera ruido (información irrelevante) mientras que los _Autoencoders_ comprimen la información recibida a la entrada para adquirir una representación de esta en su espacio latente.
 
-* Selección de las características existentes (selección de características).
-* Extraer nuevas características combinando las existentes (extracción de características).
-
-La principal técnica de extracción de características es el análisis de componentes principales (_**Principle Component Analysis**_, _**PCA**_). El _PCA_ garantiza la búsqueda de la mejor transformación lineal que reduzca el número de dimensiones con una pérdida mínima de información. A veces, la información que se pierde se considera ruido (información irrelevante).
+A continuación, veremos algunos de los algoritmos de clustering más utilizados. Tener en cuenta que los algoritmos de _clustering_ se utilizan en problemas no supervisados, es decir, problemas donde no contamos con etiquetas y queremos obtener agrupaciones de datos con similitudes.
 
 ### 1.1. K-means clustering
 
 #### 1.1.1. Anotaciones
 
-K-means es un tipo de algoritmo de clustering no supervisados (datos sin etiquetar previamente). Su principal función es intentar dividir el dataset en $k$ grupos pre-definidos donde cada dato pertenece a un sólo grupo. Consta de 3 pasos:
+K-means es un tipo de algoritmo de clustering no supervisados. Su principal función es intentar dividir el dataset en $$k$$ grupos pre-definidos donde cada dato pertenece a un sólo grupo. Consta de 3 pasos:
 
-**Paso 1**, elegimos de manera aleatoria $k$ puntos del set de datos los cuales interpretaremos como el centro de los datos al conjunto.
+**Paso 1**, elegimos de manera aleatoria $$k$$ puntos del set de datos los cuales interpretaremos como el centro de los datos al conjunto.
 
 <figure><img src="../.gitbook/assets/Untitled (2).png" alt=""><figcaption></figcaption></figure>
 
@@ -37,7 +34,7 @@ K-means es un tipo de algoritmo de clustering no supervisados (datos sin etiquet
 
 <figure><img src="../.gitbook/assets/Untitled 1 (2).png" alt=""><figcaption></figcaption></figure>
 
-Con la imagen anterior, vemos que $A$ tiene una menor distancia, $d\_3$, con respecto al punto $C\_3$en comparación al resto de puntos $C\_1$ y $C\_2$. Por lo tanto, diremos que el punto $A$ pertenece al grupo $C\_3$ por su cercanía con respecto al resto de los centros. Este proceso se realiza de manera reiterativa para el resto de puntos con el fin de que todos se encuentren agrupados.
+Con la imagen anterior, vemos que $$A$$ tiene una menor distancia $$d_3$$, con respecto al punto $$C_3$$ en comparación al resto de puntos $$C_1$$ y $$C_2$$. Por lo tanto, diremos que el punto $$A$$ pertenece al grupo $$C_3$$ por su cercanía con respecto al resto de los centros. Este proceso se realiza de manera reiterativa para el resto de puntos con el fin de que todos se encuentren agrupados.
 
 <figure><img src="../.gitbook/assets/Untitled 2 (2).png" alt=""><figcaption></figcaption></figure>
 
@@ -154,7 +151,7 @@ $$
 W=\begin{pmatrix} W_{1,1}&... & W_{1,n}\\ .& ... & .\\ .& ...& .\\ .& ...& .\\ W_{n,1}&...& W_{n,n}\\ \end{pmatrix}_{n\cdot n}
 $$
 
-Obtenido el grafo de similitud, queremos dividir los nodos en $k$ grupos:
+Obtenido el grafo de similitud, queremos dividir los nodos en $$k$$ grupos:
 
 <figure><img src="../.gitbook/assets/Untitled 6 (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -308,14 +305,14 @@ Su funcionamiento se detalla a continuación:
 
 Para calcular la distancia, podemos utilizar la función de distancia Euclídea o la Manhattan, aunque la Euclídea es la más usada.
 
-**Tercero**, posteriormente, ordenamos las distancias de los puntos vecinos a un determinado punto con un orden decreciente. Contamos con un indicar $k$ que indica a cantidad de grupos que tenemos en el set de datos.
+**Tercero**, posteriormente, ordenamos las distancias de los puntos vecinos a un determinado punto con un orden decreciente. Contamos con $$k$$ que indica a cantidad de grupos que tenemos en el set de datos.
 
-Para el caso de la clasificación, el mejor valor de $k$ se obtiene utilizando _**cross validation**_ y una curva de aprendizaje.
+Para el caso de la clasificación, el mejor valor de $$k$$ se obtiene utilizando _**cross validation**_ y una curva de aprendizaje.
 
-* Un valor pequeño de $k$ \*\*\*\*indica un sesgo bajo pero una alta varianza → Overfitting.
-* Un valor grande de $k$ indica un sesgo alto pero baja varianza → Underfitting
+* Un valor pequeño de $$k$$ indica un sesgo bajo pero una alta varianza → Overfitting.
+* Un valor grande de $$k$$ indica un sesgo alto pero baja varianza → Underfitting
 
-Por lo que un buen valor de $k$ es un equilibrio entre los 2 valores anteriores.
+Por lo que un buen valor de $$k$$ es un equilibrio entre los 2 valores anteriores.
 
 Para el caso de la regresión, se devuelve la media de las etiquetas de los vecinos:
 
@@ -386,7 +383,7 @@ plt.show()
 
 <figure><img src="../.gitbook/assets/Untitled 10.png" alt=""><figcaption></figcaption></figure>
 
-Con la imagen anterior, se ha utilizado el dataset de IRIS junto con el código mostrado anteriormente en combinación con K-means, con rangos de valores para el número de clusters de $\[2,10]$. Vemos que hasta el número de clusters 3, obtenemos un descenso del valor del _**WCSS**_ considerable pero a partir del 3 la reducción es mínima. Por tanto, el valor óptimo de la imagen anterior sería 3, lugar donde se produce el codo.
+Con la imagen anterior, se ha utilizado el dataset de IRIS junto con el código mostrado anteriormente en combinación con K-means, con rangos de valores para el número de clusters de \[2, 10]. Vemos que hasta el número de clusters 3, obtenemos un descenso del valor del _**WCSS**_ considerable pero a partir del 3 la reducción es mínima. Por tanto, el valor óptimo de la imagen anterior sería 3, lugar donde se produce el codo.
 
 ### 2.2. Puntuación de la Silueta (Silhouette Score)
 
@@ -583,3 +580,9 @@ plt.ylabel('Puntuacion Normalizada')
 plt.legend(loc='upper right')
 plt.show()
 ```
+
+## 3. Reducción dimensionalidad
+
+### 3.1. PCA
+
+### 3.2. Autoencoders

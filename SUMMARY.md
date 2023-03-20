@@ -23,6 +23,7 @@
 
 ## 🦾 Deep Learning
 
+* [Fundamentos](deep-learning/fundamentos.md)
 * [Tensorflow](deep-learning/tensorflow.md)
 * [PyTorch](deep-learning/pytorch.md)
 
