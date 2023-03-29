@@ -1,3 +1,7 @@
+---
+description: Realizado por Daniel Bazo Correa.
+---
+
 # ResNet
 
 ## 1. Conceptos previos

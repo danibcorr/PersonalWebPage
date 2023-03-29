@@ -1,3 +1,7 @@
+---
+description: Realizado por Daniel Bazo Correa.
+---
+
 # LeNet
 
 Vamos a implementar la arquitectura de LeNet, una arquitectura basada en una red neuronal convolucional propuesta por Yann Lecun en 1998.

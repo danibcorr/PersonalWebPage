@@ -15,22 +15,22 @@ description: Realizado por Daniel Bazo Correa.
 
 Comandos útiles a la hora de utilizar el terminal. Tener en cuenta que los comandos pueden variar según el sistema operativo:
 
-| Comando                   | Función                                                                                       |
-| ------------------------- | --------------------------------------------------------------------------------------------- |
-| pwd                       | Muestra el directorio actual                                                                  |
-| ls                        | Muestra todos los archivos y carpetas que hay en ese directorio                               |
-| cd "nombre\_lugar\_a\_ir" | Permite ir a la carpeta con el nombre insertado                                               |
-| clear                     | Permite limpiar el terminal                                                                   |
-| cd ...                    | Permite llevarnos a nuestro Home del sistema (Carpeta Usuario y Carpeta de acceso compartido) |
-| cmd + shift + p           | Abrir un cuaderno Jupyter en Visual Studio                                                    |
-| shift + tab               | Permite ver la documentación de una función, método... dentro de Jupyter                      |
+| Comando                  | Función                                                                                       |
+| ------------------------ | --------------------------------------------------------------------------------------------- |
+| `pwd`                    | Muestra el directorio actual                                                                  |
+| `ls`                     | Muestra todos los archivos y carpetas que hay en ese directorio                               |
+| `cd "nombre_lugar_a_ir"` | Permite ir a la carpeta con el nombre insertado                                               |
+| `clear`                  | Permite limpiar el terminal                                                                   |
+| `cd ...`                 | Permite llevarnos a nuestro Home del sistema (Carpeta Usuario y Carpeta de acceso compartido) |
+| `cmd + shift + p`        | Abrir un cuaderno Jupyter en Visual Studio                                                    |
+| `shift + tab`            | Permite ver la documentación de una función, método... dentro de Jupyter                      |
 
 En el caso de estar utilizando Anaconda en Linux:
 
-| Comando                                                            | Función                                                                                                                              |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| anaconda-navigator                                                 | Para abrir el navegador de Anaconda desde el terminal de Linux                                                                       |
-| cd /home/"usuario"/anaconda3/bin + ./jupyter-notebook --allow-root | En el caso de que el navegador de Anaconda de problemas al abrir el cuaderno Jupyter, podemos abrirlo directamente sin usar Anaconda |
+| Comando                                                              | Función                                                                                                                              |
+| -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `anaconda-navigator`                                                 | Para abrir el navegador de Anaconda desde el terminal de Linux                                                                       |
+| `cd /home/"usuario"/anaconda3/bin + ./jupyter-notebook --allow-root` | En el caso de que el navegador de Anaconda de problemas al abrir el cuaderno Jupyter, podemos abrirlo directamente sin usar Anaconda |
 
 ## 1. Objetos y estructura de datos básica
 
@@ -43,26 +43,26 @@ En el caso de estar utilizando Anaconda en Linux:
 | Strings                                                            | str               | "Hola", "Hola muy buenas", "2000"    |
 | Listas                                                             | list              | \[ 10, "hello", 200.3]               |
 | Diccionarios                                                       | dict              | { "edad" : "20", "nombre" : "Dani" } |
-| Secuencia de objetos ordenada y que no se puede modificar ó Tuples | tup               | ( 10, "hello", 200.3 )               |
-| Colección de objetos únicos desordenada ó Sets                     | set               | { "a", "b" }                         |
-| Indicador de valor lógico ó Boleanos                               | bool              | True o False                         |
+| Secuencia de objetos ordenada y que no se puede modificar o Tuples | tup               | ( 10, "hello", 200.3 )               |
+| Colección de objetos únicos desordenada o Sets                     | set               | { "a", "b" }                         |
+| Indicador de valor lógico o Boleanos                               | bool              | True o False                         |
 
 ### 1.2. Operaciones con números
 
-| Operador           | Función                                                                                                  |
-| ------------------ | -------------------------------------------------------------------------------------------------------- |
-| +, -, \*, /, %     | suma, resta, producto, división y módulo (devuelve el resto de la división), respectivamente.            |
-| numero = -x        | Python permite mostrar números negativos.                                                                |
-| abs(numero)        | Valor absoluto del numero.                                                                               |
-| pow(x ,y) = x\*\*y | $$x^y$$.                                                                                                 |
-| max(x, y)          | Me muestra el mayor número de los que le paso. El contrario sería → `min(…)`.                            |
-| round(math.pi, 2)  | Redondear números con unos decimales especificados. Por ejemplo, redondear el numero pi con 2 decimales. |
-| floor(x)           | Redondea las unidades hacia abajo. Necesita → `import math`                                              |
-| ceil(x)            | Redondea las unidades hacia arriba. Necesita → `import math`                                             |
-| math.sqrt(x)       | Devuelve la raíz cuadrada, necesita importar la librería→ `import math`                                  |
-| math.pi            | Valor numérico de Pi, necesita importar la librería → `import math`                                      |
-| hex(512)           | Convertir números a hexadecimal.                                                                         |
-| bin(1234)          | Convertir números a binario.                                                                             |
+| Operador            | Función                                                                                                  |
+| ------------------- | -------------------------------------------------------------------------------------------------------- |
+| +, -, \*, /, %      | suma, resta, producto, división y módulo (devuelve el resto de la división), respectivamente.            |
+| `numero = -x`       | Python permite mostrar números negativos.                                                                |
+| `abs(numero)`       | Valor absoluto del numero.                                                                               |
+| `pow(x ,y) = x**y`  | $$x^y$$.                                                                                                 |
+| `max(x, y)`         | Me muestra el mayor número de los que le paso. El contrario sería → `min(…)`.                            |
+| `round(math.pi, 2)` | Redondear números con unos decimales especificados. Por ejemplo, redondear el numero pi con 2 decimales. |
+| `floor(x)`          | Redondea las unidades hacia abajo. Necesita → `import math`                                              |
+| `ceil(x)`           | Redondea las unidades hacia arriba. Necesita → `import math`                                             |
+| `math.sqrt(x)`      | Devuelve la raíz cuadrada, necesita importar la librería→ `import math`                                  |
+| `math.pi`           | Valor numérico de Pi, necesita importar la librería → `import math`                                      |
+| `hex(512)`          | Convertir números a hexadecimal.                                                                         |
+| `bin(1234)`         | Convertir números a binario.                                                                             |
 
 ### 1.3. Asignación de variables
 
@@ -129,32 +129,32 @@ Al igual que las listas, el índice de una variable de tipo string empieza en 0 
 
 Utilizaremos la palabra “variable” en referencia a una variable de tipo string. Algunas de las funciones a poder realizar con variables de tipo string son:
 
-| Función                                        | Definición                                                                                                                                                                                                                                                                                                                                                                                        |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| str(variable\_a\_convertir\_en\_string)        | Permite transformar una variable en string.                                                                                                                                                                                                                                                                                                                                                       |
-| variable \*= x                                 | Devuelve la variable string copiándola ‘x’ veces, siendo ‘x’ un número entero.                                                                                                                                                                                                                                                                                                                    |
-| variable\[índice:]                             | Permite quedarte con una parte del string desde el índice hasta el final del string.                                                                                                                                                                                                                                                                                                              |
-| variable\[::X]                                 | Permite coger todo el string pero con un tamaño de paso (step size) de 2, es decir, voy cogiendo caracteres de X en X, siendo X un número entero.                                                                                                                                                                                                                                                 |
-| variable\[::-1]                                | Permite invertir un string.                                                                                                                                                                                                                                                                                                                                                                       |
-| variable.lower()                               | Convierte el string entero en minúsculas.                                                                                                                                                                                                                                                                                                                                                         |
-| variable.upper()                               | Convierte el string entero en mayúsculas.                                                                                                                                                                                                                                                                                                                                                         |
-| variable.isupper()                             | Devuelve True si todo el string está en mayúsculas y devuelve False en caso contrario.                                                                                                                                                                                                                                                                                                            |
-| variable.upper().isupper()                     | Convierte el string a mayúsculas y devuelve True si todo el string está en mayúsculas.                                                                                                                                                                                                                                                                                                            |
-| variable.split()                               | Permite crear una lista con el string, donde cada elemento de la lista es cada palabra separada del espacio. Si ponemos por ejemplo variable.split('i') permite crear la lista quitando de todas las palabras la letra i. Esto se llama "tokenización", la cadena se separa en sub-cadenas basadas en patrones. La tokenización es una actividad central en el NLP (Natural Language Processing). |
-| len(variable)                                  | Devuelve el número de caracteres del string ( tamaño del string ).                                                                                                                                                                                                                                                                                                                                |
-| variable.index("a") ó variable.index("buenas") | Devuelve el primer índice del string donde se encuentra el parámetro que se le pasa.                                                                                                                                                                                                                                                                                                              |
-| variable.replace("buenas", "me llamo Daniel")  | Por ejemplo, si mi string es "Hola buenas", reemplaza el "buenas" de mi string, por "me llamo Daniel".                                                                                                                                                                                                                                                                                            |
-| variable.count('x')                            | Cuenta el número de veces que aparece un carácter.                                                                                                                                                                                                                                                                                                                                                |
-| variable.find('x')                             | Devuelve la primera posición en la que encuentra el carácter ‘x’.                                                                                                                                                                                                                                                                                                                                 |
-| variable.isalnum()                             | Devuelve True si todos los caracteres son alfanuméricos.                                                                                                                                                                                                                                                                                                                                          |
-| variable.isalpha()                             | Devuelve True si todos los caracteres son alfabéticos.                                                                                                                                                                                                                                                                                                                                            |
-| variable.islower()                             | Devuelve True si todos los caracteres están en minúscula.                                                                                                                                                                                                                                                                                                                                         |
-| variable.isspace()                             | Devuelve True si todos los caracteres son espacios en blanco.                                                                                                                                                                                                                                                                                                                                     |
-| variable.istitle()                             | Devuelve True si la primera letra de cada palabra está en mayúsculas.                                                                                                                                                                                                                                                                                                                             |
-| variable.isupper()                             | Devuelve True si todos los caracteres están en mayúsculas.                                                                                                                                                                                                                                                                                                                                        |
-| variable.split('x')                            | Corta la frase cuando encuentra el carácter ‘x’ y la divide en varias partes.                                                                                                                                                                                                                                                                                                                     |
-| variable.partition('x')                        | Divide la frase en 2 partes cuando se encuentra el carácter ‘x’ introducido.                                                                                                                                                                                                                                                                                                                      |
-| variable.strip()                               | Elimina los espacios al principio y al final de la cadena.                                                                                                                                                                                                                                                                                                                                        |
+| Función                                            | Definición                                                                                                                                                                                                                                                                                                                                                                                          |
+| -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `str(variable_a_convertir_en_string)`              | Permite transformar una variable en string.                                                                                                                                                                                                                                                                                                                                                         |
+| `variable *= x`                                    | Devuelve la variable string copiandola ‘x’ veces, siendo ‘x’ un número entero.                                                                                                                                                                                                                                                                                                                      |
+| `variable[índice:]`                                | Permite quedarte con una parte del string desde el índice hasta el final del string.                                                                                                                                                                                                                                                                                                                |
+| `variable[::X]`                                    | Permite coger todo el string pero con un tamaño de paso (step size) de 2, es decir, voy cogiendo caracteres de X en X, siendo X un número entero.                                                                                                                                                                                                                                                   |
+| `variable[::-1]`                                   | Permite invertir un string.                                                                                                                                                                                                                                                                                                                                                                         |
+| `variable.lower()`                                 | Convierte el string entero en minúsculas.                                                                                                                                                                                                                                                                                                                                                           |
+| `variable.upper()`                                 | Convierte el string entero en mayúsculas.                                                                                                                                                                                                                                                                                                                                                           |
+| `variable.isupper()`                               | Devuelve True si todo el string está en mayúsculas y devuelve False en caso contrario.                                                                                                                                                                                                                                                                                                              |
+| `variable.upper().isupper()`                       | Convierte el string a mayúsculas y devuelve True si todo el string está en mayúsculas.                                                                                                                                                                                                                                                                                                              |
+| `variable.split()`                                 | Permite crear una lista con el string, donde cada elemento de la lista es cada palabra separada del espacio. Si ponemos por ejemplo `variable.split('i')` permite crear la lista quitando de todas las palabras la letra i. Esto se llama "tokenización", la cadena se separa en sub-cadenas basadas en patrones. La tokenización es una actividad central en el NLP (Natural Language Processing). |
+| `len(variable)`                                    | Devuelve el número de caracteres del string ( tamaño del string ).                                                                                                                                                                                                                                                                                                                                  |
+| `variable.index("a")` o `variable.index("buenas")` | Devuelve el primer índice del string donde se encuentra el parámetro que se le pasa.                                                                                                                                                                                                                                                                                                                |
+| `variable.replace("buenas", "me llamo Daniel")`    | Por ejemplo, si mi string es "Hola buenas", reemplaza el "buenas" de mi string, por "me llamo Daniel".                                                                                                                                                                                                                                                                                              |
+| `variable.count('x')`                              | Cuenta el número de veces que aparece un carácter.                                                                                                                                                                                                                                                                                                                                                  |
+| variable.find('x')                                 | Devuelve la primera posición en la que encuentra el carácter ‘x’.                                                                                                                                                                                                                                                                                                                                   |
+| `variable.isalnum()`                               | Devuelve True si todos los caracteres son alfanuméricos.                                                                                                                                                                                                                                                                                                                                            |
+| `variable.isalpha()`                               | Devuelve True si todos los caracteres son alfabéticos.                                                                                                                                                                                                                                                                                                                                              |
+| `variable.islower()`                               | Devuelve True si todos los caracteres están en minúscula.                                                                                                                                                                                                                                                                                                                                           |
+| `variable.isspace()`                               | Devuelve True si todos los caracteres son espacios en blanco.                                                                                                                                                                                                                                                                                                                                       |
+| `variable.istitle()`                               | Devuelve True si la primera letra de cada palabra está en mayúsculas.                                                                                                                                                                                                                                                                                                                               |
+| `variable.isupper()`                               | Devuelve True si todos los caracteres están en mayúsculas.                                                                                                                                                                                                                                                                                                                                          |
+| `variable.split('x')`                              | Corta la frase cuando encuentra el carácter ‘x’ y la divide en varias partes.                                                                                                                                                                                                                                                                                                                       |
+| `variable.partition('x')`                          | Divide la frase en 2 partes cuando se encuentra el carácter ‘x’ introducido.                                                                                                                                                                                                                                                                                                                        |
+| `variable.strip()`                                 | Elimina los espacios al principio y al final de la cadena.                                                                                                                                                                                                                                                                                                                                          |
 
 Ejemplo de localización y conteo de caracteres en un string:
 
@@ -189,7 +189,7 @@ s.count('a')
 
 Si queremos mostrar un dato de tipo float (número con coma flotante) pero con una cantidad determinada de decimales podemos especificarlo con el siguiente formato:
 
-* `{valor_float:.precision}` :
+`{valor_float:.precision}`
 
 ```python
 pi = math.pi
@@ -227,22 +227,22 @@ print(lista_amigos)
 
 #### 1.6.1. Operaciones / Funciones
 
-| Función                | Definición                                                                                                                                              |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| lista\[indice] = x     | Permite cambiar el dato de la lista que ocupa ese índice por el dato que se le asigne a continuación.                                                   |
-| lista.extend(x)        | Permite concatenar listas ó se puede usar el signo '+'. Permite agregar los objetos de una lista a otra lista sin tener una lista dentro de otra lista. |
-| lista.append(x)        | Permite añadir un objeto al final de la lista.                                                                                                          |
-| lista.insert(indice,x) | Primer parámetro es el índice de la lista ( posición a insertar en la lista ) y el segundo es el elemento a añadir.                                     |
-| lista.remove(x)        | Para eliminar el objeto de la lista.                                                                                                                    |
-| lista.clear()          | Permite vaciar la lista.                                                                                                                                |
-| lista.pop()            | Elimina el último elemento de la lista ó se le pude introducir un índice, así borraría el elemento de la lista que ocupe ese índice.                    |
-| lista.index(x)         | Me dice el índice del parámetro dentro de la lista.                                                                                                     |
-| lista.count(x)         | Devuelve el número de veces que se repite el dato en la lista.                                                                                          |
-| lista.sort()           | Permite ordenar una lista de menor a mayor.                                                                                                             |
-| lista.reverse()        | Invierte la lista.                                                                                                                                      |
-| lista2 = lista1.copy() | Permite copiar los atributos de la lista1 a la lista2.                                                                                                  |
-| max(lista)             | Muestra el máximo de una lista, para hacer lo contrario → min(lista)                                                                                    |
-| del lista\[x]          | Podemos eliminar el dato encontrado en el índice ‘x’ de la lista.                                                                                       |
+| Función                  | Definición                                                                                                                                              |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `lista[indice] = x`      | Permite cambiar el dato de la lista que ocupa ese índice por el dato que se le asigne a continuación.                                                   |
+| `lista.extend(x)`        | Permite concatenar listas o se puede usar el signo '+'. Permite agregar los objetos de una lista a otra lista sin tener una lista dentro de otra lista. |
+| `lista.append(x)`        | Permite añadir un objeto al final de la lista.                                                                                                          |
+| `lista.insert(indice,x)` | Primer parámetro es el índice de la lista ( posición a insertar en la lista ) y el segundo es el elemento a añadir.                                     |
+| `lista.remove(x)`        | Para eliminar el objeto de la lista.                                                                                                                    |
+| `lista.clear()`          | Permite vaciar la lista.                                                                                                                                |
+| `lista.pop()`            | Elimina el último elemento de la lista o se le pude introducir un índice, así borraría el elemento de la lista que ocupe ese índice.                    |
+| `lista.index(x)`         | Me dice el índice del parámetro dentro de la lista.                                                                                                     |
+| `lista.count(x)`         | Devuelve el número de veces que se repite el dato en la lista.                                                                                          |
+| `lista.sort()`           | Permite ordenar una lista de menor a mayor.                                                                                                             |
+| `lista.reverse()`        | Invierte la lista.                                                                                                                                      |
+| `lista2 = lista1.copy()` | Permite copiar los atributos de la `lista1` a la `lista2`.                                                                                              |
+| `max(lista)`             | Muestra el máximo de una lista, para hacer lo contrario → `min(lista)`                                                                                  |
+| `del lista[x]`           | Podemos eliminar el dato encontrado en el índice ‘x’ de la lista.                                                                                       |
 
 Ejemplo de cómo utilizar bucles **`for`** (se verán con mayor detalle en adelante) directamente en una lista (más eficiente que un bucle **`for`** común):
 
@@ -293,7 +293,7 @@ conversion_meses = {
 Con el diccionario anterior, vamos a mostrar cómo acceder a las claves del diccionario:
 
 ```python
-*# Devuelve el valor de "Ene" que es "Enero"*
+# Devuelve el valor de "Ene" que es "Enero"
 print(conversion_meses["Ene"]) 
 
 print(conversion_meses.get("Ene"))
@@ -308,11 +308,11 @@ conversion_meses.get(clave, f"La key {clave} no esta en el diccionario")
 
 #### 1.7.1. Funciones
 
-| Función              | Definición                                           |
-| -------------------- | ---------------------------------------------------- |
-| diccionario.items()  | Permite obtener la clave y el valor del diccionario. |
-| diccionario.keys()   | Permite obtener solo la clave del diccionario.       |
-| diccionario.values() | Permite obtener solo el valor del diccionario.       |
+| Función                | Definición                                           |
+| ---------------------- | ---------------------------------------------------- |
+| `diccionario.items()`  | Permite obtener la clave y el valor del diccionario. |
+| `diccionario.keys()`   | Permite obtener solo la clave del diccionario.       |
+| `diccionario.values()` | Permite obtener solo el valor del diccionario.       |
 
 También se admite introducir otra clave dentro de una clave, ejemplo:
 
@@ -373,10 +373,10 @@ print(f"Primera coordenada {coordenadas[0]} y la segunda coordenada {coordenadas
 
 #### 1.8.1. Funciones
 
-| Función         | Definición                                                                                      |
-| --------------- | ----------------------------------------------------------------------------------------------- |
-| tuples.count(x) | Devuelve el número de veces que se repite en el tuple la ‘x’ siendo este un número, string, ... |
-| tuples.index(x) | Devuelve el primer índice donde se encuentra ‘x’, siendo este un número, string, ...            |
+| Función           | Definición                                                                                      |
+| ----------------- | ----------------------------------------------------------------------------------------------- |
+| `tuples.count(x)` | Devuelve el número de veces que se repite en el tuple la ‘x’ siendo este un número, string, ... |
+| `tuples.index(x)` | Devuelve el primer índice donde se encuentra ‘x’, siendo este un número, string, ...            |
 
 También se puede crear una lista de tuples, por ejemplo:
 
@@ -405,29 +405,17 @@ mi_nuevo_set = {'a', 'b', 'c'}
 
 #### 1.9.1 Funciones
 
-| Función                   | Definición                                                                                                        |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| s.add(x)                  | Añadir un elemento ‘x’ a un set.                                                                                  |
-| s.clear()                 | Borrar todos los elementos de un set.                                                                             |
-| sc = s.copy()             | Realizar una copia del set. Los cambios que se hagan en el set original no se verán afectados en la copia.        |
-| s1 = {1, 2, 4}            |                                                                                                                   |
-| s2 = {1, 2, 3}            |                                                                                                                   |
-| s1.difference(s2)         | Devolver la diferencia entre dos o mas sets, por ejemplo, un set que contenga un valor no encontrado en otro set. |
-| s1 = {1,2,3}              |                                                                                                                   |
-| s2 = {1,4,5}              |                                                                                                                   |
-| s1.difference\_update(s2) | Borrar los elementos de un set que coinciden con los elementos de otro set.                                       |
-| s = {1, 2, 3}             |                                                                                                                   |
-| s.discard(2)              | Descartar un elemento del set. En el caso de que no encuentre el dato no se produce ningún cambio.                |
-| s1 = {1,2,3}              |                                                                                                                   |
-| s2 = {1,2,4,5}            |                                                                                                                   |
-
-## Devuelve el resultado en otro set
-
-s1.intersection(s2)
-
-## Así podemos actualizar el set s1
-
-s1.intersection\_update(s2) | Realizar la intersección de 2 o mas sets. Recordar que la intersección devuelve los elementos que son comunes en los sets. | | s1.issubset(s2) | Ver si un set contiene a otro set. Devuelve True o False. | | s1.union(s2) | Unión de dos sets. Recordar que la unión consiste en combinar todos los elementos de los sets sin repetir ningún elemento. |
+| Función                    | Definición                                                                                                                 |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `s.add(x)`                 | Añadir un elemento ‘x’ a un set.                                                                                           |
+| `s.clear()`                | Borrar todos los elementos de un set.                                                                                      |
+| `sc = s.copy()`            | Realizar una copia del set. Los cambios que se hagan en el set original no se verán afectados en la copia.                 |
+| `s1.difference(s2)`        | Devolver la diferencia entre dos o mas sets, por ejemplo, un set que contenga un valor no encontrado en otro set.          |
+| `s1.difference_update(s2)` | Borrar los elementos de un set que coinciden con los elementos de otro set.                                                |
+| `s.discard(elem)`          | Descartar un elemento del set. En el caso de que no encuentre el dato no se produce ningún cambio.                         |
+| `s1.intersection(s2)`      | Realizar la intersección de 2 o mas sets. Recordar que la intersección devuelve los elementos que son comunes en los sets. |
+| `s1.issubset(s2)`          | Ver si un set contiene a otro set. Devuelve True o False.                                                                  |
+| `s1.union(s2)`             | Unión de dos sets. Recordar que la unión consiste en combinar todos los elementos de los sets sin repetir ningún elemento. |
 
 ### 1.10. Bool
 
@@ -477,12 +465,12 @@ Python permite asignar diferentes permisos (escritura/lectura/ambas...) al fiche
 
 Para poder leer un fichero podemos utilizar algunas funciones como:
 
-| Función     | Definición                                                        |
-| ----------- | ----------------------------------------------------------------- |
-| readable()  | Devuelve un booleano para saber si se puede leer o no el fichero. |
-| read()      | Muestra toda la información del fichero.                          |
-| readline()  | Lee la primera línea del fichero.                                 |
-| readlines() | Lee todas las líneas del fichero y las inserta en una lista.      |
+| Función       | Definición                                                        |
+| ------------- | ----------------------------------------------------------------- |
+| `readable()`  | Devuelve un booleano para saber si se puede leer o no el fichero. |
+| `read()`      | Muestra toda la información del fichero.                          |
+| `readline()`  | Lee la primera línea del fichero.                                 |
+| `readlines()` | Lee todas las líneas del fichero y las inserta en una lista.      |
 
 Por ejemplo:
 
@@ -558,9 +546,9 @@ Podemos utilizar operadores lógicos para combinarlos con los operadores de comp
 
 | Expresión | Definición                                                                                                                 |
 | --------- | -------------------------------------------------------------------------------------------------------------------------- |
-| and       | Todas las condiciones han de ser verdaderas para que sea True, si una de las condiciones es False el resultado será False. |
-| or        | Basta con que una de las condiciones sea True.                                                                             |
-| not       | Sirve para negar la condición.                                                                                             |
+| `and`     | Todas las condiciones han de ser verdaderas para que sea True, si una de las condiciones es False el resultado será False. |
+| `or`      | Basta con que una de las condiciones sea True.                                                                             |
+| `not`     | Sirve para negar la condición.                                                                                             |
 
 ### 2.3. Operadores útiles
 

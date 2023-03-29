@@ -1,8 +1,12 @@
+---
+description: Realizado por Daniel Bazo Correa.
+---
+
 # GoogleLeNet
 
 ## 1. Conceptos previos
 
-Proximamente.
+<figure><img src="../.gitbook/assets/96399E43-0921-4087-91CD-65389E3CBDB6.jpeg" alt=""><figcaption></figcaption></figure>
 
 ## 2. Código
 
