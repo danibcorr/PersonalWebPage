@@ -4,7 +4,7 @@ description: Pasos para la instalación de diferentes herramientas/utilidades.
 
 # Linux
 
-Los comandos pueden variar según la distribución, en este caso se está utilizando PopOS que se encuentra basada en Ubuntu (Debian).
+Los comandos pueden variar según la distribución de Linux. En este caso, se está utilizando PopOS, basado en Ubuntu (Debian).
 
 ## Instalar drivers de Nvidia
 
@@ -23,7 +23,7 @@ sudo systemctl isolate multi-user.target
 modprobe -r nvidia-drm
 ```
 
-4. A continuación nos dirigimos a la ubicación donde tenemos el fichero de instalación utilizando el comando `cd` sin utilizar las comillas:
+4. A continuación nos dirigimos a la ubicación donde tenemos el fichero de instalación utilizando el comando `cd` junto con la dirección sin utilizar las comillas:
 
 ```
 cd "directio_fichero"
@@ -35,13 +35,13 @@ cd "directio_fichero"
 sudo sh NVIDIA-Linux-x86_64-$DRIVER_VERSION.run
 ```
 
-6. Seguido los pasos durante la instalación de los drivers de Nvidia, inicializamos el manejador del display:
+6. Seguido los pasos durante la instalación de los drivers de Nvidia, inicializamos de nuevo el manejador del display:
 
 ```
 sudo systemctl start graphical.target
 ```
 
-7. Finalmente reiniciamos el ordenador y comprobamos la instalación con el siguiente comando en el terminal:
+7. Finalmente, reiniciamos el ordenador y comprobamos la instalación con el siguiente comando en el terminal:
 
 ```
 nvidia-smi

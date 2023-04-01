@@ -18,11 +18,11 @@ description: Realizado por Daniel Bazo Correa.
 Existen diferentes gamas de GPU para NVidia:
 
 * **GeForce**: enfocadas al mercado doméstico (consumidor general).
-* **Quadro**: enfocadas al sector profesional. Sobre todo en el uso de renderización o aplicaciones similares.
+* **Quadro**: enfocadas al sector profesional.
 * **Tegra**: utilizado en sistemas de bajo consumo como móviles o sistemas empotrados.
-* **Tesla**: llevado a nivel industrial/empresa. Por ejemplo, este tipo de gráficas nos la podemos encontrar en servicios como Google Colab.
+* **Tesla**: llevado a nivel industrial/empresa. Por ejemplo, este tipo de gráficas nos la podemos encontrar en servicios como Google Colab, AWS, Azure, entre otras.
 
-CUDA cuenta con un amplio ecosistema aunque nosotros nos centraremos en C/C++.
+CUDA no es un lenguaje de programación, es una plataforma de computación paralela que cuenta con un amplio ecosistema, aunque nosotros nos centraremos en CUDA utilizando el lenguaje de programación C.
 
 <figure><img src="../.gitbook/assets/B0FF9827-9E32-46F2-8365-FA0E686C649D.jpeg" alt=""><figcaption></figcaption></figure>
 
@@ -34,7 +34,7 @@ Existen 3 cualidades principales que han hecho que la GPU sea un elemento único
 
 Algunos conceptos a conocer son:
 
-* **Warp**: visto desde el hardware, un bloque de hilos se compone de _warps_. Un _warp_ es un conjunto de 32 hilos (32 es la resolución del planificador para emitir hilos por grupos a las unidades de ejecución) dentro de un bloque de hilos, de manera que todos los hilos de un _warp_ ejecutan la misma instrucción. Una vez que se lanza un bloque de hilos en un multiprocesador, todos sus _warps_ son residentes hasta que finaliza su ejecución. Así, un nuevo bloque no se lanza en un multiprocesador hasta que haya un número suficiente de registros libres para todos los _warps_ del nuevo bloque, y hasta que haya suficiente memoria compartida libre para el nuevo bloque. Estos hilos, se caracterizan por conmutar entre ellos de forma inmediata. A modo de resumen, vemos que los hilos se agrupan en warps, los warps en bloques y los bloques en mallas.
+* **Warp**: visto desde el hardware, un bloque de hilos se compone de _warps_. Un _warp_ es un conjunto de 32 hilos (32 es la resolución del planificador para emitir hilos por grupos a las unidades de ejecución) dentro de un bloque de hilos, de manera que todos los hilos de un _warp_ ejecutan la misma instrucción. Una vez que se lanza un bloque de hilos en un multiprocesador, todos sus _warps_ son residentes hasta que finaliza su ejecución. Así, un nuevo bloque no se lanza en un multiprocesador hasta que haya un número suficiente de registros libres para todos los _warps_ del nuevo bloque, y hasta que haya suficiente memoria compartida libre para el nuevo bloque. Estos hilos, se caracterizan por conmutar entre ellos de forma inmediata. <mark style="background-color:yellow;">A modo de resumen, vemos que los hilos se agrupan en warps, los warps en bloques y los bloques en mallas.</mark>
 * **SIMT**: _Single Instruction, Multiple Thread_.
 
 CUDA (_Compute Unified Device Architecture_) es una plataforma diseñada a partir de la unión de software, firmware y hardware:
@@ -43,17 +43,22 @@ CUDA (_Compute Unified Device Architecture_) es una plataforma diseñada a parti
 * **Firmware**: ofrece drivers para la programación GPGPU compatible con trabajos de renderizar, manejo de APIs, manejo de memoria, etc.
 * **Hardware**: habilita el paralelismo de la GPU para propósito general.
 
-A pesar de que CUDA introduzca ventajas favorables para la computación tenemos que mantener un equilibrio entre lo que se procesa en la GPU y la CPU. Este tipo de computación se conoce como computación heterogénea (comutación compuesta por la GPU y la CPU donde: GPU → Intensiva en datos, paralelismo fino, CPU → Saltos y bifurcaciones, paralelismo grueso) . Esta consiste en identificar las partes del código de una aplicación que se pueden paralelizar en la GPU pero también identificar aquellas partes que se pueden procesar directamente de manera secuencial en la CPU.
+A pesar de que CUDA introduzca ventajas favorables para la computación tenemos que mantener un equilibrio entre lo que se procesa en la GPU y la CPU. Este tipo de computación se conoce como computación heterogénea.&#x20;
+
+La computación heterogénea se caracteriza por la conmutación entre la GPU y la CPU donde:&#x20;
+
+* GPU → Intensiva en datos, paralelismo fino.
+* CPU → Saltos y bifurcaciones, paralelismo grueso .&#x20;
+
+Por ello, es importante conocer las partes de código que se pueden paralelizar en la GPU y aquellas partes que se pueden procesar directamente de manera secuencial en la CPU.
 
 <figure><img src="../.gitbook/assets/EEA7EE5C-1D79-4B88-8DF7-37E17BF0D2FF.jpeg" alt=""><figcaption></figcaption></figure>
 
-Por tanto, vemos que el paralelismo por el que CUDA destaca es en el paralelismo de datos (_**data parallelism**_).
+Vemos por tanto que el paralelismo por el que CUDA destaca es en el paralelismo de datos (_**data parallelism**_).
 
 ### 1.2. Hardware de CUDA
 
-Una GPU cuenta con:
-
-* _N_ multiprocesadores, cada uno dotado de _M_ cores.
+Una GPU cuenta con _N_ multiprocesadores, cada uno dotado de _M_ cores.
 
 Algunas de las familias de GPU de la familia Tesla de NVidia son:
 
@@ -69,15 +74,17 @@ El multiprocesador de Volta cuenta con 64 _cores_ de tipo int32, 64 _cores_ de t
 
 <figure><img src="../.gitbook/assets/Untitled 2.png" alt=""><figcaption></figcaption></figure>
 
-De la imagen anterior vemos que se realiza el diseño de un solo bloque para posteriormente ir copiando creando un diseño más complejo.
+De la imagen anterior, solo se realiza el diseño de un bloque para posteriormente ir copiando hasta elaborar un diseño más complejo.
 
 <figure><img src="../.gitbook/assets/Untitled 3.png" alt=""><figcaption></figcaption></figure>
 
-La estructura del _core_ tensor permite realizar operaciones matriciales a mayor velocidad (entrenar modelos de _Deep Learning_ con mayor eficiencia u otros procesos donde las operaciones matriciales abundan). La imagen siguiente muestra el proceso:
+La estructura del _core_ tensor permite realizar operaciones matriciales a mayor velocidad, muy utilizado en el entrenamiento de modelos de _Deep Learning_ para una mayor eficiencia o en otros procesos donde las operaciones matriciales abundan. La imagen siguiente muestra el proceso:
 
 <figure><img src="../.gitbook/assets/Untitled 4 (2).png" alt=""><figcaption></figcaption></figure>
 
-Cambiar el valor de la precisión de los datos, por ejemplo pasar de un valor entero de 32 bits a un entero de 16 bits, repercute en la tasa de transferencia (_Throughput_) que fluye por un sistema. Por tanto se consigue realizar un mayor número de operaciones pero con menor precisión en los datos aunque dependiendo de la aplicación esta precisión no sería relevante. A continuación se muestra el formato del Throughput para distintas precisiones de datos en arquitecturas de GPU más modernas:
+El proceso mostrado en la imagen anterior es la tarea que desempeña cada tensor dentro de la GPU por cada ciclo de reloj.
+
+Cambiar el valor de la precisión de los datos, por ejemplo pasar de un valor entero de 32 bits a un entero de 16 bits, repercute en la tasa de transferencia (_Throughput_) que fluye por un sistema. Por tanto se consigue realizar un mayor número de operaciones pero con menor precisión en los datos aunque dependiendo de la aplicación esta precisión no sería relevante. A continuación se muestra el formato del _Throughput_ para distintas precisiones de datos en arquitecturas de GPU más modernas:
 
 <figure><img src="../.gitbook/assets/Untitled 5 (2).png" alt=""><figcaption></figcaption></figure>
 
@@ -142,7 +149,7 @@ Utilizamos la palabra `__global__` delante de la definición de una función par
 
 Por tanto, el número total de hebras será el resultado de multiplicar el valor de `x` por `y`. Por ejemplo, si tenemos 2 bloques (`x = 2`) y 4 hebras por bloque (`y = 4`), tendremos un total de 8 hebras. **Recalcar, que el número de bloques y hebras dependerá de las capacidades hardware que estemos utilizando, es decir, de la GPU que se esté empleando.**
 
-El código del Kernel se ejecuta en cada hebra de cada bloque configurado cuando se lanza dicho Kernel.
+El código del _kernel_ se ejecuta en cada hebra de cada bloque configurado cuando se lanza dicho _kernel_.
 
 Vemos en el código anterior una llamada a la función `cudaDeviceSynchronize()` . Esta función permite a la GPU finalizar su tarea antes de que la CPU finalice y acabe con el programa. Por lo tanto, se trata de una herramienta de sincronización entre la CPU y la GPU. Por lo que, si la GPU tiene que realizar una acción previa a la CPU, el orden de ejecución debería ser:
 
@@ -171,16 +178,16 @@ Analizaríamos el bucle, llegando a la conclusión de que se puede paralelizar y
 
 Primero, saber que CUDA proporciona variables que describen a las hebras, bloques y mallas (_grid_):
 
-| Función     | Definición                                                        |
-| ----------- | ----------------------------------------------------------------- |
-| gridDim.x   | Es el número de bloques en la malla.                              |
-| blockIdx.x  | Es el índice del bloque actual de la malla.                       |
-| blockDim.x  | Dentro de un Kernel describe el número de hebras en un bloque.    |
-| threadIdx.x | Dentro de un kernel describe el índice de una hebra de un bloque. |
+| Función     | Definición                                                          |
+| ----------- | ------------------------------------------------------------------- |
+| gridDim.x   | Es el número de bloques en la malla.                                |
+| blockIdx.x  | Es el índice del bloque actual de la malla.                         |
+| blockDim.x  | Dentro de un _kernel_ describe el número de hebras en un bloque.    |
+| threadIdx.x | Dentro de un _kernel_ describe el índice de una hebra de un bloque. |
 
-Decir que no podemos comunicar los bloques de un mismo kernel durante su ejecución ya que los bloques pueden ejecutarse en cualquier orden y de forma independiente.
+Decir que no podemos comunicar los bloques de un mismo _kernel_ durante su ejecución ya que los bloques pueden ejecutarse en cualquier orden y de forma independiente.
 
-Con ello, la única consideración a realizar es que hay que programar el Kernel para que realice el trabajo de una sola iteración del bucle. Por lo tanto, la configuración del Kernel (la llamada a la función) tiene que ejecutarse tantas veces como iteraciones del bucle (ajustar acorde a ello el número de bloques y de hebras por bloque). Tras esto, pasamos a paralelizar el bloque de código presentado anteriormente:
+Con ello, la única consideración a realizar es que hay que programar el _kernel_ para que realice el trabajo de una sola iteración del bucle. Por lo tanto, la configuración del _kernel_ (la llamada a la función) tiene que ejecutarse tantas veces como iteraciones del bucle (ajustar acorde a ello el número de bloques y de hebras por bloque). Tras esto, pasamos a paralelizar el bloque de código presentado anteriormente:
 
 ```c
 __global__ void incremento_en_gpu(float *a, float b, int N)
@@ -271,9 +278,9 @@ Los tipos de memoria en CUDA son:
 Algunas de las consideraciones a tener en cuenta son:
 
 * La máxima cantidad de memoria unificada que puede alojarse es la menor de las memorias que tienen las GPUs.
-* La memoria unificada tocada por la CPU debe migrar de vuelta a la GPU antes de lanzar el Kernel.
+* La memoria unificada tocada por la CPU debe migrar de vuelta a la GPU antes de lanzar el _kernel_.
 * La CPU no puede acceder a la memoria unificada mientras la GPU esté ejecutando por lo que debemos llamas a la función `cudaDeviceSynchronize()` antes de permitir a la CPU acceder a la memoria unificada.
-* La GPU tiene acceso exclusivo a la memoria unificada mientras se esté ejecutando un Kernel, aunque éste no toque la memoria unificada.
+* La GPU tiene acceso exclusivo a la memoria unificada mientras se esté ejecutando un _kernel_, aunque éste no toque la memoria unificada.
 
 Podemos resumir el proceso de la memoria unificada con la siguiente imagen:
 
@@ -322,9 +329,9 @@ int main() // Territorio CPU
 
 Tener en cuenta que podemos clonar estructuras sin memoria unificada pero habría que crear copias sucesivas entre la CPU y la GPU. También se puede hacer con memoria unificada pero se ha de usar C++.
 
-#### 1.3.3. Manejo de desajustes en la configuración del Kernel
+#### 1.3.3. Manejo de desajustes en la configuración del kernel
 
-Puede existir el caso de que no se pueda expresar una configuración de ejecución de un Kernel con el número exacto de hilos necesarios para paralelizar un bucle.
+Puede existir el caso de que no se pueda expresar una configuración de ejecución de un _kernel_ con el número exacto de hilos necesarios para paralelizar un bucle.
 
 Un caso muy común viene con el deseo de elegir tamaños de bloque óptimos. Por ejemplo, debido a las características del hardware de la GPU, los bloques que contienen un número de hilos que es un múltiplo de 32 otorgan aplicaciones con mejor rendimiento.
 
@@ -504,8 +511,8 @@ Tenemos diferentes tipos de operadores:
     }
     ```
 
-    Del ejemplo anterior, el paralelismo depende del tamaño de la matriz 2D ($N^2$).
-*   Operadores de reducción: el código tiene dependencias entre las iteraciones, pero el paralelismo puede explotar la asociativadad del operador para desplegar paralelismo en forma de árbol binario, resultando en $log(N)$ pasos que van reduciendo el grado de paralelismo a la mitad hasta concluir con un solo hilo. El reto está en utilizar el patrón de acceso a memoria que explota mejor la jerarquía de memoria de la GPU.
+    Del ejemplo anterior, el paralelismo depende del tamaño de la matriz 2D ($$N^2$$).
+*   Operadores de reducción: el código tiene dependencias entre las iteraciones, pero el paralelismo puede explotar la asociativadad del operador para desplegar paralelismo en forma de árbol binario, resultando en $$log(N)$$ pasos que van reduciendo el grado de paralelismo a la mitad hasta concluir con un solo hilo. El reto está en utilizar el patrón de acceso a memoria que explota mejor la jerarquía de memoria de la GPU.
 
     ```c
     float sum, x[N];	

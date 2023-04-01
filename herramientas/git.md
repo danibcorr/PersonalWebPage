@@ -15,14 +15,14 @@ Es un sistema que registra los cambios que ha sufrido un fichero, de manera que 
 ### _**1.2. Conceptos**_
 
 * _**REPOSITORIO LOCAL (Local Repository)**_: Es una base de datos centralizado donde se guardan las distintas versiones de los ficheros sometidos a control de versiones.
-* _**COPIA LOCAL (working copy)**_: Es la copia que hacen los usuarios de un fichero sometido a controlde versiones. El DIRECTORIO LOCAL (working directory/working tree/workspace) es el que contiene todas las copias locales.
+* _**COPIA LOCAL (working copy)**_: Es la copia que hacen los usuarios de un fichero sometido a control de versiones. El directorio local (working directory/working tree/workspace) es el que contiene todas las copias locales.
 * _**REPOSITORIO REMOTO (Remote Repository)**_: Los repositorios remotos son versiones de nuestros proyectos que están hospedadas en Internet o en cualquier otra red.
 * _**HISTÓRICO (LOG)**_: Registro de todos los cambios que se han producido en el repositorio. Es responsabilidad del cliente añadir información al log cuando se produce un cambio.
 * _**CONFLICTO**_: se crean cuando dos desarrolladores han cambiado las mismas líneas en un archivo, o si un desarrollador eliminó un archivo mientras otro lo estaba modificando. En estos casos, Git no puede determinar automáticamente qué es correcto.
 
 ### _**1.3. Estados de un fichero**_
 
-* _**SIN SEGUIMIENTO**_: significa básicamente que Git ve un archivo que no estaba en la instantánea anterior; Git no empezará a incluirlo en las confirmaciones de tus instantáneas hasta que se lo indiques explícitamente. Lo hace para que no incluyas accidentalmente archivos binarios generados u otros archivos que no tenías intención de incluir.
+* _**SIN SEGUIMIENTO**_: significa que Git ve un archivo que no estaba en la instantánea anterior. Git no empezará a incluirlo en las confirmaciones de tus instantáneas hasta que se lo indiques explícitamente. Lo hace para que no incluyas accidentalmente archivos binarios generados u otros archivos que no tenías intención de incluir.
 * _**CONFIRMADO**_: significa que los datos están almacenados de manera segura en tu base de datos local.
 * _**MODIFICADO**_: significa que has modificado el archivo pero todavía no lo has confirmado a tu base de datos.
 * _**PREPARADO**_: significa que has marcado un archivo modificado en su versión actual para que vaya en tu próxima confirmación
