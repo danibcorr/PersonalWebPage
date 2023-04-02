@@ -26,6 +26,7 @@
 * [Fundamentos](deep-learning/fundamentos.md)
 * [Tensorflow](deep-learning/tensorflow.md)
 * [PyTorch](deep-learning/pytorch.md)
+* [FastAI](deep-learning/fastai.md)
 
 ## 📄 Implementación de papers
 
