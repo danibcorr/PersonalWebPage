@@ -4,6 +4,10 @@ description: Realizado por Daniel Bazo Correa.
 
 # ResNet
 
+Vamos a implementar la arquitectura de ResNet, una arquitectura basada en una red neuronal convolucional junto con conexiones residuales propuesta por Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun en 2015.
+
+Paper: [https://arxiv.org/abs/1512.03385](https://arxiv.org/abs/1512.03385)
+
 ## 1. Conceptos previos
 
 <figure><img src="../.gitbook/assets/8CB782A8-0612-4DCA-8BFA-5D3C6110CA8F.jpeg" alt=""><figcaption></figcaption></figure>

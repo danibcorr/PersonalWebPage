@@ -8,7 +8,7 @@
 ## 🛠 Herramientas
 
 * [Git](herramientas/git.md)
-* [Linux](herramientas/linux.md)
+* [Otros](herramientas/linux.md)
 
 ## 💻 Programación
 
@@ -33,4 +33,6 @@
 * [LeNet](implementacion-de-papers/lenet.md)
 * [ResNet](implementacion-de-papers/resnet.md)
 * [GoogleLeNet](implementacion-de-papers/googlelenet.md)
+* [Residual VAE](implementacion-de-papers/residual-vae.md)
+* [Residual VQ-VAE](implementacion-de-papers/residual-vq-vae.md)
 * [Transformer](implementacion-de-papers/transformer.md)

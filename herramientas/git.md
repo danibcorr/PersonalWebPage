@@ -1,7 +1,7 @@
 ---
 description: >-
   Conceptos básicos sobre la herramienta Git. Contribuyentes @AsuncionBueneke,
-  @iamcay y @LuisMiguelCG.
+  @iamcay y @LuisMiguelCG en GitHub.
 ---
 
 # Git
