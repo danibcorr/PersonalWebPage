@@ -17,25 +17,24 @@ description: Realizado por Daniel Bazo Correa.
 
 Existen diferentes gamas de GPU para NVidia:
 
-* **GeForce**: enfocadas al mercado doméstico (consumidor general).
+* **GeForce**: enfocadas al mercado doméstico.
 * **Quadro**: enfocadas al sector profesional.
 * **Tegra**: utilizado en sistemas de bajo consumo como móviles o sistemas empotrados.
 * **Tesla**: llevado a nivel industrial/empresa. Por ejemplo, este tipo de gráficas nos la podemos encontrar en servicios como Google Colab, AWS, Azure, entre otras.
 
 CUDA no es un lenguaje de programación, es una plataforma de computación paralela que cuenta con un amplio ecosistema, aunque nosotros nos centraremos en CUDA utilizando el lenguaje de programación C.
 
-<figure><img src="../.gitbook/assets/B0FF9827-9E32-46F2-8365-FA0E686C649D.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/B0FF9827-9E32-46F2-8365-FA0E686C649D.jpeg" alt=""><figcaption></figcaption></figure>
 
 Existen 3 cualidades principales que han hecho que la GPU sea un elemento único y fundamental en CUDA:
 
 * **Simplicidad**: el control de un hilo se amortiza en otros 31. Esto se conoce como _warp size_, cuyo valor es de 32.
-* **Escalabilidad**: gracias a la gran cantidad de datos existentes en la actualidad se consiguen sistemas/modelos de paralelización sostenible. La paralelización sólo sería necesario implementar en aplicaciones a gran escala permitiendo crear el paralelismo de datos (SIMT).
+* **Escalabilidad**: gracias a la gran cantidad de datos existentes en la actualidad se consiguen sistemas/modelos de paralelización sostenible. Tener en cuenta que la paralelización sólo sería necesario en aplicaciones a gran escala permitiendo crear el paralelismo de datos (Single Instruction Multiple Threads, SIMT).
 * **Productividad**: cuando un hilo pasa a realizar operaciones que no permitan su ejecución veloz, otro hilo oculta su latencia tomando el procesador de forma inmediata (conmutan de forma inmediata). Decir que lo hilos no tienen dependencia.
 
-Algunos conceptos a conocer son:
+Concepto a conocer:
 
 * **Warp**: visto desde el hardware, un bloque de hilos se compone de _warps_. Un _warp_ es un conjunto de 32 hilos (32 es la resolución del planificador para emitir hilos por grupos a las unidades de ejecución) dentro de un bloque de hilos, de manera que todos los hilos de un _warp_ ejecutan la misma instrucción. Una vez que se lanza un bloque de hilos en un multiprocesador, todos sus _warps_ son residentes hasta que finaliza su ejecución. Así, un nuevo bloque no se lanza en un multiprocesador hasta que haya un número suficiente de registros libres para todos los _warps_ del nuevo bloque, y hasta que haya suficiente memoria compartida libre para el nuevo bloque. Estos hilos, se caracterizan por conmutar entre ellos de forma inmediata. <mark style="background-color:yellow;">A modo de resumen, vemos que los hilos se agrupan en warps, los warps en bloques y los bloques en mallas.</mark>
-* **SIMT**: _Single Instruction, Multiple Thread_.
 
 CUDA (_Compute Unified Device Architecture_) es una plataforma diseñada a partir de la unión de software, firmware y hardware:
 
@@ -48,45 +47,45 @@ A pesar de que CUDA introduzca ventajas favorables para la computación tenemos 
 La computación heterogénea se caracteriza por la conmutación entre la GPU y la CPU donde:&#x20;
 
 * GPU → Intensiva en datos, paralelismo fino.
-* CPU → Saltos y bifurcaciones, paralelismo grueso .&#x20;
+* CPU → Saltos y bifurcaciones, paralelismo grueso.&#x20;
 
 Por ello, es importante conocer las partes de código que se pueden paralelizar en la GPU y aquellas partes que se pueden procesar directamente de manera secuencial en la CPU.
 
-<figure><img src="../.gitbook/assets/EEA7EE5C-1D79-4B88-8DF7-37E17BF0D2FF.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/EEA7EE5C-1D79-4B88-8DF7-37E17BF0D2FF.jpeg" alt=""><figcaption></figcaption></figure>
 
 Vemos por tanto que el paralelismo por el que CUDA destaca es en el paralelismo de datos (_**data parallelism**_).
 
 ### 1.2. Hardware de CUDA
 
-Una GPU cuenta con _N_ multiprocesadores, cada uno dotado de _M_ cores.
+Una GPU cuenta con _N_ multiprocesadores, cada uno dotado de _M_ núcleos.
 
 Algunas de las familias de GPU de la familia Tesla de NVidia son:
 
-<figure><img src="../.gitbook/assets/Untitled (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Untitled (1).png" alt=""><figcaption></figcaption></figure>
 
-Cada multiprocesador cuenta con su banco de registros, memoria compartida y una caché de constantes y otra de texturas (ambas de sólo lectura y uso marginal). También, se cuenta con una memoria global de la memoria de vídeo de tipo GDDR la cual es 3 veces más rápida que la memoria principal de la CPU pero mucho más lenta que la memoria compartida de tipo SRAM. Un bloque de hilos en CUDA se puede asignar a cualquier multiprocesador de la CPU para su ejecución. Si lanzamos un _Kernel_ que tiene un solo bloque, sólo aprovecharemos uno de los multiprocesadores de la GPU.
+Cada multiprocesador cuenta con su banco de registros, memoria compartida y una caché de constantes además de otra de texturas (ambas de sólo lectura y uso marginal). También, se cuenta con una memoria global de la memoria de vídeo de tipo GDDR la cual es 3 veces más rápida que la memoria principal de la CPU pero mucho más lenta que la memoria compartida de tipo SRAM. Un bloque de hilos en CUDA se puede asignar a cualquier multiprocesador de la CPU para su ejecución.&#x20;
 
-<figure><img src="../.gitbook/assets/Untitled 1 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Untitled 1 (1).png" alt=""><figcaption></figcaption></figure>
 
 A modo de ejemplo, cogeremos la generación Volta para estudiar su interior. En concreto, veremos la GPU GV100 que cuenta con 84 SMs y 8 controladores de memoria de 512 bits.
 
 El multiprocesador de Volta cuenta con 64 _cores_ de tipo int32, 64 _cores_ de tipo float 32, 32 _cores_ de tipo float 64 y 8 unidades tensor.
 
-<figure><img src="../.gitbook/assets/Untitled 2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Untitled 2.png" alt=""><figcaption></figcaption></figure>
 
 De la imagen anterior, solo se realiza el diseño de un bloque para posteriormente ir copiando hasta elaborar un diseño más complejo.
 
-<figure><img src="../.gitbook/assets/Untitled 3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Untitled 3.png" alt=""><figcaption></figcaption></figure>
 
 La estructura del _core_ tensor permite realizar operaciones matriciales a mayor velocidad, muy utilizado en el entrenamiento de modelos de _Deep Learning_ para una mayor eficiencia o en otros procesos donde las operaciones matriciales abundan. La imagen siguiente muestra el proceso:
 
-<figure><img src="../.gitbook/assets/Untitled 4 (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Untitled 4 (2).png" alt=""><figcaption></figcaption></figure>
 
 El proceso mostrado en la imagen anterior es la tarea que desempeña cada tensor dentro de la GPU por cada ciclo de reloj.
 
-Cambiar el valor de la precisión de los datos, por ejemplo pasar de un valor entero de 32 bits a un entero de 16 bits, repercute en la tasa de transferencia (_Throughput_) que fluye por un sistema. Por tanto se consigue realizar un mayor número de operaciones pero con menor precisión en los datos aunque dependiendo de la aplicación esta precisión no sería relevante. A continuación se muestra el formato del _Throughput_ para distintas precisiones de datos en arquitecturas de GPU más modernas:
+Cambiar el valor de la precisión de los datos, por ejemplo pasar de un valor entero de 32 bits a un entero de 16 bits, repercute en la tasa de transferencia (_Throughput_) que fluye por un sistema. Por tanto, se consigue realizar un mayor número de operaciones a cambio de obtener una menor precisión en los resultados, aunque dependiendo de la aplicación, esta precisión no sería relevante. A continuación se muestra el formato del _Throughput_ para distintas precisiones de datos en arquitecturas de GPU más modernas:
 
-<figure><img src="../.gitbook/assets/Untitled 5 (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Untitled 5 (2).png" alt=""><figcaption></figcaption></figure>
 
 ### 1.3. Programación en CUDA
 
@@ -102,7 +101,7 @@ Si queremos conocer la GPU, junto con sus características, que nos ha tocado en
 
 Durante la programación con CUDA tanto la CPU como la GPU se encuentran realizando operaciones, por lo tanto existe la necesidad de tener que sincronizar los tiempos entre la ejecución de ambos componentes.
 
-<figure><img src="../.gitbook/assets/Untitled 6 (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Untitled 6 (2).png" alt=""><figcaption></figcaption></figure>
 
 Debido a esa sincronización necesaria entre procesos que suceden en la GPU y la CPU e incluso entre diferentes hilos de la GPU, las sentencias condicionales como los `if` son muy desfavorables para su ejecución en la GPU. Por lo que, cuantos menos sentencias condicionales en un Kernel, mejor.
 
@@ -151,6 +150,8 @@ Por tanto, el número total de hebras será el resultado de multiplicar el valor
 
 El código del _kernel_ se ejecuta en cada hebra de cada bloque configurado cuando se lanza dicho _kernel_.
 
+Si lanzamos un _Kernel_ que tiene un solo bloque, sólo aprovecharemos uno de los multiprocesadores de la GPU.
+
 Vemos en el código anterior una llamada a la función `cudaDeviceSynchronize()` . Esta función permite a la GPU finalizar su tarea antes de que la CPU finalice y acabe con el programa. Por lo tanto, se trata de una herramienta de sincronización entre la CPU y la GPU. Por lo que, si la GPU tiene que realizar una acción previa a la CPU, el orden de ejecución debería ser:
 
 1. GPU.
@@ -174,7 +175,7 @@ void main()
 }
 ```
 
-Analizaríamos el bucle, llegando a la conclusión de que se puede paralelizar ya que un índice es independiente del otro y tampoco requiere de un orden específico (recordar que las hebras de un _warp_ se ejecutan de manera desordenada).
+Analizando el bucle anterior, llegamos a la conclusión de que se puede paralelizar ya que un índice es independiente del otro y tampoco requiere de un orden específico (recordar que las hebras de un _warp_ se ejecutan de manera desordenada).
 
 Primero, saber que CUDA proporciona variables que describen a las hebras, bloques y mallas (_grid_):
 
@@ -219,13 +220,13 @@ $$
 
 Por ejemplo:
 
-<figure><img src="../.gitbook/assets/Untitled 7 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Untitled 7 (1).png" alt=""><figcaption></figcaption></figure>
 
 Tener en cuenta que _blockDim.x_ debería ser ≥ 32 correspondiente al tamaño del Warp.
 
 Con la imagen anterior, **tenemos que considerar casos en los que existe un mayor número de hebras que de tareas por realizar**, por ejemplo:
 
-<figure><img src="../.gitbook/assets/Untitled 8 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Untitled 8 (1).png" alt=""><figcaption></figcaption></figure>
 
 **En estos casos, habría que asegurarnos que el índice obtenido** $$i_{x}$$ **es menor al número de datos.**
 
@@ -262,7 +263,7 @@ cudaFree(a);
 
 Gracias al avance en Hardware se han conseguido mayores tasas de transferencia entre la GPU y la CPU así como también mejoras en la fabricación de memorias de ambos componentes. Con ello, junto a las versiones actualizadas de CUDA, podemos compartir datos entre la GPU y CPU utilizando la **memoria unificada**.
 
-<figure><img src="../.gitbook/assets/Untitled 9.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Untitled 9.png" alt=""><figcaption></figcaption></figure>
 
 La memoria unificada ofrece una serie de ventajas:
 
@@ -273,7 +274,7 @@ La memoria unificada ofrece una serie de ventajas:
 
 Los tipos de memoria en CUDA son:
 
-<figure><img src="../.gitbook/assets/Untitled 10 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Untitled 10 (1).png" alt=""><figcaption></figcaption></figure>
 
 Algunas de las consideraciones a tener en cuenta son:
 
@@ -284,7 +285,7 @@ Algunas de las consideraciones a tener en cuenta son:
 
 Podemos resumir el proceso de la memoria unificada con la siguiente imagen:
 
-<figure><img src="../.gitbook/assets/AB407146-6A59-4476-A97F-B0D7BF2AA8CC.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/AB407146-6A59-4476-A97F-B0D7BF2AA8CC.jpeg" alt=""><figcaption></figcaption></figure>
 
 A continuación, veremos un ejemplo de acceso a memoria donde existen restricciones de uso de la memoria.
 
@@ -525,7 +526,7 @@ Tenemos diferentes tipos de operadores:
     }
     ```
 
-<figure><img src="../.gitbook/assets/Untitled 11 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Untitled 11 (1).png" alt=""><figcaption></figcaption></figure>
 
 *   Histogramas: veremos un ejemplo:
 
@@ -552,7 +553,7 @@ Tenemos diferentes tipos de operadores:
 
 Como análisis final tenemos:
 
-<figure><img src="../.gitbook/assets/Untitled 12.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Untitled 12.png" alt=""><figcaption></figcaption></figure>
 
 * El operador streaming es el que más acelera en GPU.
 * El operador patrón es el que mejor aprovecha la memoria compartida.

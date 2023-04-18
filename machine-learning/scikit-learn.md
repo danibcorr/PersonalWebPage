@@ -10,7 +10,13 @@ description: Realizado por Daniel Bazo Correa.
 * [Intuitive Machine Learning - YouTube](https://www.youtube.com/c/IntuitiveMachineLearning)
 * [Yellowbrick: Machine Learning Visualization — Yellowbrick v1.5 documentation (scikit-yb.org)](https://www.scikit-yb.org/en/latest/index.html)
 
-## 1. Algoritmos de Clustering
+## 1. Obtención de características
+
+### 1.2. Procesado de datos
+
+
+
+## 2. Algoritmos de Clustering
 
 La función principal de la agrupación o _clustering_ consiste en reducir la distancia entre los puntos de un grupo y maximizar la distancia entre el resto de grupos, es decir, que los puntos de datos que pertenezcan a un mismo grupo se encuentren lo más cerca posible pero alejados del resto de puntos de datos del resto de grupos. <mark style="background-color:yellow;">**Este problema se vuelve más complejo conforme se aumenta la dimensión del cluster**</mark>, ya que puntos de datos que parecían alejados pueden pasar a estar más cerca.
 
@@ -20,9 +26,9 @@ Algunas de las técnicas de extracción de características son el análisis de 
 
 A continuación, veremos algunos de los algoritmos de clustering más utilizados. Tener en cuenta que los algoritmos de _clustering_ se utilizan en problemas no supervisados, es decir, problemas donde no contamos con etiquetas y queremos obtener agrupaciones de datos con similitudes.
 
-### 1.1. K-means clustering
+### 2.1. K-means clustering
 
-#### 1.1.1. Anotaciones
+#### 2.1.1. Anotaciones
 
 K-means es un tipo de algoritmo de clustering no supervisados. Su principal función es intentar dividir el dataset en $$k$$ grupos pre-definidos donde cada dato pertenece a un sólo grupo. Consta de 3 pasos:
 
@@ -44,7 +50,7 @@ Con la imagen anterior, vemos que $$A$$ tiene una menor distancia $$d_3$$, con r
 
 <figure><img src="../.gitbook/assets/Untitled 4 (1).png" alt=""><figcaption></figcaption></figure>
 
-#### 1.1.2. Código
+#### 2.1.2. Código
 
 ```python
 # Importamos NumPy para el tratamiento de datos
@@ -135,9 +141,9 @@ plt.scatter(
 plt.legend(scatterpoints=1)
 ```
 
-### 1.2. Spectral Clustering
+### 2.2. Spectral Clustering
 
-#### 1.2.1. Anotaciones
+#### 2.2.1. Anotaciones
 
 Permite agrupar data sets muchos más complejos que no son linealmente separables como ocurría en el caso de K-means. La idea de este algoritmo consiste en crear un grafo de pesos o un grafo de afinidad (un grafo similar) donde cada punto de los datos es un nodo del grafo y la relación (edges) entre nodos indica la similitud entre ellos.
 
@@ -155,7 +161,7 @@ Obtenido el grafo de similitud, queremos dividir los nodos en $$k$$ grupos:
 
 <figure><img src="../.gitbook/assets/Untitled 6 (1).png" alt=""><figcaption></figcaption></figure>
 
-#### 1.2.2. Código
+#### 2.2.2. Código
 
 ```python
 import numpy as np
@@ -188,17 +194,17 @@ plt.scatter(X_aniso[:, 0 ], X_aniso[:, 1], c = y_pred, s = 10)
 plt.title("Spectral Clustering")
 ```
 
-### 1.3. DBSCAN Clustering
+### 2.3. DBSCAN Clustering
 
-#### 1.3.1. Anotaciones
+#### 2.3.1. Anotaciones
 
-#### 1.3.2. Código
+#### 2.3.2. Código
 
-### 1.4. K-Medoids
+### 2.4. K-Medoids
 
-#### 1.4.1. Anotaciones
+#### 2.4.1. Anotaciones
 
-#### 14.2. Código
+#### 2.4.2. Código
 
 ```python
 import numpy as np
@@ -228,11 +234,11 @@ algoritmo = KMedoids(
 # Complementar con un dataset
 ```
 
-### 1.5. AHC o HAC (Agglomerative Hierarchical Clustering)
+### 2.5. AHC o HAC (Agglomerative Hierarchical Clustering)
 
-#### 1.5.1. Anotaciones
+#### 2.5.1. Anotaciones
 
-#### 1.5.2. Código
+#### 2.5.2. Código
 
 ```python
 import numpy as np
@@ -258,11 +264,11 @@ algoritmo = AgglomerativeClustering(
 # Complementar con un dataset
 ```
 
-### 1.6. Spectral Clustering
+### 2.6. Spectral Clustering
 
-#### 1.6.1. Anotaciones
+#### 2.6.1. Anotaciones
 
-#### 1.6.2. Código
+#### 2.6.2. Código
 
 ```python
 import numpy as np
@@ -287,9 +293,9 @@ algoritmo = SpectralClustering(
 # Complementar con un dataset
 ```
 
-### 1.7. K-Nearest Neighbors (KNN)
+### 2.7. K-Nearest Neighbors (KNN)
 
-#### 1.7.1. Anotaciones
+#### 2.7.1. Anotaciones
 
 A diferencia del resto de algoritmo vistos hasta este punto, KNN es un algoritmo supervisado utilizado para problemas de clasificación y regresión.
 
@@ -318,15 +324,15 @@ Para el caso de la regresión, se devuelve la media de las etiquetas de los veci
 
 <figure><img src="../.gitbook/assets/Untitled 9 (1).png" alt=""><figcaption></figcaption></figure>
 
-#### 1.7.2. Código
+#### 2.7.2. Código
 
-## 2. Optimización de algoritmos de clustering
+## 3. Optimización de algoritmos de clustering
 
 Los métodos de optimización de clustering que veremos a continuación, pretenden obtener el valor óptimo de número de clusters pre-definidos necesario en los algoritmos de clustering.
 
-### 2.1. Método del codo (Elbow Method)
+### 3.1. Método del codo (Elbow Method)
 
-#### 2.1.1. Anotaciones
+#### 3.1.1. Anotaciones
 
 Utiliza como medida el _WCSS, Whitin-Cluster Sum of Squares_. El _**WCSS**_ es una medida de la variabilidad de las observaciones dentro de los clusters que se calcula tomando la suma de las distancias al cuadrado entre cada observación y el centroide de su respectivo cluster. Los valores de _**WCSS**_ de los clusters se promedian para obtener un _**WCSS**_ global para el algoritmo de clustering. Aquí, la mejor solución del número de clusters necesarios se conseguirá con el menor valor posible de _WCSS_ (los valores más bajos de _**WCSS**_ son preferibles ya que indican una agrupación de los datos más compacta) con el menor valor posible del número de clusters. Es decir, se realizará un bucle que empleará algún método de clustering insertando diferentes números de clusters. Posteriormente, calculará el _**WCSS.**_ Finalmente, aquél valor de cluster que obtenga una reducción del **WCSS** significativo con un coste computacional moderado será la mejor opción.
 
@@ -338,7 +344,7 @@ kmeans.inertia_
 
 `inertia_` devuelve la suma de las distancias al cuadrado de las muestras a su centro de cluster más cercano (ponderada por los pesos de la muestra si se proporcionan).
 
-#### 2.1.2. Código
+#### 3.1.2. Código
 
 ```python
 # Supondremos que vamos a utilizar K-Means
@@ -379,19 +385,21 @@ plt.ylabel('WCSS')
 plt.show()
 ```
 
-#### 2.1.3. Ejemplo
+#### 3.1.3. Ejemplo
 
 <figure><img src="../.gitbook/assets/Untitled 10.png" alt=""><figcaption></figcaption></figure>
 
 Con la imagen anterior, se ha utilizado el dataset de IRIS junto con el código mostrado anteriormente en combinación con K-means, con rangos de valores para el número de clusters de \[2, 10]. Vemos que hasta el número de clusters 3, obtenemos un descenso del valor del _**WCSS**_ considerable pero a partir del 3 la reducción es mínima. Por tanto, el valor óptimo de la imagen anterior sería 3, lugar donde se produce el codo.
 
-### 2.2. Puntuación de la Silueta (Silhouette Score)
+### 3.2. Puntuación de la Silueta (Silhouette Score)
 
-#### 2.2.1. Anotaciones
+#### 3.2.1. Anotaciones
 
-El coeficiente de silueta se emplea para conocer el valor óptimo del número de clusters a utilizar. La puntuación se calcula promediando el coeficiente de silueta de cada muestra, calculado como la diferencia entre la distancia media dentro del propio clúster y la distancia media al clúster más cercano de cada dato, normalizada por el valor máximo. Esto produce una puntuación entre $\[-1,1]$, donde 1 corresponde a clusters muy densos y -1 a una agrupación incorrecta.
+El coeficiente de silueta se emplea para conocer el valor óptimo del número de clusters a utilizar. La puntuación se calcula promediando el coeficiente de silueta de cada muestra, calculado como la diferencia entre la distancia media dentro del propio clúster y la distancia media al clúster más cercano de cada dato, normalizada por el valor máximo. Esto produce una puntuación entre $$[-1, 1]$$, donde 1 corresponde a clusters muy densos (valor ideal) y -1 a una agrupación incorrecta (pero valor posible).
 
-#### 2.2.2. Código
+Cada cluster tiene su propia puntuación de silueta. Se trata de un proceso iterativo donde realizamos el cluster con un rango de valores de $$k$$, en el que al finalizar el cluster calculamos la puntuación de silueta para cada posible iteración del cluster con los diferentes valores de $$k$$ hasta obtener un valor $$k$$ promedio más cercano a 1.
+
+#### 3.2.2. Código
 
 ```python
 import numpy as np
@@ -414,20 +422,20 @@ punt_silu = []
 
 for i in range(inf, sup + 1):
 
-		algoritmo = KMeans(
-			# Numero de clusters
-			n_clusters = i,     
-			# Método de inicialización
-			init = 'k-means++', 
-			max_iter = 300,     
-			n_init = 10,        
-			random_state = 0
-		)
-
-		visualizer = SilhouetteVisualizer(algoritmo, colors='yellowbrick')
-		visualizer.fit(x)
-		visualizer.show()
-		punt_silu.append(silhouette_score(x, algoritmo.labels_))
+    algoritmo = KMeans(
+        # Numero de clusters
+        n_clusters = i,     
+        # Método de inicialización
+        init = 'k-means++', 
+        max_iter = 300,     
+        n_init = 10,        
+        random_state = 0
+    )
+    
+    visualizer = SilhouetteVisualizer(algoritmo, colors='yellowbrick')
+    visualizer.fit(x)
+    visualizer.show()
+    punt_silu.append(silhouette_score(x, algoritmo.labels_))
 
 sil = np.argmax(punt_silu) + 2
             
@@ -442,15 +450,15 @@ plt.ylabel('Puntuación Silueta')
 plt.show()
 ```
 
-#### 2.2.3. Ejemplo
+#### 3.2.3. Ejemplo
 
 <figure><img src="../.gitbook/assets/Untitled 11.png" alt=""><figcaption></figcaption></figure>
 
 Con la imagen anterior, podemos observar el grueso de los clusters (barras de colores) y su distribución. Todos parten desde 0, por lo que son agrupaciones correctas densas que sobrepasan la puntuación media de la silueta (línea roja).
 
-### 2.3. Factor o índice CH (Caliński-Harabasz index)
+### 3.3. Factor o índice CH (Caliński-Harabasz index)
 
-#### 2.3.1. Anotaciones
+#### 3.3.1. Anotaciones
 
 Utilizamos el factor _CH_ para evaluar el modelo con el fin de ver qué tan bien se ha realizado la agrupación utilizando cantidades y características inherentes al conjunto de datos.
 
@@ -460,7 +468,7 @@ Un valor más alto del índice CH significa que los grupos son densos y están b
 
 Si obtenemos una gráfica suave, no hay razón para preferir una solución sobre otras.
 
-#### 2.3.2. Código
+#### 3.3.2. Código
 
 ```python
 import numpy as np
@@ -503,19 +511,19 @@ plt.ylabel('Índice CH')
 plt.show()
 ```
 
-#### 2.3.3. Ejemplo
+#### 3.3.3. Ejemplo
 
 <figure><img src="../.gitbook/assets/Untitled 12 (1).png" alt=""><figcaption></figcaption></figure>
 
 Con la imagen anterior, podemos observar el punto óptimo del número de clusters ha utilizar para el dataset. Para este ejemplo se utilizó el dataset de _IRIS_.
 
-### 2.4. Combinación de optimizaciones
+### 3.4. Combinación de optimizaciones
 
-#### 2.4.1. Anotaciones
+#### 3.4.1. Anotaciones
 
 Sería buena idea combinar los métodos de búsqueda del óptimo valor del número de cluster para tener un rango de valores óptimos. En este caso, combinaremos las gráficas de los métodos del codo, Silhouette Score y factor CH.
 
-#### 2.4.2. Código
+#### 3.4.2. Código
 
 ```python
 import numpy as np
@@ -581,8 +589,8 @@ plt.legend(loc='upper right')
 plt.show()
 ```
 
-## 3. Reducción dimensionalidad
+## 4. Reducción dimensionalidad
 
-### 3.1. PCA
+### 4.1. PCA
 
-### 3.2. Autoencoders
+### 4.2. Autoencoders
