@@ -25,15 +25,18 @@
 ## 🦾 Deep Learning
 
 * [Fundamentos](deep-learning/fundamentos.md)
-* [Tensorflow](deep-learning/tensorflow.md)
-* [PyTorch](deep-learning/pytorch.md)
-* [FastAI](deep-learning/fastai.md)
+* [Bibliotecas](deep-learning/bibliotecas/README.md)
+  * [Tensorflow](deep-learning/bibliotecas/tensorflow.md)
+  * [PyTorch](deep-learning/bibliotecas/pytorch.md)
+  * [FastAI](deep-learning/bibliotecas/fastai.md)
+* [Implementación de papers](deep-learning/implementacion-de-papers/README.md)
+  * [ResNet](deep-learning/implementacion-de-papers/resnet.md)
+  * [GoogleLeNet](deep-learning/implementacion-de-papers/googlelenet.md)
+  * [Residual VAE](deep-learning/implementacion-de-papers/residual-vae.md)
+  * [Residual VQ-VAE](deep-learning/implementacion-de-papers/residual-vq-vae.md)
+  * [Transformer](deep-learning/implementacion-de-papers/transformer.md)
+  * [LeNet](deep-learning/implementacion-de-papers/lenet.md)
 
-## 📄 Implementación de papers
+## 🦕 Impresión 3D
 
-* [LeNet](implementacion-de-papers/lenet.md)
-* [ResNet](implementacion-de-papers/resnet.md)
-* [GoogleLeNet](implementacion-de-papers/googlelenet.md)
-* [Residual VAE](implementacion-de-papers/residual-vae.md)
-* [Residual VQ-VAE](implementacion-de-papers/residual-vq-vae.md)
-* [Transformer](implementacion-de-papers/transformer.md)
+* [Conocimientos de impresión 3D](impresion-3d/conocimientos-de-impresion-3d.md)

@@ -10,7 +10,7 @@ Paper: [https://arxiv.org/abs/1409.4842v1](https://arxiv.org/abs/1409.4842v1)
 
 ## 1. Conceptos previos
 
-<figure><img src="../.gitbook/assets/96399E43-0921-4087-91CD-65389E3CBDB6.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/96399E43-0921-4087-91CD-65389E3CBDB6.jpeg" alt=""><figcaption></figcaption></figure>
 
 ## 2. Código
 
