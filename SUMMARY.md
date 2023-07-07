@@ -36,7 +36,3 @@
   * [Residual VQ-VAE](deep-learning/implementacion-de-papers/residual-vq-vae.md)
   * [Transformer](deep-learning/implementacion-de-papers/transformer.md)
   * [LeNet](deep-learning/implementacion-de-papers/lenet.md)
-
-## 🦕 Impresión 3D
-
-* [Conocimientos de impresión 3D](impresion-3d/conocimientos-de-impresion-3d.md)
