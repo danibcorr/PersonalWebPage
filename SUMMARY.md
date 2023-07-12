@@ -25,10 +25,10 @@
 ## 🦾 Deep Learning
 
 * [Fundamentos](deep-learning/fundamentos.md)
-* [Bibliotecas](deep-learning/bibliotecas/README.md)
-  * [Tensorflow](deep-learning/bibliotecas/tensorflow.md)
-  * [PyTorch](deep-learning/bibliotecas/pytorch.md)
-  * [FastAI](deep-learning/bibliotecas/fastai.md)
+* [Librerías](deep-learning/librerias/README.md)
+  * [Tensorflow](deep-learning/librerias/tensorflow.md)
+  * [PyTorch](deep-learning/librerias/pytorch.md)
+  * [FastAI](deep-learning/librerias/fastai.md)
 * [Implementación de papers](deep-learning/implementacion-de-papers/README.md)
   * [ResNet](deep-learning/implementacion-de-papers/resnet.md)
   * [GoogleLeNet](deep-learning/implementacion-de-papers/googlelenet.md)
