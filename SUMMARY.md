@@ -2,21 +2,20 @@
 
 ## 👨💻 Información
 
-* [Sobre mi](README.md)
-* [Repositorio](informacion/repositorio.md)
+* [Información](README.md)
 
 ## 🛠 Herramientas
 
 * [Git](herramientas/git.md)
-* [Otros](herramientas/linux.md)
+* [Otros](herramientas/linux/README.md)
+  * [Linux](herramientas/linux/linux.md)
+  * [Anaconda](herramientas/linux/anaconda.md)
 
 ## 💻 Programación
 
+* [Python](programacion/python.md)
 * [CUDA](programacion/cuda/README.md)
   * [Ejercicios CUDA en C](programacion/cuda/ejercicios-cuda-en-c.md)
-* [Python](programacion/python.md)
-* [Pandas](programacion/pandas.md)
-* [NumPy](programacion/numpy.md)
 
 ## 📊 Machine Learning
 

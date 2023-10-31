@@ -4,20 +4,18 @@ cover: .gitbook/assets/IMG_0607.JPEG
 coverY: 0
 ---
 
-# Sobre mi
+# Información
 
-Hola 👋,
+¡Hola! 👋
 
-Soy Daniel, estudiante de Ingeniería de Sistemas Electrónicos en la Universidad de Málaga.
+Soy Dani, Ingeniero en Sistemas Electrónicos. He creado esta página web en Gitbook para compartir mis avances y conocimientos en el campo de la inteligencia artificial, la ciencia de datos y la programación en general. Esta página está sincronizada con un repositorio en GitHub que he creado con el propósito de reunir todas las utilidades, herramientas y documentación que he utilizado en mi labor de programación.
 
-Actualmente estoy trabajando en colaboración con el departamento de Ingeniería de Comunicaciones junto con Ericsson para la realización de mi trabajo de fin de grado. Dicho trabajo consiste en detectar patrones de interferencias en redes celulares, para ello, estamos integrando herramientas de inteligencia artificial, incluyendo lenguajes de programación como Python y librerías como Pandas, Tensorflow y Scikit Learn, entre otras.
+{% @github-files/github-code-block url="https://github.com/danibcorr/PersonalWebPage" %}
 
-Además de utilizar Python, he empleado otros lenguajes de programación como C y C++ en proyectos con sistemas embebidos/empotrados a la par que microcontroladores. Algunos de estos proyectos son:
+Con el objetivo de simplificar el proceso, he organizado la página en diversas categorías según las herramientas que se utilizan. Cada categoría cuenta con documentación detallada, ejemplos prácticos y referencias bibliográficas que te permitirán explorar cada tema en profundidad.
 
-{% embed url="https://github.com/JeyJeysp/Microbotics_UMA" %}
+Esta página y repositorio están diseñados para servir como un punto central en el que se concentre el conocimiento y esté al alcance de todos. Si estás leyendo esto, espero que encuentres este recurso tan valioso como lo es para mí y que disfrutes aprendiendo.
 
-{% embed url="https://github.com/danibcorr/Embedded_systems_TivaC" %}
+¡Gracias por tu atención! 👏
 
-Para compartir mi progreso y conocimientos sobre inteligencia artificial y programación, he creado esta página web. Si estás interesado en aprender juntos, te invito a seguir en el apartado de Información en la sección Repositorio de esta misma web. Allí encontrarás más información y tendrás la oportunidad de acompañarme en este apasionante camino.&#x20;
-
-¡Gracias por tu interés!
+Puedes conectar conmigo a través de [LinkedIn](https://www.linkedin.com/in/danibcorr/).
