@@ -7,7 +7,8 @@
 ## 🛠 Herramientas
 
 * [Git](herramientas/git.md)
-* [Otros](herramientas/linux/README.md)
+* [Docker](herramientas/docker.md)
+* [Otros](herramientas/linux.md)
   * [Linux](herramientas/linux/linux.md)
   * [Anaconda](herramientas/linux/anaconda.md)
 
