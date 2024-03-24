@@ -1,6 +1,6 @@
-# Table of contents
+# Tabla de contenidos
 
-## 👨💻 Información
+## 👨 Información
 
 * [Sobre mi](README.md)
 
@@ -8,9 +8,8 @@
 
 * [Git](herramientas/git.md)
 * [Docker](herramientas/docker.md)
-* [Otros](herramientas/linux.md)
-  * [Linux](herramientas/linux/linux.md)
-  * [Anaconda](herramientas/linux/anaconda.md)
+* [Linux](herramientas/linux.md)
+* [Anaconda](herramientas/anaconda.md)
 
 ## 💻 Programación
 
@@ -30,9 +29,7 @@
   * [PyTorch](deep-learning/librerias/pytorch.md)
   * [FastAI](deep-learning/librerias/fastai.md)
 * [Implementación de papers](deep-learning/implementacion-de-papers/README.md)
-  * [ResNet](deep-learning/implementacion-de-papers/resnet.md)
-  * [GoogleLeNet](deep-learning/implementacion-de-papers/googlelenet.md)
-  * [Residual VAE](deep-learning/implementacion-de-papers/residual-vae.md)
-  * [Residual VQ-VAE](deep-learning/implementacion-de-papers/residual-vq-vae.md)
-  * [Transformer](deep-learning/implementacion-de-papers/transformer.md)
-  * [LeNet](deep-learning/implementacion-de-papers/lenet.md)
+  * Computación Visual
+    * [ResNet](deep-learning/implementacion-de-papers/CV/resnet.md)
+    * [GoogleLeNet](deep-learning/implementacion-de-papers/CV/googlelenet.md)
+    * [LeNet](deep-learning/implementacion-de-papers/CV/lenet.md)

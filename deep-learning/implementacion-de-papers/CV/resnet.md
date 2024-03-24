@@ -2,6 +2,8 @@
 description: Realizado por Daniel Bazo Correa.
 ---
 
+<div align="justify">
+
 # ResNet
 
 Vamos a implementar la arquitectura de ResNet, una arquitectura basada en una red neuronal convolucional junto con conexiones residuales propuesta por Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun en 2015.
@@ -200,3 +202,4 @@ if modelo == 'resnet152':    modelo1 = ResNet(configuracion = [152, 3, 8, 36, 3]
 modelo1.arquitectura.summary()
 ```
 
+</div>

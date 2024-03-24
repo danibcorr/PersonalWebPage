@@ -2,6 +2,8 @@
 description: Virtualización con Docker
 ---
 
+<div align="justify">
+
 # Docker
 
 
@@ -339,3 +341,5 @@ Al proporcionar infraestructura como servicio (IaaS), es fundamental considerar 
 > * **`docker-compose down`**: Apaga todo los servicios que levantó con docker-compose up.
 > * **`docker-compose ps`**: Permite ver los contenedores funcionando.
 > * **`docker-compose exec`**: Permite ejecutar un comando a uno de los servicios levantados de Docker-compose.
+
+</div>

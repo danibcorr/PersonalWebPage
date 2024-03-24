@@ -2,6 +2,8 @@
 description: Realizado por Daniel Bazo Correa.
 ---
 
+<div align="justify">
+
 # LeNet
 
 Vamos a implementar la arquitectura de LeNet, una arquitectura basada en una red neuronal convolucional propuesta por Yann Lecun en 1998.
@@ -138,3 +140,5 @@ plt.show()
 # El primer valor obtenido corresponde con la pérdida, el segundo con el accuracy
 modelo.arquitectura.evaluate(x_test, y_test)
 ```
+
+</div>

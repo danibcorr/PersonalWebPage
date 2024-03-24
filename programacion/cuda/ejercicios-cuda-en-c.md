@@ -2,6 +2,8 @@
 description: Realizado por Daniel Bazo Correa.
 ---
 
+<div align="justify">
+
 # Ejercicios CUDA en C
 
 ## Ejercicios básicos
@@ -1176,3 +1178,5 @@ int main()
     cudaFree(c);
 }
 ```
+
+</div>

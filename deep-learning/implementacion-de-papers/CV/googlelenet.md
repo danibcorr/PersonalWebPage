@@ -2,6 +2,8 @@
 description: Realizado por Daniel Bazo Correa.
 ---
 
+<div align="justify">
+
 # GoogleLeNet
 
 Vamos a implementar la arquitectura de GoogleLeNet, una arquitectura basada en una red neuronal convolucional caracterizada por contar con unos bloques llamados "Inception", propuesta por Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke, Andrew Rabinovich en 2014.
@@ -241,3 +243,5 @@ image = image / 255.
 prediction = modelo.arquitectura.predict(image)
 print(prediction)
 ```
+
+</div>

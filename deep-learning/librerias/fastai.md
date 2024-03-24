@@ -2,6 +2,8 @@
 description: Realizado por Daniel Bazo Correa.
 ---
 
+<div align="justify">
+
 # FastAI
 
 ### Bibliografía
@@ -693,3 +695,5 @@ learn.fit_one_cycle(10)
 
 learn.show_results()
 ```
+
+</div>

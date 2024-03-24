@@ -2,6 +2,8 @@
 description: Realizado por Daniel Bazo Correa.
 ---
 
+<div align="justify">
+
 # Tensorflow
 
 ## Bibliografía
@@ -865,3 +867,5 @@ print(audio_signal, audio_signal.shape)
 # Podemos realizar la conversión inversa de un espectrograma a una imagen
 librosa.output.write_wav('test2.wav', audio_signal, fs)
 ```
+
+</div>

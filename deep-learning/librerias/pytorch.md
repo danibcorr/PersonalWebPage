@@ -2,6 +2,8 @@
 description: Realizado por Daniel Bazo Correa.
 ---
 
+<div align="justify">
+
 # PyTorch
 
 ### Bibliografía
@@ -183,3 +185,5 @@ for epoch in range(0, numero_epocas):
     accuracy = 100 * (running_loss / len(mnist_train))
     print(f"Accuracy = {accuracy}")
 ```
+
+</div>

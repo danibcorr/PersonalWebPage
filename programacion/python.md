@@ -2,6 +2,8 @@
 description: Realizado por Daniel Bazo Correa.
 ---
 
+<div align="justify">
+
 # Python
 
 ## Bibliografía
@@ -2598,3 +2600,5 @@ r = requests.get("url")
 
 print(r.json())
 ```
+
+</div>

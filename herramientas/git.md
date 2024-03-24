@@ -4,6 +4,8 @@ description: >-
   @iamcay y @LuisMiguelCG en GitHub.
 ---
 
+<div align="justify">
+
 # Git
 
 ## 1. Conceptos mínimos sobre el control de versiones
@@ -164,3 +166,5 @@ Operaciones desde Github:
 | **pull request** (entre repositorios) | Dentro de la misma opción anterior, seleccionando: "compare across forks"                  |
 
 Hay que tener en cuenta a la hora de hacer un Pull Request desde un repositorio al que se ha hecho un fork de seleccionar el repositorio nuestro, no el del profesor. De lo contrario, todos los Pull Request aparecerán en su repositorio y no en el nuestro.
+
+</div>
