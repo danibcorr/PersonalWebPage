@@ -2,7 +2,7 @@
 
 ## 👨💻 Información
 
-* [Información](README.md)
+* [Sobre mi](README.md)
 
 ## 🛠 Herramientas
 
