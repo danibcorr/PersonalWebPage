@@ -14,19 +14,13 @@
 ## 💻 Programación
 
 * [Python](programacion/python.md)
-* [CUDA](programacion/cuda/README.md)
+* [CUDA](programacion/cuda/cuda.md)
   * [Ejercicios CUDA en C](programacion/cuda/ejercicios-cuda-en-c.md)
-
-## 📊 Machine Learning
-
-* [Scikit Learn](machine-learning/scikit-learn.md)
 
 ## 🦾 Deep Learning
 
-* [Fundamentos](deep-learning/fundamentos.md)
 * [Librerías](deep-learning/librerias/README.md)
   * [Tensorflow](deep-learning/librerias/tensorflow.md)
-  * [PyTorch](deep-learning/librerias/pytorch.md)
   * [FastAI](deep-learning/librerias/fastai.md)
 * [Implementación de papers](deep-learning/implementacion-de-papers/README.md)
   * Computación Visual
