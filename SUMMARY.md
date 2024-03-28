@@ -10,6 +10,8 @@
 * [Docker](herramientas/docker.md)
 * [Linux](herramientas/linux.md)
 * [Anaconda](herramientas/anaconda.md)
+* [SQL](herramientas/sql/sql.md)
+  * [Ejercicios SQL](herramientas/sql/ejercicios-sql.md)
 
 ## 💻 Programación
 
