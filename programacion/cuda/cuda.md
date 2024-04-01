@@ -2,8 +2,6 @@
 description: Realizado por Daniel Bazo Correa.
 ---
 
-# CUDA
-
 ## Bibliografía
 
 * [https://www.nvidia.com/](https://www.nvidia.com/)

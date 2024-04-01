@@ -2,125 +2,136 @@
 description: Realizado por Daniel Bazo Correa.
 ---
 
-<div align="justify">
+# Ejercicios básicos
 
-# Ejercicios CUDA en C
+<details>
+<summary>Refactoriza para que "Hola desde la GPU" se imprima antes que "Hola desde la CPU".</summary>
 
-## Ejercicios básicos
+```c
+#include <stdio.h>
 
-### Hello GPU
+void helloCPU()
+{
+    printf("Hola desde la CPU.\n");
+}
 
-*   Refactoriza para que "Hola desde la GPU" se imprima antes que "Hola desde la CPU".
+__global__ void helloGPU()
+{
+    printf("Hola desde la GPU.\n");
+}
 
-    ```c
-    #include <stdio.h>
+int main()
+{
+    int num_bloques = 1;
+    int num_hebras_bloque = 1;
 
-    void helloCPU()
-    {
-        printf("Hola desde la CPU.\n");
-    }
+    helloGPU<<<num_bloques, num_hebras_bloque>>>();
 
-    __global__ void helloGPU()
-    {
-        printf("Hola desde la GPU.\n");
-    }
+    cudaDeviceSynchronize();
 
-    int main()
-    {
-        int num_bloques = 1;
-        int num_hebras_bloque = 1;
+    helloCPU();
 
-        helloGPU<<<num_bloques, num_hebras_bloque>>>();
+    return 0;
+}
+```
 
-        cudaDeviceSynchronize();
+</details>
+<br>
 
-        helloCPU();
+<details>
+<summary>Refactoriza para que "Hola desde la GPU" se imprima dos veces, una antes de "Hola desde la CPU" y otra después.</summary>
 
-        return 0;
-    }
-    ```
-*   Refactoriza para que "Hola desde la GPU" se imprima dos veces, una antes de "Hola desde la CPU" y otra después.
+```c
+#include <stdio.h>
 
-    ```c
-    #include <stdio.h>
+void helloCPU()
+{
+    printf("Hola desde la CPU.\n");
+}
 
-    void helloCPU()
-    {
-        printf("Hola desde la CPU.\n");
-    }
+__global__ void helloGPU()
+{
+    printf("Hola desde la GPU.\n");
+}
 
-    __global__ void helloGPU()
-    {
-        printf("Hola desde la GPU.\n");
-    }
+int main()
+{
+    int num_bloques = 1;
+    int num_hebras_bloque = 1;
 
-    int main()
-    {
-        int num_bloques = 1;
-        int num_hebras_bloque = 1;
+    helloGPU<<<num_bloques, num_hebras_bloque>>>();
 
-        helloGPU<<<num_bloques, num_hebras_bloque>>>();
+    cudaDeviceSynchronize();
 
-        cudaDeviceSynchronize();
+    helloCPU();
+    
+    helloGPU<<<num_bloques, num_hebras_bloque>>>();
+    
+    cudaDeviceSynchronize();
+    
+    return 0;
+}
+```
 
-        helloCPU();
-        
-        helloGPU<<<num_bloques, num_hebras_bloque>>>();
-        
-        cudaDeviceSynchronize();
-        
-        return 0;
-    }
-    ```
+</details>
+<br>
 
-### Lanzar Núcleos Paraleloss
+<details>
+<summary>Refactoriza el núcleo para que se ejecute en paralelo en 5 hilos, todos ejecutándose en un único bloque de hilos. Deberías ver el mensaje de salida impreso 5 veces después de compilar y ejecutar el código.</summary>
 
-*   Refactoriza el núcleo para que se ejecute en paralelo en 5 hilos, todos ejecutándose en un único bloque de hilos. Deberías ver el mensaje de salida impreso 5 veces después de compilar y ejecutar el código.
+```c
+#include <stdio.h>
 
-    ```c
-    #include <stdio.h>
+__global__ void firstParallel()
+{
+    printf("Paralelismo.\n");
+}
 
-    __global__ void firstParallel()
-    {
-        printf("Paralelismo.\n");
-    }
+int main()
+{
+    int num_bloques = 1;
+    int num_hebras_bloques = 5;
+    
+    firstParallel<<<num_bloques, num_hebras_bloques>>>();
+    
+    cudaDeviceSynchronize();
+    
+    return 0;
+}
+```
 
-    int main()
-    {
-        int num_bloques = 1;
-        int num_hebras_bloques = 5;
-        
-        firstParallel<<<num_bloques, num_hebras_bloques>>>();
-        
-        cudaDeviceSynchronize();
-        
-        return 0;
-    }
-    ```
-*   Refactoriza el kernel para ejecutar en paralelo dentro de 5 bloques de hilos, cada uno conteniendo 5 hilos. Deberías ver el mensaje de salida impreso 25 veces ahora después de compilar y ejecutar.
+</details>
+<br>
 
-    ```c
-    #include <stdio.h>
+<details>
+<summary>Refactoriza el kernel para ejecutar en paralelo dentro de 5 bloques de hilos, cada uno conteniendo 5 hilos. Deberías ver el mensaje de salida impreso 25 veces ahora después de compilar y ejecutar.</summary>
 
-    __global__ void firstParallel()
-    {
-        printf("Paralelismo.\n");
-    }
+```c
+#include <stdio.h>
 
-    int main()
-    {
-        int num_bloques = 5;
-        int num_hebras_bloques = 5;
-        
-        firstParallel<<<num_bloques, num_hebras_bloques>>>();
-        
-        cudaDeviceSynchronize();
-        
-        return 0;
-    }
-    ```
+__global__ void firstParallel()
+{
+    printf("Paralelismo.\n");
+}
 
-### Utilizar índices específicos de hilos y bloques
+int main()
+{
+    int num_bloques = 5;
+    int num_hebras_bloques = 5;
+    
+    firstParallel<<<num_bloques, num_hebras_bloques>>>();
+    
+    cudaDeviceSynchronize();
+    
+    return 0;
+}
+```
+
+</details>
+<br>
+
+<details>
+<summary>Utilizar índices específicos de hilos y bloques.</summary>
 
 ```c
 #include <stdio.h>
@@ -147,7 +158,11 @@ int main()
 }
 ```
 
-### Aceleración de un bucle con un único bloque de subprocesos
+</details>
+<br>
+
+<details>
+<summary>Aceleración de un bucle con un único bloque de subprocesos.</summary>
 
 ```c
 #include <stdio.h>
@@ -177,7 +192,11 @@ int main()
 }
 ```
 
-### Aceleración de un bucle con varios bloques de subprocesos
+</details>
+<br>
+
+<details>
+<summary>Aceleración de un bucle con varios bloques de subprocesos.</summary>
 
 ```c
 #include <stdio.h>
@@ -206,8 +225,11 @@ int main()
     return 0;
 }
 ```
+</details>
+<br>
 
-### **Manipulación de arrays en el host y device**
+<details>
+<summary>Manipulación de arrays en el host y device.</summary>
 
 ```c
 #include <stdio.h>
@@ -282,8 +304,11 @@ int main()
     return 0;		
 }
 ```
+</details>
+<br>
 
-### Aceleración de un bucle con una configuración de ejecución no coincidente
+<details>
+<summary>Aceleración de un bucle con una configuración de ejecución no coincidente.</summary>
 
 ```c
 #include <stdio.h>
@@ -353,8 +378,11 @@ int main()
     return 0;
 }
 ```
+</details>
+<br>
 
-### Utilizar un bucle Grid-Stride para manipular un array mayor que la cuadrícula de los bloques
+<details>
+<summary>Utilizar un bucle Grid-Stride para manipular un array mayor que la cuadrícula de los bloques.</summary>
 
 ```c
 #include <stdio.h>
@@ -430,10 +458,11 @@ int main()
     return 0;
 }
 ```
+</details>
+<br>
 
-### **Manejo de errores**
-
-Colocamos el código necesario para la gestión de errores:
+<details>
+<summary>Manejo de errores.</summary>
 
 ```c
 #include <stdio.h>
@@ -529,7 +558,11 @@ Y vemos que se trata de la configuración del Kernel donde el número de hebras 
 size_t threads_per_block = 1024;
 ```
 
-### Acelerar la suma de vectores
+</details>
+<br>
+
+<details>
+<summary>Acelerar la suma de vectores.</summary>
 
 ```c
 #include <stdio.h>
@@ -614,8 +647,11 @@ int main()
     return 0;
 }
 ```
+</details>
+<br>
 
-### Acelerar la multiplicación de matrices 2D
+<details>
+<summary>Acelerar la multiplicación de matrices 2D.</summary>
 
 <figure><img src="../../.gitbook/assets/Matrix.jpg" alt=""><figcaption></figcaption></figure>
 
@@ -742,9 +778,11 @@ int main()
     cudaFree(c_gpu);
 }
 ```
+</details>
+<br>
 
-### Acelerar una aplicación de conductividad térmica
-
+<details>
+<summary>Acelerar una aplicación de conductividad térmica.</summary>
 <figure><img src="../../.gitbook/assets/Thermal_Conductivity.jpg" alt=""><figcaption></figcaption></figure>
 
 ```c
@@ -910,8 +948,11 @@ int main()
     return 0;
 }
 ```
+</details>
+<br>
 
-## Ejercicios avanzados
+
+# Ejercicios avanzados
 
 Los ejercicios se han realizado con una **Tesla T4.**
 
@@ -921,9 +962,10 @@ Podemos utilizar el comando `!nsys profile --stats=true ./kernel` para obtener i
 
 ### Optimización
 
-Por ejemplo, si tenemos datos con tamaños de $$2<<24=2^{25}=2^{10} \cdot 2^{10} \cdot 2^{5}$$, podemos tener como máximo 1024 hebras por bloque, quedando $$2^{15}$$ hebras que las repartiremos conformando $$2^{25}/1024=32768$$ bloques. En total tendríamos $$1024*32768=33554432$$ hebras totales.
+Por ejemplo, si tenemos datos con tamaños de $$2^{24} = 2^{25} = 2^{10} \cdot 2^{10} \cdot 2^{5}$$, podemos tener como máximo 1024 hebras por bloque, quedando $$2^{15}$$ hebras que las repartiremos conformando $$2^{25}/1024 = 32768$$ bloques. En total tendríamos $$1024 \cdot 32768 = 33554432$$ hebras totales.
 
-### **Consultar especificaciones de la GPU**
+<details>
+<summary>Consultar especificaciones de la GPU.</summary>
 
 ```c
 #include <stdio.h>
@@ -945,8 +987,11 @@ int main()
     return 0;
 }
 ```
+</details>
+<br>
 
-### Optimizar la suma de vectores con cuadrículas del tamaño del número de SMs de la GPU
+<details>
+<summary>Optimizar la suma de vectores con cuadrículas del tamaño del número de SMs de la GPU.</summary>
 
 ```c
 #include <stdio.h>
@@ -1058,8 +1103,11 @@ int main()
     cudaFree(c);
 }
 ```
+</details>
+<br>
 
-### **Prefetch/precarga de memoria**
+<details>
+<summary>Prefetch/precarga de memoria.</summary>
 
 Al utilizar precarga de memoria, obtenemos menos transferencias de memoria pero con mayor contenido además de una reducción en el tiempo de ejecución del Kernel.
 
@@ -1105,15 +1153,15 @@ __global__ void addVectorsInto(float *resultado, float *a, float *b, int N)
 
 void checkElementsAre(float target, float *vector, int N)
 {
-  for(int i = 0; i < N; i++)
-  {
-    if(vector[i] != objetivo)
+    for(int i = 0; i < N; i++)
     {
-      printf("FAIL: vector[%d] - %0.0f no es igual a %0.0f\n", i, vector[i], target);
-      exit(1);
+        if(vector[i] != objetivo)
+        {
+            printf("FAIL: vector[%d] - %0.0f no es igual a %0.0f\n", i, vector[i], target);
+            exit(1);
+        }
     }
-  }
-  printf("¡Éxito! Todos los valores calculados correctamente.\n");
+    printf("¡Éxito! Todos los valores calculados correctamente.\n");
 }
 
 int main()
@@ -1178,5 +1226,5 @@ int main()
     cudaFree(c);
 }
 ```
-
-</div>
+</details>
+<br>

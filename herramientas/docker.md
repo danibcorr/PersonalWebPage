@@ -2,12 +2,6 @@
 description: Virtualización con Docker
 ---
 
-<div align="justify">
-
-# Docker
-
-
-
 ## 1. Teoría
 
 Las imágenes de contenedores son más livianas que las máquinas virtuales, ya que no incluyen un sistema operativo completo.
@@ -341,5 +335,3 @@ Al proporcionar infraestructura como servicio (IaaS), es fundamental considerar 
 > * **`docker-compose down`**: Apaga todo los servicios que levantó con docker-compose up.
 > * **`docker-compose ps`**: Permite ver los contenedores funcionando.
 > * **`docker-compose exec`**: Permite ejecutar un comando a uno de los servicios levantados de Docker-compose.
-
-</div>

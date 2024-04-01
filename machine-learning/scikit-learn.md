@@ -4,8 +4,6 @@ description: Realizado por Daniel Bazo Correa.
 
 <div align="justify">
 
-# Scikit Learn
-
 ### Bibliografía
 
 * [scikit-learn: machine learning in Python — scikit-learn 1.1.2 documentation](https://scikit-learn.org/stable/index.html)
