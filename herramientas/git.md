@@ -4,11 +4,11 @@ description: >-
   @iamcay y @LuisMiguelCG en GitHub.
 ---
 
-## 1. Control de versiones: Conceptos básicos
+# 1. Control de versiones: Conceptos básicos
 
 El control de versiones es un sistema que registra los cambios realizados en un archivo o conjunto de archivos a lo largo del tiempo, permitiendo así recuperar versiones específicas más adelante.
 
-### 1.1. Terminología del control de versiones
+## 1.1. Terminología del control de versiones
 
 - **Repositorio Local**: Es una base de datos centralizada que almacena las distintas versiones de los archivos bajo control de versiones.
 - **Copia Local**: Es la copia de un archivo bajo control de versiones que los usuarios modifican. El directorio local contiene todas estas copias.
@@ -16,7 +16,7 @@ El control de versiones es un sistema que registra los cambios realizados en un 
 - **Histórico (Log)**: Es un registro de todos los cambios que se han producido en el repositorio. Es responsabilidad del usuario añadir información al log cuando se produce un cambio.
 - **Conflicto**: Se produce cuando dos usuarios han modificado las mismas líneas en un archivo, o si un usuario eliminó un archivo mientras otro usuario lo estaba modificando. En estos casos, Git no puede determinar automáticamente qué versión es correcta.
 
-### 1.2. Estados de un archivo
+## 1.2. Estados de un archivo
 
 - **Sin Seguimiento**: Git ve un archivo que no estaba en la instantánea anterior. Git no empezará a incluirlo en las confirmaciones hasta que se lo indiques explícitamente.
 - **Confirmado**: Los datos están almacenados de manera segura en tu base de datos local.
@@ -24,7 +24,7 @@ El control de versiones es un sistema que registra los cambios realizados en un 
 - **Preparado**: Has marcado un archivo modificado en su versión actual para que vaya en tu próxima confirmación.
 - **Ignorado**: Un archivo que se le ha indicado explícitamente a Git que ignore.
 
-### 1.3. Operaciones con Git
+## 1.3. Operaciones con Git
 
 - **Clone**: Crea un clon o copia local de un repositorio remoto.
 - **Add**: Añade contenido del directorio de trabajo al área de ensayo para la próxima confirmación.
@@ -34,11 +34,11 @@ El control de versiones es un sistema que registra los cambios realizados en un 
 - **Fork**: Copiar un proyecto y partir de este, hacerle modificaciones. Cuando trabajamos con repositorios Git, supone hacer una copia exacta del proyecto, generando dos URL distintas.
 - **Pull Request**: Solicitudes de integración, forma de contribuir a un proyecto grupal o de código abierto.
 
-## 2. Git y GitHub: Conceptos clave
+# 2. Git y GitHub: Conceptos clave
 
 Git es un sistema de control de versiones distribuido que permite a los equipos de desarrollo colaborar en proyectos de software. GitHub es una plataforma de alojamiento de código que utiliza Git para el control de versiones.
 
-### 2.1. Comandos básicos de Git-Bash
+## 2.1. Comandos básicos de Git-Bash
 
 Git-Bash es una interfaz de línea de comandos para interactuar con Git. Aquí te dejo una tabla con algunos de los comandos más utilizados:
 
@@ -53,7 +53,7 @@ Git-Bash es una interfaz de línea de comandos para interactuar con Git. Aquí t
 
 Estos comandos son fundamentales para la navegación y gestión de archivos en Git-Bash. Recuerda que siempre puedes usar el comando `man` seguido del nombre del comando para obtener más información sobre su uso. Por ejemplo, `man ls` te dará una descripción detallada del comando `ls`.
 
-## 2. Control de versiones local con Git
+## 2.2. Control de versiones local con Git
 
 Git es un sistema de control de versiones distribuido que permite a los equipos de desarrollo colaborar en proyectos de software. Aquí te dejo una tabla con algunos de los comandos más utilizados en Git para el control de versiones local:
 
@@ -74,11 +74,11 @@ Git es un sistema de control de versiones distribuido que permite a los equipos 
 | **git switch** | \<nombre_rama> | Cambia de rama en la copia local. |
 | **git checkout -b** | \<nombre_rama> | Crea una rama y cambia a ella sin realizar un commit en la rama master. |
 
-### 2.3. Control de versiones centralizado con Git
+## 2.3. Control de versiones centralizado con Git
 
 Git también permite el control de versiones centralizado, donde un servidor central alberga el repositorio principal y los colaboradores clonan y sincronizan sus copias locales con él.
 
-#### 2.3.1. Configuración de Git para trabajar a través de un proxy
+### 2.3.1. Configuración de Git para trabajar a través de un proxy
 
 Para configurar un proxy global para todos los repositorios, puedes usar los siguientes comandos:
 
@@ -94,7 +94,7 @@ git config --global http.<http://domain.com>.proxy http://<proxyUsername>:<proxy
 git config --global https.<https://domain.com>.proxy https://<proxyUsername>:<proxyPassword>@<proxy.server.com>:<port>
 ```
 
-#### 2.3.2. Clonar un repositorio remoto localmente
+### 2.3.2. Clonar un repositorio remoto localmente
 
 Para clonar un repositorio remoto en tu máquina local, puedes usar el siguiente comando:
 
@@ -102,7 +102,7 @@ Para clonar un repositorio remoto en tu máquina local, puedes usar el siguiente
 git clone <url>
 ```
 
-#### 2.3.3. Clonar un repositorio local en un servidor remoto
+### 2.3.3. Clonar un repositorio local en un servidor remoto
 
 Para replicar tu repositorio local en un servidor remoto, puedes usar los siguientes comandos:
 
@@ -111,7 +111,7 @@ git remote add <remote> <url>
 git push <remote> main
 ```
 
-#### 2.3.4. Traer cambios de un repositorio remoto a un repositorio local
+### 2.3.4. Traer cambios de un repositorio remoto a un repositorio local
 
 Para traer los cambios de un repositorio remoto a tu repositorio local, puedes usar el siguiente comando:
 
@@ -119,14 +119,14 @@ Para traer los cambios de un repositorio remoto a tu repositorio local, puedes u
 git pull
 ```
 
-#### 2.3.5. Resolver conflictos al traer cambios
+### 2.3.5. Resolver conflictos al traer cambios
 
 Si al realizar `git pull` tienes cambios en tu repositorio local que coinciden con cambios realizados en el repositorio remoto, se generará un conflicto. Para resolver este conflicto, tienes dos opciones:
 
 1. Subir tus cambios a otra rama y luego realizar un pull request donde puedes solucionar los conflictos manualmente.
 2. Realizar un `commit` de tus cambios y volver a ejecutar el comando `git pull` para que se ejecute el solucionador de conflictos que incluye Git.
 
-#### 2.3.6. Enviar cambios de un repositorio local a uno remoto
+### 2.3.6. Enviar cambios de un repositorio local a uno remoto
 
 Para enviar los cambios de tu repositorio local a un repositorio remoto, puedes usar el siguiente comando:
 
@@ -134,7 +134,7 @@ Para enviar los cambios de tu repositorio local a un repositorio remoto, puedes 
 git push -u origin main
 ```
 
-#### 2.3.7. Enviar una rama local al remoto
+### 2.3.7. Enviar una rama local al remoto
 
 Para enviar una rama local al repositorio remoto, puedes usar el siguiente comando:
 
@@ -142,7 +142,7 @@ Para enviar una rama local al repositorio remoto, puedes usar el siguiente coman
 git push origin <rama>
 ```
 
-#### 2.3.8. Incorporar cambios del repositorio remoto a ramas locales
+### 2.3.8. Incorporar cambios del repositorio remoto a ramas locales
 
 Existen diferentes métodos para incorporar los cambios que se producen en el repositorio remoto a tus ramas locales:
 
@@ -150,7 +150,7 @@ Existen diferentes métodos para incorporar los cambios que se producen en el re
 2. `git switch <rama> && git pull`: Este comando te permite cambiar a una rama local específica y traer los cambios.
 3. `git switch <rama> && git fetch`: Este comando te permite cambiar a una rama local específica y traer los cambios sin iniciar un merge si hubiera conflictos.
 
-#### 2.3.9. Realizar un Pull Request entre dos ramas de un repositorio remoto
+### 2.3.9. Realizar un Pull Request entre dos ramas de un repositorio remoto
 
 Una vez que hayas subido tus cambios a tu rama de desarrollo, puedes hacer un pull request de la siguiente manera:
 
@@ -160,7 +160,7 @@ Una vez que hayas subido tus cambios a tu rama de desarrollo, puedes hacer un pu
 4. En caso de que haya conflictos, aparecerá un botón que te permitirá entrar en un editor donde puedes solucionarlos manualmente.
 5. Una vez que hayas solucionado los conflictos (si los había), puedes hacer clic en el botón verde que dice _"Create pull request"_ y ya tendrás tu pull request solicitado.
 
-### 2.4. Control de versiones distribuido con Git
+## 2.4. Control de versiones distribuido con Git
 
 Git es un sistema de control de versiones distribuido que permite a los equipos de desarrollo colaborar en proyectos de software. Aquí te dejo una tabla con algunos de los comandos más utilizados en Git para el control de versiones distribuido:
 

@@ -2,16 +2,16 @@
 description: Realizado por Daniel Bazo Correa.
 ---
 
-## Bibliografía
+# Bibliografía
 
 * [https://www.nvidia.com/](https://www.nvidia.com/)
 * [El DLI (Deep Learning Institute) (uma.es)](http://nvidiadli.uma.es/index.php/es/certificaciones-nvidia)
 * [CuPy: NumPy & SciPy for GPU](https://cupy.dev/)
 * [Numba: A High Performance Python Compiler (pydata.org)](https://numba.pydata.org/)
 
-## Tema 1: Acelerar aplicaciones con CUDA, C y C++
+# Tema 1: Acelerar aplicaciones con CUDA, C y C++
 
-### 1.1. Introducción
+## 1.1. Introducción
 
 Existen diferentes gamas de GPU para NVidia:
 
@@ -53,7 +53,7 @@ Por ello, es importante conocer las partes de código que se pueden paralelizar 
 
 Vemos por tanto que el paralelismo por el que CUDA destaca es en el paralelismo de datos (_**data parallelism**_).
 
-### 1.2. Hardware de CUDA
+## 1.2. Hardware de CUDA
 
 Una GPU cuenta con _N_ multiprocesadores, cada uno dotado de _M_ núcleos.
 
@@ -85,9 +85,9 @@ Cambiar el valor de la precisión de los datos, por ejemplo pasar de un valor en
 
 <figure><img src="../../.gitbook/assets/Untitled 5 (2).png" alt=""><figcaption></figcaption></figure>
 
-### 1.3. Programación en CUDA
+## 1.3. Programación en CUDA
 
-#### 1.3.1. Conceptos básicos de la programación con CUDA
+### 1.3.1. Conceptos básicos de la programación con CUDA
 
 **Toda función que cuenta con paralelización escrita en CUDA recibe el nombre de Kernel.**
 
@@ -228,7 +228,7 @@ Con la imagen anterior, **tenemos que considerar casos en los que existe un mayo
 
 **En estos casos, habría que asegurarnos que el índice obtenido** $$i_{x}$$ **es menor al número de datos.**
 
-#### 1.3.2. Asignación de memoria
+### 1.3.2. Asignación de memoria
 
 Veremos la forma en la que asignar memoria y liberarla tanto para CPU como para la GPU. Para ello, utilizaremos las funciones `cudaMallocManaged()` y `cudaFree()`.
 
@@ -328,7 +328,7 @@ int main() // Territorio CPU
 
 Tener en cuenta que podemos clonar estructuras sin memoria unificada pero habría que crear copias sucesivas entre la CPU y la GPU. También se puede hacer con memoria unificada pero se ha de usar C++.
 
-#### 1.3.3. Manejo de desajustes en la configuración del kernel
+### 1.3.3. Manejo de desajustes en la configuración del kernel
 
 Puede existir el caso de que no se pueda expresar una configuración de ejecución de un _kernel_ con el número exacto de hilos necesarios para paralelizar un bucle.
 
@@ -366,7 +366,7 @@ Estos casos se pueden abordar de diferentes maneras:
     }
     ```
 
-#### 1.3.4. Kernels con gran tamaño de datos
+### 1.3.4. Kernels con gran tamaño de datos
 
 En el caso de que nos encontremos con una gran cantidad de datos que supere al número máximo de hebras, realizaríamos divisiones de los datos para ajustar al número de hebras disponibles. Tras finalizar sus tareas, realizaríamos un salto a la siguiente división de los datos con la expresión:
 
@@ -389,7 +389,7 @@ __global__ void kernel(int *a, int N)
 }
 ```
 
-#### 1.3.4. Manejo de errores con CUDA
+### 1.3.5. Manejo de errores con CUDA
 
 Muchas de las funciones de CUDA devuelven un valor que permite indicar si se ha producido o no un error siendo muy útil para el manejo de errores.
 
@@ -445,7 +445,7 @@ int main()
 }
 ```
 
-### 1.4. Kernels característicos
+## 1.4. Kernels característicos
 
 Previamente a ver los operadores tenemos que _definir un bucle forall:_
 
@@ -558,11 +558,11 @@ Como análisis final tenemos:
 * El operador de reducción depende más del programador.
 * El histograma supone el mayor reto para el programador.
 
-## Tema 2: Acelerar aplicaciones con CUDA, Python, Numba y CuPy
+# Tema 2: Acelerar aplicaciones con CUDA, Python, Numba y CuPy
 
-### 2.1. Numba
+## 2.1. Numba
 
-#### 2.1.1. Introducción
+### 2.1.1. Introducción
 
 Numba es un compilador para Python que permite ejecutar en la GPU o CPU código de NumPy, funciones y bucles haciendo una conversión a código máquina sin utilizar el interprete de Python, mejorando así los tiempos de ejecución de un programa. La manera más sencilla de usar Numba es mediante sus decoradores que se aplican en el código directamente para que Numba los compile. Dicha compilación se hace en tiempo de ejecución.
 
@@ -570,7 +570,7 @@ Numba es un compilador para Python que permite ejecutar en la GPU o CPU código 
 >
 > * Convertir DataFrames de Pandas en matrices de NumPy o CuPy.
 
-#### 2.1.2. Decoradores
+### 2.1.2. Decoradores
 
 | Decoradores                   | Definición                                                                                                                                                                                                                                               |
 | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -587,7 +587,7 @@ Tener en cuenta que los decoradores anteriores se pueden combinar entre sí, por
 
 Con el decorador anterior, estaríamos utilizando la compilación directa de `njit` evitando utilizar el interprete de Python además de estar paralelizando el código (`parallel = True`) y reduciendo la precisión numérica (`fastmath = True`) para reducir aún más el coste en tiempo.
 
-#### 2.1.3. Ejemplos de código
+### 2.1.3. Ejemplos de código
 
 ```python
 from numba import jit
@@ -606,4 +606,4 @@ def bucle(lista1, lista2, num_filas):
             lista3.append(np.mean(lista[fila], lista2[fila])) 
 ```
 
-### 2.2. Cupy
+## 2.2. Cupy

@@ -25,7 +25,6 @@ WHERE
 ```
 
 </details>
-<br>
 
 <details>
 <summary>Look for non-senior data analyst or business analyst roles. Get the job title, location, and average yearly salary.</summary>
@@ -44,7 +43,6 @@ WHERE
 ```
 
 </details>
-<br>
 
 <details>
 <summary>Calculates the current month's total earnings per project. Calcuulate a scenario where the hourly rate increases by $5.</summary>
@@ -63,7 +61,6 @@ ORDER BY
 ```
 
 </details>
-<br>
 
 <details>
 <summary>Find the average salary and number of job postings for each skill.</summary>
@@ -84,4 +81,3 @@ ORDER BY
 ```
 
 </details>
-<br>
