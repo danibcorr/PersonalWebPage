@@ -36,7 +36,7 @@ int main()
 ```
 
 </details>
-<br>
+
 
 <details>
 <summary>Refactoriza para que "Hola desde la GPU" se imprima dos veces, una antes de "Hola desde la CPU" y otra después.</summary>
@@ -74,7 +74,7 @@ int main()
 ```
 
 </details>
-<br>
+
 
 <details>
 <summary>Refactoriza el núcleo para que se ejecute en paralelo en 5 hilos, todos ejecutándose en un único bloque de hilos. Deberías ver el mensaje de salida impreso 5 veces después de compilar y ejecutar el código.</summary>
@@ -101,7 +101,7 @@ int main()
 ```
 
 </details>
-<br>
+
 
 <details>
 <summary>Refactoriza el kernel para ejecutar en paralelo dentro de 5 bloques de hilos, cada uno conteniendo 5 hilos. Deberías ver el mensaje de salida impreso 25 veces ahora después de compilar y ejecutar.</summary>
@@ -128,7 +128,7 @@ int main()
 ```
 
 </details>
-<br>
+
 
 <details>
 <summary>Utilizar índices específicos de hilos y bloques.</summary>
@@ -159,7 +159,7 @@ int main()
 ```
 
 </details>
-<br>
+
 
 <details>
 <summary>Aceleración de un bucle con un único bloque de subprocesos.</summary>
@@ -193,7 +193,7 @@ int main()
 ```
 
 </details>
-<br>
+
 
 <details>
 <summary>Aceleración de un bucle con varios bloques de subprocesos.</summary>
@@ -226,7 +226,7 @@ int main()
 }
 ```
 </details>
-<br>
+
 
 <details>
 <summary>Manipulación de arrays en el host y device.</summary>
@@ -305,7 +305,7 @@ int main()
 }
 ```
 </details>
-<br>
+
 
 <details>
 <summary>Aceleración de un bucle con una configuración de ejecución no coincidente.</summary>
@@ -379,7 +379,7 @@ int main()
 }
 ```
 </details>
-<br>
+
 
 <details>
 <summary>Utilizar un bucle Grid-Stride para manipular un array mayor que la cuadrícula de los bloques.</summary>
@@ -459,7 +459,7 @@ int main()
 }
 ```
 </details>
-<br>
+
 
 <details>
 <summary>Manejo de errores.</summary>
@@ -559,7 +559,7 @@ size_t threads_per_block = 1024;
 ```
 
 </details>
-<br>
+
 
 <details>
 <summary>Acelerar la suma de vectores.</summary>
@@ -648,7 +648,7 @@ int main()
 }
 ```
 </details>
-<br>
+
 
 <details>
 <summary>Acelerar la multiplicación de matrices 2D.</summary>
@@ -779,7 +779,7 @@ int main()
 }
 ```
 </details>
-<br>
+
 
 <details>
 <summary>Acelerar una aplicación de conductividad térmica.</summary>
@@ -949,7 +949,7 @@ int main()
 }
 ```
 </details>
-<br>
+
 
 
 # Ejercicios avanzados
@@ -988,7 +988,7 @@ int main()
 }
 ```
 </details>
-<br>
+
 
 <details>
 <summary>Optimizar la suma de vectores con cuadrículas del tamaño del número de SMs de la GPU.</summary>
@@ -1104,7 +1104,7 @@ int main()
 }
 ```
 </details>
-<br>
+
 
 <details>
 <summary>Prefetch/precarga de memoria.</summary>
@@ -1227,4 +1227,3 @@ int main()
 }
 ```
 </details>
-<br>
