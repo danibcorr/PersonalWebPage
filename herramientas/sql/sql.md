@@ -7,30 +7,55 @@ description: >-
 
 + https://www.youtube.com/watch?v=xqhJud-ryyI&t=6152s
 
-# 1. Conceptos básicos
+# 1. Conceptos básicos de SQL
 
 ## 1.1. Introducción
 
-**SQL** (Structured Query Language) es un lenguaje de programación utilizado para gestionar y manipular bases de datos. A diferencia de herramientas como Excel, que tienen un límite de alrededor de 1 millón de filas, las bases de datos de SQL pueden almacenar grandes cantidades de datos.
+**SQL** (Structured Query Language) es un lenguaje de programación diseñado para administrar y manipular bases de datos. A diferencia de herramientas como *Excel*, que tienen un límite de alrededor de 1 millón de filas, las bases de datos SQL pueden manejar grandes volúmenes de datos.
 
-Las bases de datos pueden ser de dos tipos:
+Las bases de datos se clasifican en dos tipos principales:
 
-- **Relacionales**: Estas bases de datos almacenan datos estructurados en forma de tablas, con filas y columnas. Cada tabla tiene un identificador único que permite relacionarla con otras tablas.
-- **No relacionales**: También conocidas como No-SQL (Not Only SQL), estas bases de datos almacenan datos no estructurados. Los datos pueden estar basados en grafos, documentos, pares clave-valor, entre otros.
+- **Relacionales**: Estas bases de datos almacenan datos estructurados en tablas, compuestas por filas y columnas. Cada tabla tiene un identificador único que permite relacionarla con otras tablas.
+- **No relacionales**: También conocidas como *No-SQL* (Not Only SQL), estas bases de datos almacenan datos no estructurados. Los datos pueden estar basados en grafos, documentos, pares clave-valor, entre otros.
 
-Para interactuar con una base de datos utilizando SQL, se utilizan las consultas o **queries**. Las operaciones que se pueden realizar con las queries se resumen en el acrónimo **CRUD**, que hace referencia a Create (Crear), Read (Leer), Update (Actualizar) y Delete (Eliminar).
+A continuación, se presenta una tabla que resume las ventajas y desventajas de cada tipo de base de datos:
+
+|  | Datos relacionales | Datos no relacionales |
+|---|---|---|
+| Pros | Esquema estandarizado<br>Gran comunidad de usuarios<br>Lenguaje de consulta estandarizado<br>ACID | Disponibilidad continua<br>Velocidad de consulta<br>Agilidad<br>Costo |
+| Contras | Dificultad de agrupación<br>Normalización de datos<br>Primero el esquema<br>Escalado intensivo en recursos | No hay un lenguaje de consulta estandarizado<br>Comunidad de usuarios más pequeña<br>Se requieren habilidades de desarrollador<br>Inconsistencia en la recuperación de datos |
+
+En la tabla anterior, el "esquema estandarizado" se refiere a que todas las tablas o datos deben seguir una plantilla predefinida, lo que puede ser una desventaja debido a la necesidad de crear esa plantilla y a la poca flexibilidad resultante. 
+
+El acrónimo *ACID* se refiere a Atomicity, Consistency, Isolation y Durability (Atomicidad, Consistencia, Aislamiento y Durabilidad), que son un conjunto de propiedades que garantizan la integridad y confiabilidad de los datos en entornos transaccionales. Los entornos transaccionales se refieren a sistemas o aplicaciones que manejan una gran cantidad de transacciones cortas en línea, permitiendo el procesamiento rápido de consultas a información muy actual y detallada. Estos entornos son comunes en bases de datos y sistemas de procesamiento de transacciones en línea (OLTP) como los cajeros automáticos, la banca en línea, las cajas registradoras y el comercio electrónico. Las propiedades *ACID* son:
+
+1. **Atomicidad**: Garantiza que una transacción se ejecute como una unidad atómica, es decir, ocurrirá en su totalidad o no ocurrirá en absoluto. Si una parte de la transacción falla, la totalidad de la transacción se revierte a su estado inicial.
+
+2. **Consistencia**: Garantiza que una transacción lleve la base de datos de un estado consistente a otro estado consistente. Las transacciones deben respetar las reglas de integridad definidas en la base de datos. Si una transacción viola alguna regla, se revierte y no se aplica.
+
+3. **Aislamiento**: Garantiza que una transacción en ejecución sea invisible para otras transacciones hasta que se complete. Esto evita interferencias entre transacciones concurrentes y garantiza que cada transacción se ejecute de manera independiente.
+
+4. **Durabilidad**: Garantiza que una vez que una transacción ha sido confirmada, sobrevivirá a fallos posteriores del sistema.
+
+Estas propiedades son fundamentales para mantener la integridad de los datos en las bases de datos SQL.
+
+La dificultad de escalar las bases de datos relacionales se debe a que escalan verticalmente, lo que supone incrementar el tamaño de la máquina que tenemos tanto en RAM, CPU u otros, o migrar a otros equipos más caros. Debido a las relaciones que existen entre las diferentes tablas de una misma base de datos, se requiere mantener consistencia. Por lo tanto, la tendencia para mitigar este problema ha sido crear *NewSQL*, cuya premisa es conseguir la gestión de datos relacionales con la escalabilidad de sistemas *NoSQL*.
+
+Por otro lado, las bases de datos *NoSQL* tienen como principales ventajas la reducción de costos y la capacidad de escalar, ya que permiten crear sistemas distribuidos. Sin embargo, no cuentan con una sintaxis estándar, lo que puede resultar en una gestión más compleja.
+
+Para interactuar con una base de datos utilizando SQL, se utilizan las consultas o **queries**. Las operaciones que se pueden realizar con las queries se resumen en el acrónimo **CRUD**, que hace referencia a *Create* (Crear), *Read* (Leer), *Update* (Actualizar) y *Delete* (Eliminar).
 
 Las bases de datos pueden almacenarse localmente o en servidores. La opción local se utiliza generalmente para desarrollo. A nivel de servidores, existen dos tipos de sistemas:
 
 - **On-Prem**: El servidor pertenece a la propia empresa.
-- **Serverless**: El servidor está en la nube y es proporcionado por un tercero, como AWS o Azure.
+- **Serverless**: El servidor está en la nube y es proporcionado por un tercero, como *AWS* o *Azure*.
 
 Un concepto importante en el manejo de bases de datos es el **ERD** (Entity Relationship Diagram), que permite visualizar y entender las relaciones entre las diferentes tablas de la base de datos.
 
 Las tablas en una base de datos pueden ser de dos tipos:
 
 - **Fact tables**: Contienen los datos principales para el análisis de datos. Permiten medir y almacenar eventos.
-- **Dimension tables**: Describen atributos o dimensiones de los datos. Se utilizan para filtrar, agrupar, etc.
+- **Dimension tables**: Describen atributos o dimensiones de los datos. Se utilizan para filtrar, agrupar, etc. Estas tablas son esenciales para proporcionar contexto a los datos contenidos en las tablas de hechos. Por ejemplo, una tabla de hechos puede contener registros de ventas, mientras que una tabla de dimensiones puede contener información sobre los clientes, como su ubicación y segmento de mercado. Esta información adicional permite realizar análisis más detallados y significativos. 
 
 ## 1.2. Palabras clave y estructura de las consultas SQL
 
