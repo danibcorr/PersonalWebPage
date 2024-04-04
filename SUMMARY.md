@@ -10,15 +10,19 @@
 * [Docker](herramientas/docker.md)
 * [Linux](herramientas/linux.md)
 * [Anaconda](herramientas/anaconda.md)
-* [SQL](herramientas/sql/sql.md)
-  * [Ejercicios SQL](herramientas/sql/ejercicios-sql.md)
 
+## 🧩 Procesos y metodologías
+
+* [MLops](ml-ops/ml_ops.md)
+  
 ## 💻 Programación
 
 * [Python](programacion/python.md)
 * [CUDA](programacion/cuda/cuda.md)
   * [Ejercicios CUDA en C](programacion/cuda/ejercicios-cuda-en-c.md)
-
+* [SQL](herramientas/sql/sql.md)
+  * [Ejercicios SQL](herramientas/sql/ejercicios-sql.md)
+  
 ## 🦾 Deep Learning
 
 * [Librerías](deep-learning/librerias/README.md)
