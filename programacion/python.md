@@ -30,7 +30,7 @@ Si estás utilizando Anaconda en Linux, estos comandos pueden ser útiles:
 | `anaconda-navigator`                                                 | Abre el navegador de Anaconda desde el terminal de Linux                                                                             |
 | `cd /home/"usuario"/anaconda3/bin + ./jupyter-notebook --allow-root` | Si el navegador de Anaconda tiene problemas para abrir el cuaderno Jupyter, puedes abrirlo directamente sin usar Anaconda            |
 
-# 2. Objetos y estructura de datos básica en Python
+# 2. Objetos y estructura de datos básica
 
 ## 2.1. Tipos de datos fundamentales
 
@@ -66,7 +66,7 @@ Python también proporciona una serie de operadores que se pueden utilizar para 
 | `hex(512)` | Convierte números a hexadecimal. |
 | `bin(1234)` | Convierte números a binario. |
 
-## 2.3. Asignación de variables en Python
+## 2.3. Asignación de variables
 
 Cuando creamos variables en Python, debemos seguir ciertas reglas:
 
@@ -85,7 +85,7 @@ mis_perros = [ "Pixel" , "One" ]
 
 Al escribir `type(variable)` en Python, nos muestra el tipo (int, string, bool...) de la variable.
 
-## 2.4. Imprimir en pantalla en Python
+## 2.4. Imprimir en pantalla
 
 La función utilizada para imprimir en pantalla es `print()`:
 
@@ -111,7 +111,7 @@ char_age = 19
 print(f"Yo me llamo {char_name} y tengo {char_age} años")
 ```
 
-## 2.5. Cadenas de texto (String) en Python
+## 2.5. Cadenas de texto (String)
 
 Definimos a un string como una cadena de caracteres, por ejemplo:
 
@@ -127,7 +127,7 @@ print(f"Mi conejo se llama {mis_animales[0]} y mi gato {mis_animales[1]}")
 
 Al igual que las listas, el índice de una variable de tipo string comienza en 0, pero a diferencia de las listas, los strings son inmutables, lo que significa que no podemos utilizar el indexado para modificar un elemento individual del string.
 
-### 2.5.1. Funciones de las cadenas de texto (String) en Python
+### 2.5.1. Funciones de las cadenas de texto (String)
 Las variables de tipo string en Python tienen una serie de funciones incorporadas que permiten manipular y analizar el contenido de la cadena. Aquí hay algunas de las funciones más comunes:
 
 | Función                                            | Definición                                                                                                                                                                                                                                                                                                                                                                                          |
@@ -204,7 +204,7 @@ pi = math.pi
 print(f"El número pi con 5 decimales es: {pi:.5f}")
 ```
 
-## 2.6. Listas en Python
+## 2.6. Listas
 
 Las listas en Python son una secuencia ordenada y mutable que puede almacenar elementos de manera dinámica y de diferentes tipos. Que una lista sea ordenada significa que cada posición tiene un índice, siendo el índice de la posición inicial el 0. El término mutable hace referencia a que los elementos almacenados en la lista pueden ser modificados a lo largo del programa. Por último, que sea dinámica significa que la lista no tiene un tamaño fijo, por lo que este puede variar a lo largo del código. Por ejemplo:
 
@@ -286,7 +286,7 @@ print(number_grid[2][2])
 
 Las librerías Numpy y Pandas son muy útiles para manipular datos y realizar operaciones con datos, entre ellas, matrices.
 
-## 2.7. Diccionarios en Python
+## 2.7. Diccionarios
 
 Un diccionario en Python es una colección de datos no ordenada, mutable e indexada. Los diccionarios están escritos con corchetes y cuentan con **claves** (**keys**) y **valores** (**values**). Cada clave tiene que estar asociada a un valor único. Por ejemplo:
 
@@ -313,7 +313,7 @@ En caso de buscar un valor de clave no encontrado en un diccionario podemos util
 clave = "Daniel"
 print(conversion_meses.get(clave, f"La clave {clave} no está en el diccionario"))
 ```
-### 2.7.1. Funciones de los diccionarios en Python
+### 2.7.1. Funciones de los diccionarios
 
 Los diccionarios en Python tienen varias funciones incorporadas que permiten manipular y acceder a sus elementos. Aquí tienes algunas de las más comunes:
 
@@ -361,7 +361,7 @@ for cliente in clientes:
 	print(f"{cliente['nombre']} tiene: {cliente.get('animales', 'No tiene animales')}")
 ```
 
-## 2.8. Tuplas en Python
+## 2.8. Tuplas
 
 Las tuplas en Python son similares a las listas, pero con la principal diferencia de que los elementos que almacenan son inmutables, es decir, no pueden sufrir modificaciones una vez creados. Una de las ventajas principales de las tuplas es que suelen ser más rápidas de iterar sobre ellas en comparación con las listas. Por ejemplo:
 
@@ -373,7 +373,7 @@ print(f"Coordenada completa {coordenadas}")
 print(f"Primera coordenada {coordenadas[0]} y la segunda coordenada {coordenadas[1]}")
 ```
 
-### 2.8.1. Funciones de las tuplas en Python
+### 2.8.1. Funciones de las tuplas
 
 Las tuplas en Python tienen algunas funciones incorporadas que permiten manipular y acceder a sus elementos. Aquí tienes las más comunes:
 
@@ -387,7 +387,7 @@ lista_tuplas = [(1,2) , (3,4) , (5,6)]
 print(f"Mi lista de tuplas es {lista_tuplas}")
 ```
 
-## 2.9. Conjuntos (Sets) en Python
+## 2.9. Conjuntos (Sets)
 
 Un conjunto (`set`) en Python es una colección desordenada de elementos únicos. Esto significa que cada elemento puede aparecer solo una vez en un conjunto. Aquí tienes un ejemplo:
 
@@ -405,7 +405,7 @@ mi_set.add(1)
 mi_nuevo_set = {'a', 'b', 'c'}
 ```
 
-### 2.9.1. Funciones de los conjuntos en Python
+### 2.9.1. Funciones de los conjuntos
 
 Los conjuntos en Python tienen varias funciones incorporadas que permiten manipular y acceder a sus elementos. Aquí tienes algunas de las más comunes:
 
@@ -421,11 +421,11 @@ Los conjuntos en Python tienen varias funciones incorporadas que permiten manipu
 | `s1.issubset(s2)`          | Ver si un set contiene a otro set. Devuelve True o False.                                                                  |
 | `s1.union(s2)`             | Unión de dos sets. Recordar que la unión consiste en combinar todos los elementos de los sets sin repetir ningún elemento. |
 
-## 2.10. Booleanos (Bool) en Python
+## 2.10. Booleanos (Bool)
 
 Los booleanos son operadores que permiten transmitir declaraciones de verdadero (**True**) o falso (**False**). Los operadores booleanos son muy útiles en el control de flujo y lógica. Veremos diferentes casos de usos en los ejemplos siguientes.
 
-## 2.11. Introducción de datos en Python
+## 2.11. Introducción de datos
 
 Python ofrece la posibilidad de obtener información introducida por el usuario con la función `input(...)`. Es importante tener en cuenta que la función `input()` transforma todo el contenido pasado a tipo string. Esto es relevante si posteriormente necesitamos manipular datos con un tipo de dato concreto. Por ejemplo:
 
@@ -446,7 +446,7 @@ Para convertir un input en un número y no como un string, tenemos que realizar 
 numero = float(input("Introduce un numero: "))
 ```
 
-## 2.12. Manejo de archivos en Python
+## 2.12. Manejo de archivos
 
 Podemos abrir un fichero usando la función `open()`:
 
@@ -465,7 +465,7 @@ Python permite asignar diferentes permisos (escritura/lectura/ambas...) al fiche
 | w+      | Escritura y lectura, reescribirá los archivos existentes o creará uno nuevo. |
 | wb      | Modo archivo, escritura y binario. |
 
-### 2.12.1. Lectura de archivos en Python
+### 2.12.1. Lectura de archivos
 
 Para poder leer un fichero podemos utilizar algunas funciones como:
 
@@ -512,7 +512,7 @@ with open('myfile.txt', mode='w') as my_new_file:
 	print(contents)
 ```
 
-### 2.12.2. Escritura de archivos en Python
+### 2.12.2. Escritura de archivos
 
 Un ejemplo de cómo escribir en un fichero sería:
 
@@ -529,7 +529,7 @@ fichero.write("\\n" + nuevo_empleado + " - " + funcion_empleado)
 fichero.close()
 ```
 
-# 3. Operadores en Python
+# 3. Operadores
 
 ## 3.1. Operadores de comparación
 
@@ -580,7 +580,7 @@ from random import randint
 randint(0,100)
 ```
 
-# 4. Declaraciones `if`, `elif` y `else` en Python
+# 4. Declaraciones `if`, `elif` y `else`
 
 Las declaraciones `if`, `elif` y `else` se utilizan en Python para controlar el flujo de ejecución del programa en función de ciertas condiciones.
 
@@ -635,7 +635,7 @@ En el primer ejemplo, se comprueba si el número 1 está en la lista. En el segu
 
 # 5. Bucles
 
-## 5.1. Bucle `for` en Python
+## 5.1. Bucle `for`
 
 Muchos objetos en Python son iterables, es decir, podemos recorrer cada uno de sus elementos. Un ejemplo podría ser recorrer cada elemento que compone una lista o los caracteres que componen un string. Usamos entonces los bucles `for` para iterar sobre dichos elementos. Aquí tienes la sintaxis:
 
@@ -724,7 +724,7 @@ for elemento in enumerate(word):
     print(elemento)
 ```
 
-## 5.2. Bucle `while` en Python
+## 5.2. Bucle `while`
 
 El bucle `while` realiza un bucle mientras se cumpla la condición. Aquí tienes la sintaxis:
 
@@ -742,7 +742,7 @@ else:
     # Código a ejecutar en el caso de que la condición del while no se cumpla
 ```
 
-## 5.3. `break`, `continue` y `pass` en Python
+## 5.3. `break`, `continue` y `pass`
 
 `break`→ Rompe con el bucle que se esté ejecutando en ese momento. Por ejemplo:
 
@@ -780,7 +780,7 @@ for letra in 'Python':
 ```
 En este ejemplo, la declaración `pass` permite que el bucle `for` continúe su iteración normalmente después de la letra 'h'. Sin la declaración `pass`, habría un error porque Python espera una declaración después del `if` pero no encuentra ninguna. Con `pass`, Python tiene una declaración que no hace nada, lo que evita el error.
 
-# 6. Métodos y funciones en Python
+# 6. Métodos y funciones
 
 ## 6.1. Métodos
 
@@ -821,7 +821,7 @@ En este ejemplo, `nombre` tiene un valor predeterminado de `"Mundo"`. Si llamas 
 
 Las funciones son una excelente manera de organizar tu código y hacerlo más legible y reutilizable. También pueden ayudarte a dividir problemas complejos en partes más manejables.
 
-### 6.2.1. Funciones con Lógica en Python
+### 6.2.1. Funciones con Lógica
 
 Las funciones en Python pueden contener una variedad de estructuras de control, como bucles y llamadas a otras funciones. Aquí te presento algunos ejemplos:
 

@@ -1,6 +1,5 @@
 ---
-description: >-
-  Conceptos sobre SQL.
+description: Realizado por Daniel Bazo Correa.
 ---
 
 # Bibliografía

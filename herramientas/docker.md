@@ -1,5 +1,5 @@
 ---
-description: Virtualización con Docker
+description: Realizado por Daniel Bazo Correa.
 ---
 
 ## 1. Teoría

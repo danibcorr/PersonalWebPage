@@ -1,3 +1,7 @@
+---
+description: Realizado por Daniel Bazo Correa.
+---
+
 # Introducción
 
 **Anaconda** es una plataforma de código abierto que proporciona un entorno robusto para la ciencia de datos y el aprendizaje automático. Incluye una distribución de Python con una amplia gama de bibliotecas preinstaladas, un gestor de paquetes para facilitar la administración de dependencias, la capacidad de crear y gestionar entornos virtuales, y una integración fluida con los cuadernos Jupyter.

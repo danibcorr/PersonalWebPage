@@ -53,7 +53,7 @@ Por ello, es importante conocer las partes de código que se pueden paralelizar 
 
 Vemos por tanto que el paralelismo por el que CUDA destaca es en el paralelismo de datos (_**data parallelism**_).
 
-## 1.2. Hardware de CUDA
+## 1.2. Hardware
 
 Una GPU cuenta con _N_ multiprocesadores, cada uno dotado de _M_ núcleos.
 
@@ -85,9 +85,9 @@ Cambiar el valor de la precisión de los datos, por ejemplo pasar de un valor en
 
 <figure><img src="../../.gitbook/assets/Untitled 5 (2).png" alt=""><figcaption></figcaption></figure>
 
-## 1.3. Programación en CUDA
+## 1.3. Programación
 
-### 1.3.1. Conceptos básicos de la programación con CUDA
+### 1.3.1. Conceptos básicos
 
 **Toda función que cuenta con paralelización escrita en CUDA recibe el nombre de Kernel.**
 
@@ -389,7 +389,7 @@ __global__ void kernel(int *a, int N)
 }
 ```
 
-### 1.3.5. Manejo de errores con CUDA
+### 1.3.5. Manejo de errores
 
 Muchas de las funciones de CUDA devuelven un valor que permite indicar si se ha producido o no un error siendo muy útil para el manejo de errores.
 

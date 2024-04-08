@@ -4,7 +4,7 @@ description: >-
   @iamcay y @LuisMiguelCG en GitHub.
 ---
 
-# 1. Control de versiones: Conceptos básicos
+# 1. Control de versiones
 
 El control de versiones es un sistema que registra los cambios realizados en un archivo o conjunto de archivos a lo largo del tiempo, permitiendo así recuperar versiones específicas más adelante.
 
@@ -24,7 +24,7 @@ El control de versiones es un sistema que registra los cambios realizados en un 
 - **Preparado**: Has marcado un archivo modificado en su versión actual para que vaya en tu próxima confirmación.
 - **Ignorado**: Un archivo que se le ha indicado explícitamente a Git que ignore.
 
-## 1.3. Operaciones con Git
+## 1.3. Operaciones
 
 - **Clone**: Crea un clon o copia local de un repositorio remoto.
 - **Add**: Añade contenido del directorio de trabajo al área de ensayo para la próxima confirmación.
@@ -34,7 +34,7 @@ El control de versiones es un sistema que registra los cambios realizados en un 
 - **Fork**: Copiar un proyecto y partir de este, hacerle modificaciones. Cuando trabajamos con repositorios Git, supone hacer una copia exacta del proyecto, generando dos URL distintas.
 - **Pull Request**: Solicitudes de integración, forma de contribuir a un proyecto grupal o de código abierto.
 
-# 2. Git y GitHub: Conceptos clave
+# 2. Git y GitHub
 
 Git es un sistema de control de versiones distribuido que permite a los equipos de desarrollo colaborar en proyectos de software. GitHub es una plataforma de alojamiento de código que utiliza Git para el control de versiones.
 
@@ -53,7 +53,7 @@ Git-Bash es una interfaz de línea de comandos para interactuar con Git. Aquí t
 
 Estos comandos son fundamentales para la navegación y gestión de archivos en Git-Bash. Recuerda que siempre puedes usar el comando `man` seguido del nombre del comando para obtener más información sobre su uso. Por ejemplo, `man ls` te dará una descripción detallada del comando `ls`.
 
-## 2.2. Control de versiones local con Git
+## 2.2. Control de versiones local
 
 Git es un sistema de control de versiones distribuido que permite a los equipos de desarrollo colaborar en proyectos de software. Aquí te dejo una tabla con algunos de los comandos más utilizados en Git para el control de versiones local:
 
@@ -74,7 +74,7 @@ Git es un sistema de control de versiones distribuido que permite a los equipos 
 | **git switch** | \<nombre_rama> | Cambia de rama en la copia local. |
 | **git checkout -b** | \<nombre_rama> | Crea una rama y cambia a ella sin realizar un commit en la rama master. |
 
-## 2.3. Control de versiones centralizado con Git
+## 2.3. Control de versiones centralizado
 
 Git también permite el control de versiones centralizado, donde un servidor central alberga el repositorio principal y los colaboradores clonan y sincronizan sus copias locales con él.
 
@@ -160,7 +160,7 @@ Una vez que hayas subido tus cambios a tu rama de desarrollo, puedes hacer un pu
 4. En caso de que haya conflictos, aparecerá un botón que te permitirá entrar en un editor donde puedes solucionarlos manualmente.
 5. Una vez que hayas solucionado los conflictos (si los había), puedes hacer clic en el botón verde que dice _"Create pull request"_ y ya tendrás tu pull request solicitado.
 
-## 2.4. Control de versiones distribuido con Git
+## 2.4. Control de versiones distribuido
 
 Git es un sistema de control de versiones distribuido que permite a los equipos de desarrollo colaborar en proyectos de software. Aquí te dejo una tabla con algunos de los comandos más utilizados en Git para el control de versiones distribuido:
 

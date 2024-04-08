@@ -1,9 +1,10 @@
 ---
-description: >-
-    Los comandos pueden variar según la distribución de Linux. En este caso, se está utilizando PopOS, basado en Ubuntu (Debian).
+description: Realizado por Daniel Bazo Correa.
 ---
 
 # Procesos
+
+Los comandos pueden variar según la distribución de Linux. En este caso, se está utilizando PopOS, basado en Ubuntu (Debian).
 
 ## Instalar drivers de Nvidia
 

@@ -1,6 +1,5 @@
 ---
-description: >-
-  Ejercicios prácticas de SQL.
+description: Realizado por Daniel Bazo Correa.
 ---
 
 # Ejercicios básicos

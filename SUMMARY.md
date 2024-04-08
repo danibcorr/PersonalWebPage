@@ -13,7 +13,7 @@
 
 ## 🧩 Procesos y metodologías
 
-* [MLops](ml-ops/ml_ops.md)
+* [MLOps](ml-ops/ml_ops.md)
   
 ## 💻 Programación
 
