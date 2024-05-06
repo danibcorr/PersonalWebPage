@@ -10,7 +10,8 @@
 * [Docker](herramientas/docker.md)
 * [Linux](herramientas/linux.md)
 * [Anaconda](herramientas/anaconda.md)
-
+* [Estructuras de datos y algoritmos](herramientas/dsa/estructuras_de_datos_algoritmos.md)
+  
 ## 🧩 Procesos y metodologías
 
 * [MLOps](ml-ops/ml_ops.md)
