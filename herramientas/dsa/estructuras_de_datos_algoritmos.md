@@ -148,3 +148,71 @@ def busqueda_binaria(lista: list[int], valor_buscar: int) -> int:
 
     return None
 ```
+
+# 3. Estructuras de datos
+
+## 3.1. Pilas
+
+Una pila es una estructura de datos que organiza los elementos de manera secuencial, donde el acceso a sus elementos sigue el principio LIFO (Last In, First Out). Este principio implica que el último elemento que se añade a la pila es el primero en ser retirado. Las operaciones fundamentales en una pila son: apilar (push), que añade un elemento a la pila, y desapilar (pop), que retira el último elemento añadido. Las pilas pueden ser de tamaño estático o dinámico.
+
+A continuación, se presenta una posible implementación de una pila en Python:
+
+```python
+class Pila:
+
+    def __init__(self, tam: int = None):
+
+        self.lista = []
+        self.tope = 0
+        self.tam = tam
+        self.dinamico = False if self.tam is not None else True
+
+    def empty(self):
+
+        return len(self.lista) == 0
+
+    def push(self, elem: int):
+
+        if self.dinamico or self.tope < self.tam:
+
+            self.lista.append(elem)
+            self.tope += 1
+
+            if self.dinamico:
+
+                self.tam = self.tope
+
+        else:
+
+            raise Exception("Error, pila llena.")
+
+    def pop(self):
+
+        if not self.empty():
+
+            self.tope -= 1
+            return self.lista.pop()
+
+        else:
+
+            raise Exception("Error, pila vacía.")
+
+    def show(self):
+
+        print(self.lista)
+
+    def top(self):
+
+        if not self.empty():
+
+            return self.lista[self.tope - 1]
+
+        else:
+
+            raise Exception("Error, pila vacía.")
+
+    def size(self):
+
+        return len(self.lista)
+```
+En esta implementación, la clase `Pila` define una pila con operaciones para verificar si está vacía (`empty`), añadir un elemento (`push`), retirar un elemento (`pop`), mostrar la pila (`show`), obtener el elemento superior (`top`) y obtener el tamaño de la pila (`size`).
