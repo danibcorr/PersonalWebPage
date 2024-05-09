@@ -6,7 +6,7 @@ coverY: 0
 
 # Información
 
-<div align="justify">
+<div style="text-align: justify;">
 
 ¡Hola! 👋
 
