@@ -6,8 +6,6 @@ coverY: 0
 
 # Información
 
-<div style="text-align: justify;">
-
 ¡Hola! 👋
 
 Soy Dani, Ingeniero en Sistemas Electrónicos. He creado esta página web en Gitbook para compartir mis avances y conocimientos en el campo de la inteligencia artificial, la ciencia de datos y la programación en general. Esta página está sincronizada con un [repositorio en GitHub](https://github.com/danibcorr/PersonalWebPage) que he creado con el propósito de reunir todas las utilidades, herramientas y documentación que he utilizado en mi labor de programación.
@@ -19,5 +17,3 @@ Esta página y repositorio están diseñados para servir como un punto central e
 ¡Gracias por tu atención! 👏
 
 Puedes conectar conmigo a través de [LinkedIn](https://www.linkedin.com/in/danibcorr/).
-
-</div>

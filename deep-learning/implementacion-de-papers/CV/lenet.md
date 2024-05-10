@@ -14,7 +14,7 @@ Vamos a implementar la arquitectura de LeNet, una arquitectura basada en una red
 
 A continuación se muestra una imagen con algunas de las anotaciones para aclarar ciertos conceptos de la arquitectura y de las modificaciones que vamos a realizar. Con ellas, hemos conseguido una precisión durante el entrenamiento de 99,58 % con una pérdida de 0,0123. En la evaluación del modelo, se ha conseguido una precisión del 98,42 % con una pérdida del 0,0666.
 
-<figure><img src="../../.gitbook/assets/160DD17B-DDE1-4C60-BAF1-A441AF9DBE98.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/160DD17B-DDE1-4C60-BAF1-A441AF9DBE98.jpeg" alt=""><figcaption></figcaption></figure>
 
 ## 2. Código
 

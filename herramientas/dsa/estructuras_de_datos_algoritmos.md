@@ -149,13 +149,13 @@ def busqueda_binaria(lista: list[int], valor_buscar: int) -> int:
     return None
 ```
 
-# 3. Estructuras de datos
+# 3. Estructuras de Datos
 
 ## 3.1. Pilas
 
-Una pila es una estructura de datos que organiza los elementos de manera secuencial, donde el acceso a sus elementos sigue el principio LIFO (Last In, First Out). Este principio implica que el último elemento que se añade a la pila es el primero en ser retirado. Las operaciones fundamentales en una pila son: apilar (push), que añade un elemento a la pila, y desapilar (pop), que retira el último elemento añadido. Las pilas pueden ser de tamaño estático o dinámico.
+Una pila es una estructura de datos que organiza los elementos de manera secuencial. El acceso a sus elementos sigue el principio LIFO (Last In, First Out), lo que significa que el último elemento añadido a la pila es el primero en ser retirado. Las operaciones fundamentales en una pila son: apilar (push), que añade un elemento a la pila, y desapilar (pop), que retira el último elemento añadido. Las pilas pueden ser de tamaño estático o dinámico.
 
-A continuación, se presenta una posible implementación de una pila en Python:
+A continuación, se presenta una implementación de una pila en Python:
 
 ```python
 class Pila:
@@ -181,7 +181,6 @@ class Pila:
             if self.dinamico:
 
                 self.tam = self.tope
-
         else:
 
             raise Exception("Error, pila llena.")
@@ -215,4 +214,525 @@ class Pila:
 
         return len(self.lista)
 ```
-En esta implementación, la clase `Pila` define una pila con operaciones para verificar si está vacía (`empty`), añadir un elemento (`push`), retirar un elemento (`pop`), mostrar la pila (`show`), obtener el elemento superior (`top`) y obtener el tamaño de la pila (`size`).
+
+## 3.2. Colas
+
+Una cola es una estructura de datos que organiza los elementos de manera secuencial. La operación de inserción (push) se realiza por un extremo y la operación de extracción (pop) por el otro. Esta estructura sigue el principio FIFO (First In, First Out).
+
+A continuación, se presenta una implementación de una cola en Python:
+
+```python
+class Cola:
+
+    def __init__(self, tam: int = None):
+
+        self.lista = []
+        self.tope = 0
+        self.tam = tam
+        self.dinamico = False if self.tam is not None else True
+
+    def size(self):
+
+        return len(self.lista)
+
+    def empty(self):
+
+        return self.size() == 0
+
+    def insertar(self, elem: int):
+
+        if self.dinamico or self.tope < self.tam:
+
+            self.lista.append(elem)
+            self.tope += 1
+
+            if self.dinamico:
+
+                self.tam = self.tope
+        else:
+
+            raise Exception("Error, cola llena.")
+
+    def eliminar(self):
+        
+        if not self.empty():
+
+            self.lista.pop(0)
+            self.tope -= 1
+
+        else:
+
+            raise Exception("Error, cola vacía.")
+
+    def buscar(self, elem: int):
+
+        if not self.empty():
+
+            for idx, value in enumerate(self.lista):
+
+                if elem == value:
+
+                    return idx
+
+            raise Exception("Error, valor no encontrado.")
+
+        else:
+
+            raise Exception("Error, cola vacía.")
+
+    def top(self):
+
+        if not self.empty():
+
+            return self.lista[0]
+
+        else:
+
+            raise Exception("Error, cola vacía.")
+
+    def show(self):
+
+        print(self.lista)
+```
+
+## 3.3. Nodo
+
+En el ámbito de la programación y, concretamente, en las estructuras de datos, un nodo es un elemento fundamental de una lista enlazada, un árbol o un grafo. Cada nodo es una estructura o registro que dispone de varios campos. Al menos uno de estos campos es un puntero o referencia a otro nodo. De esta manera, una vez conocido un nodo, a partir de esa referencia, es posible acceder a otros nodos de la estructura.
+
+## 3.4. Listas Enlazadas
+
+Las listas enlazadas son estructuras de datos similares a los arrays o listas en Python, con la diferencia de que el acceso a un elemento se realiza mediante un puntero. Una lista enlazada simple cuenta con un enlace por nodo. Este enlace apunta al siguiente nodo en la lista o al valor `None` si es el último nodo.
+
+A continuación, se presenta una implementación de una lista enlazada en Python:
+
+```python
+class Nodo:
+
+    def __init__(self, dato: int):
+
+        self.dato = dato
+        self.ptr = None
+
+class ListaEnlazada:
+
+    def __init__(self):
+
+        self.nodo_inicial = None
+        self.nodo_final = None
+
+    def vacia(self) -> bool:
+
+        return self.nodo_inicial is None
+
+    def insertar_final(self, dato: int):
+
+        nuevo_nodo = Nodo(dato)
+
+        if self.vacia():
+
+            self.nodo_inicial = self.nodo_final = nuevo_nodo
+
+        else:
+
+            self.nodo_final.ptr = nuevo_nodo
+            self.nodo_final = nuevo_nodo
+
+    def insertar_principio(self, dato: int):
+
+        nuevo_nodo = Nodo(dato)
+
+        if self.vacia():
+
+            self.nodo_inicial = self.nodo_final = nuevo_nodo
+
+        else:
+
+            nuevo_nodo.ptr = self.nodo_inicial
+            self.nodo_inicial = nuevo_nodo
+
+    def recorrido(self):
+
+        puntero = self.nodo_inicial
+
+        while puntero is not None:
+
+            print(puntero.dato)
+            puntero = puntero.ptr
+
+    def eliminar_ultimo(self):
+
+        if not self.vacia():
+
+            if self.nodo_inicial.ptr is None:
+
+                self.nodo_inicial = self.nodo_final = None
+
+            else:
+
+                anterior = self.nodo_inicial
+                actual = anterior.ptr
+
+                while actual.ptr is not None:
+
+                    anterior = actual
+                    actual = actual.ptr
+
+                del actual
+                anterior.ptr = None
+                self.nodo_final = anterior
+
+    def eliminar_primero(self):
+
+        if not self.vacia():
+
+            if self.nodo_inicial.ptr is None:
+
+                self.nodo_inicial = self.nodo_final = None
+
+            else:
+
+                nuevo_nodo_inicial = self.nodo_inicial.ptr
+                del self.nodo_inicial
+                self.nodo_inicial = nuevo_nodo_inicial
+```
+
+## 3.5. Listas Doblemente Enlazadas
+
+Una lista doblemente enlazada es una estructura de datos que consta de una secuencia de nodos. Cada nodo tiene dos campos de enlace: uno apunta al nodo siguiente y el otro al nodo anterior. Esta estructura permite recorrer la lista en ambos sentidos, desde el inicio hasta el final y viceversa. Además, facilita la eliminación de elementos y es dinámica.
+
+A continuación, se presenta una implementación de una lista doblemente enlazada en Python:
+
+```python
+class Nodo:
+
+    def __init__(self, dato: int):
+
+        self.dato = dato
+        self.ptr_sig = None
+        self.ptr_ant = None
+
+class ListaDobleEnlazada:
+
+    def __init__(self):
+
+        self.nodo_inicial = None
+        self.nodo_final = None
+
+    def vacia(self):
+
+        return self.nodo_inicial is None
+
+    def insertar_final(self, dato: int):
+
+        nuevo_nodo = Nodo(dato)
+
+        if self.vacia():
+
+            self.nodo_inicial = self.nodo_final = nuevo_nodo
+
+        else:
+
+            self.nodo_final.ptr_sig = nuevo_nodo
+            nuevo_nodo.ptr_ant = self.nodo_final
+            self.nodo_final = nuevo_nodo
+
+    def insertar_principio(self, dato: int):
+
+        nuevo_nodo = Nodo(dato)
+
+        if self.vacia():
+
+            self.nodo_inicial = self.nodo_final = nuevo_nodo
+
+        else:
+
+            self.nodo_inicial.ptr_ant = nuevo_nodo
+            nuevo_nodo.ptr_sig = self.nodo_inicial
+            self.nodo_inicial = nuevo_nodo
+
+    def recorrido_hacia_adelante(self):
+
+        nodo = self.nodo_inicial
+
+        while nodo is not None:
+
+            print(nodo.dato)
+            nodo = nodo.ptr_sig
+
+    def recorrido_hacia_atras(self):
+
+        nodo = self.nodo_final
+
+        while nodo is not None:
+
+            print(nodo.dato)
+            nodo = nodo.ptr_ant
+
+    def eliminar_ultimo(self):
+        
+        if not self.vacia():
+
+            if self.nodo_inicial.ptr is None:
+
+                self.nodo_inicial = self.nodo_final = None
+            
+            else:
+                
+                ultimo = self.nodo_final
+                penultimo = ultimo.ptr_ant
+                penultimo.ptr_sig = None
+                del ultimo
+                self.nodo_final = penultimo
+
+    def eliminar_primero(self):
+
+        if not self.vacia():
+
+            if self.nodo_inicial.ptr is None:
+
+                self.nodo_inicial = self.nodo_final = None
+
+            else:
+
+                primero = self.nodo_inicial
+                segundo = primero.ptr_sig
+                segundo.ptr_ant = None
+                del primero
+                self.nodo_inicial = segundo
+```
+
+## 3.6. Lista circular simple
+
+Una lista circular simple es una estructura de datos en la que cada nodo tiene un enlace, similar al de las listas enlazadas simples, con la particularidad de que el enlace del último nodo apunta al primero. En una lista enlazada simple, los nuevos nodos pueden ser insertados eficientemente solo después de un nodo que ya se conoce.
+
+A continuación, se presenta una implementación de una lista circular simple en Python:
+
+```python
+class Nodo():
+
+    def __init__(self, dato: int):
+
+        self.dato = dato
+        self.ptr = None
+
+class ListaCircular():
+
+    def __init__(self):
+
+        self.nodo_inicial = None
+        self.nodo_final = None
+
+    def vacia(self):
+
+        return self.nodo_inicial is None
+
+    def insertar_final(self, dato: int):
+
+        nuevo_nodo = Nodo(dato)
+
+        if self.vacia():
+
+            self.nodo_inicial = self.nodo_final = nuevo_nodo
+
+        else:
+
+            self.nodo_final.ptr = nuevo_nodo
+            nuevo_nodo.ptr = self.nodo_inicial
+            self.nodo_final = nuevo_nodo
+
+    def insertar_principio(self, dato: int):
+
+        nuevo_nodo = Nodo(dato)
+
+        if self.vacia():
+
+            self.nodo_inicial = self.nodo_final = nuevo_nodo
+
+        else:
+
+            nuevo_nodo.ptr = self.nodo_inicial
+            self.nodo_final.ptr = nuevo_nodo
+            self.nodo_inicial = nuevo_nodo
+
+    def recorrido(self):
+
+        nodo = self.nodo_inicial
+
+        while (nodo != None):
+
+            print(nodo.dato)
+            nodo = nodo.ptr
+
+            if nodo == self.nodo_inicial:
+
+                break
+
+    def eliminar_ultimo(self):
+
+        if self.vacia():
+
+            if self.nodo_inicial == self.nodo_final:
+
+                self.nodo_inicial = self.nodo_final = None
+
+            else:
+
+                ant = self.nodo_inicial
+                act = ant.ptr
+
+                while (act.ptr != self.nodo_inicial):
+
+                    ant = act
+                    act = act.ptr
+
+                del act
+                ant.ptr = self.nodo_inicial
+                self.nodo_final = ant
+
+    def eliminar_primero(self):
+        
+        if self.vacia():
+
+            if self.nodo_inicial == self.nodo_final:
+
+                self.nodo_inicial = self.nodo_final = None
+
+            else:
+
+                siguiente_nodo = self.nodo_inicial.ptr
+                self.nodo_final.ptr = siguiente_nodo
+                del self.nodo_inicial
+                self.nodo_inicial = siguiente_nodo
+```
+
+## 3.7. Lista circular doble
+
+Una lista circular doble es una estructura de datos en la que cada nodo tiene dos enlaces, uno al nodo siguiente y otro al nodo anterior, similar a las listas doblemente enlazadas. La particularidad de esta estructura es que el enlace del último nodo apunta al primero y el enlace del primer nodo apunta al último, formando una estructura circular.
+
+A continuación, se presenta una implementación de una lista circular doble en Python:
+
+```python
+class Nodo():
+
+    def __init__(self, dato: int):
+
+        self.dato = dato
+        self.ptr_siguiente = None
+        self.ptr_anterior = None
+        
+class ListaDobleCircular():
+
+    def __init__(self):
+
+        self.nodo_inicial = None
+        self.nodo_final = None
+
+    def vacia(self):
+
+        return self.nodo_inicial == self.nodo_final == None
+
+    def insertar_final(self, dato: int):
+
+        nuevo_nodo = Nodo(dato)
+
+        if self.vacia():
+
+            self.nodo_inicial = self.nodo_final = nuevo_nodo
+
+        else:
+
+            self.nodo_final.ptr_siguiente = nuevo_nodo
+
+            nuevo_nodo.ptr_anterior = self.nodo_final
+            nuevo_nodo.ptr_siguiente = self.nodo_inicial
+
+            self.nodo_inicial.ptr_anterior = nuevo_nodo
+
+            self.nodo_final = nuevo_nodo
+
+    def insertar_principio(self, dato: int):
+
+        nuevo_nodo = Nodo(dato)
+
+        if self.vacia():
+
+            self.nodo_inicial = self.nodo_final = nuevo_nodo
+
+        else:
+
+            nuevo_nodo.ptr_siguiente = self.nodo_inicial
+            nuevo_nodo.ptr_anterior = self.nodo_final
+
+            self.nodo_inicial.ptr_anterior = nuevo_nodo
+
+            self.nodo_final.ptr_siguiente = nuevo_nodo
+
+            self.nodo_inicial = nuevo_nodo
+
+    def recorrido_hacia_adelante(self):
+
+        nodo = self.nodo_inicial
+
+        while (nodo != None):
+
+            print(nodo.dato)
+            nodo = nodo.ptr_siguiente
+
+            if nodo == self.nodo_inicial:
+
+                break
+
+    def recorrido_hacia_atras(self):
+
+        nodo = self.nodo_final
+
+        while (nodo != None):
+
+            print(nodo.dato)
+            nodo = nodo.ptr_anterior
+
+            if nodo == self.nodo_final:
+
+                break
+
+    def eliminar_ultimo(self):
+
+        if self.vacia():
+
+            if self.nodo_inicial == self.nodo_final:
+
+                self.nodo_inicial = self.nodo_final = None
+
+            else:
+
+                ultimo = self.nodo_final
+                penultimo = ultimo.ptr_anterior
+
+                penultimo.ptr_siguiente = self.nodo_inicial
+
+                self.nodo_inicial.ptr_anterior = penultimo
+
+                del self.nodo_final
+
+                self.nodo_final = penultimo
+
+    def eliminar_primero(self):
+        
+        if self.vacia():
+
+            if self.nodo_inicial == self.nodo_final:
+
+                self.nodo_inicial = self.nodo_final = None
+
+            else:
+
+                segundo = self.nodo_inicial.ptr_siguiente
+
+                segundo.ptr_anterior = self.nodo_final
+
+                self.nodo_final.ptr_siguiente = segundo
+
+                del self.nodo_inicial
+
+                self.nodo_inicial = segundo
+```

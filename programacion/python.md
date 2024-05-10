@@ -339,12 +339,15 @@ También puedes iterar sobre las claves, los valores y los elementos (pares clav
 d = {'k1':1,'k2':2}
 
 for llave in d.keys():
+
 	print(llave)
 
 for valor in d.values():
+
 	print(valor)
 
 for elemento in d.items():
+
 	print(elemento)
 ```
 
@@ -358,6 +361,7 @@ clientes = [
 ]
 
 for cliente in clientes:
+
 	print(f"{cliente['nombre']} tiene: {cliente.get('animales', 'No tiene animales')}")
 ```
 
@@ -509,7 +513,8 @@ Otra forma de abrir un fichero y operar con él sería:
 with open('myfile.txt', mode='w') as my_new_file:
 
 	contents = my_new_file.read()
-	print(contents)
+
+print(contents)
 ```
 
 ### 2.12.2. Escritura de archivos
@@ -588,6 +593,7 @@ La sintaxis de una declaración `if` es la siguiente:
 
 ```python
 if condicion:
+
     # Código a ejecutar si la condición es verdadera
 ```
 
@@ -595,8 +601,11 @@ La sintaxis de una declaración `if/else` es la siguiente:
 
 ```python
 if condicion:
+
     # Código a ejecutar si la condición es verdadera
+
 else:
+
     # Código a ejecutar si la condición es falsa
 ```
 
@@ -604,11 +613,16 @@ La sintaxis de una declaración `if/elif/else` con varias condiciones es la sigu
 
 ```python
 if primera_condicion:
+
     # Código a ejecutar si la primera condición es verdadera
+
 elif segunda_condicion:
-    # Código a ejecutar si la segunda condición es verdadera
+    
+	# Código a ejecutar si la segunda condición es verdadera
+
 else:
-    # Código a ejecutar si ninguna de las condiciones anteriores es verdadera
+    
+	# Código a ejecutar si ninguna de las condiciones anteriores es verdadera
 ```
 
 Aquí tienes un ejemplo en el que se utiliza una declaración `if` y `else` para comprobar si un elemento se encuentra dentro de una lista:
@@ -619,17 +633,23 @@ numero = 1
 lista = [1,2,3]
 
 if numero in lista:
-    print(f"El número {numero} se encuentra en la lista")
+    
+	print(f"El número {numero} se encuentra en la lista")
+
 else:
-    print(f"El número {numero} no se encuentra en la lista")
+    
+	print(f"El número {numero} no se encuentra en la lista")
 
 # Segundo ejemplo
 d = {'mykey' : 345}
 
 if 345 in d.keys():
-    print("El valor se encuentra dentro del diccionario")
+    
+	print("El valor se encuentra dentro del diccionario")
+
 else:
-    print("El valor no se encuentra dentro del diccionario")
+    
+	print("El valor no se encuentra dentro del diccionario")
 ```
 En el primer ejemplo, se comprueba si el número 1 está en la lista. En el segundo ejemplo, se comprueba si el valor 345 está entre las claves del diccionario `d`. En ambos casos, se imprime un mensaje en función del resultado de la comprobación. Si la condición es verdadera, se imprime un mensaje indicando que el elemento se encuentra en la lista o en el diccionario. Si la condición es falsa, se imprime un mensaje indicando que el elemento no se encuentra en la lista o en el diccionario.
 
@@ -641,6 +661,7 @@ Muchos objetos en Python son iterables, es decir, podemos recorrer cada uno de s
 
 ```python
 for variable_recorre in lugar_a_recorrer:
+
     # Código a ejecutar
 ```
 
@@ -653,12 +674,14 @@ Por ejemplo:
 
 # Imprimir los números del 1 hasta el 10
 for index in range(1, 11): 
+
     print(index)
 
 # Segundo ejemplo
 
 # Recorrer la lista hasta llegar al tamaño máximo de la lista
 for index in range(len(mi_lista)):
+
     print(mi_lista[index])
 
 # Tercer ejemplo
@@ -667,7 +690,9 @@ for index in range(len(mi_lista)):
 mylist = []
 
 for x in [2, 4, 6]:
+
     for y in [100, 200, 300]:
+
         # Multiplicamos cada valor de x por y
         mylist.append(x * y) 
 ```
@@ -684,6 +709,7 @@ mi_lista2 = ['a', 'b', 'c']
 mi_lista3 = [100, 200, 300]
 
 for item in zip(mi_lista1, mi_lista2, mi_lista3):
+
     print(item)
 ```
 
@@ -695,14 +721,16 @@ Otros ejemplos de bucles `for`:
 mi_lista = [1 ,2 ,3]
 i = 0
 
-for elemento_lista in mi_lista:
-    print(f"{elemento_lista} ocupa la posición {i} de la lista")
-    i += 1
+# Con enumerate podemos descomponer los elementos de un array en su indice y valor
+for idx, elemento_lista in enumerate(mi_lista):
+
+    print(f"{elemento_lista} ocupa la posición {idx} de la lista")
 
 # Segundo ejemplo
 
 # "letra" coge cada carácter del string
 for letra in "Hola muy buenas": 
+
     print(letra )
 
 # Tercer ejemplo
@@ -711,6 +739,7 @@ for letra in "Hola muy buenas":
 mi_lista = [(1,2) , (3,4) , (5,6)]
 
 for a, b in mi_lista:
+
     print(f"X: {a} \n\tY: {b}")
 
 # Cuarto ejemplo
@@ -721,6 +750,7 @@ for a, b in mi_lista:
 word = "abcde"
 
 for elemento in enumerate(word):
+
     print(elemento)
 ```
 
@@ -730,6 +760,7 @@ El bucle `while` realiza un bucle mientras se cumpla la condición. Aquí tienes
 
 ```python
 while condicion:
+
     # Código a ejecutar
 ```
 
@@ -737,9 +768,12 @@ También existe la posibilidad de combinarlo con un `else`:
 
 ```python
 while condicion:
+
     # Código a ejecutar
+
 else:
-    # Código a ejecutar en el caso de que la condición del while no se cumpla
+    
+	# Código a ejecutar en el caso de que la condición del while no se cumpla
 ```
 
 ## 5.3. `break`, `continue` y `pass`
@@ -751,9 +785,12 @@ mi_string = "Daniel"
 
 # En este bucle, al encontrar la letra 'a' saldríamos del bucle
 for letra in mi_string:
+
     if letra == 'a': 
-        break
-    print(letra)
+    
+	    break
+    
+	print(letra)
 ```
 
 `continue`→ Va a la parte superior del bucle de cierre más cercano. Por ejemplo:
@@ -764,19 +801,25 @@ mi_string = "Daniel"
 # En este bucle, al encontrar la letra 'a' se pasará al siguiente carácter sin mostrar
 # la 'a', es decir, se salta el "print(letra)"
 for letra in mi_string:
+
     if letra == 'a':
-        continue
-    print(letra)
+    
+	    continue
+    
+	print(letra)
 ```
 
 `pass`→ No hace nada en el bucle y se utiliza para evitar errores cuando se requiere una declaración sintáctica pero no se quiere ejecutar ningún código. Es útil como un marcador de posición cuando se está diseñando código a nivel de esquema. Por ejemplo:
 
 ```python
 for letra in 'Python':
+
     if letra == 'h':
-        pass
+    
+	    pass
         print('Esta es la letra h')
-    print('Letra actual:', letra)
+    
+	print('Letra actual:', letra)
 ```
 En este ejemplo, la declaración `pass` permite que el bucle `for` continúe su iteración normalmente después de la letra 'h'. Sin la declaración `pass`, habría un error porque Python espera una declaración después del `if` pero no encuentra ninguna. Con `pass`, Python tiene una declaración que no hace nada, lo que evita el error.
 
@@ -800,6 +843,7 @@ Aquí tienes un ejemplo de cómo definir y usar una función en Python:
 
 ```python
 def saludo(nombre):
+
     return f"Hola, {nombre}!"
 
 print(saludo("Mundo"))
@@ -811,7 +855,8 @@ Las funciones pueden tomar cualquier número de parámetros, y estos parámetros
 
 ```python
 def saludo(nombre="Mundo"):
-    return f"Hola, {nombre}!"
+    
+	return f"Hola, {nombre}!"
 
 print(saludo())
 print(saludo("Python"))
@@ -829,13 +874,18 @@ Las funciones en Python pueden contener una variedad de estructuras de control, 
 
 	```python
 	def comprobar_lista(lista):
+
 		lista_par_devolver = set()
 		lista_impar_devolver = set()
 
 		for indice in lista:
+		
 			if indice % 2 == 0:
+		
 				lista_par_devolver.add(indice)
+		
 			else:
+		
 				lista_impar_devolver.add(indice)
 
 		print(f"Lista de números pares de la lista principal: {lista_par_devolver}")
@@ -850,11 +900,14 @@ Las funciones en Python pueden contener una variedad de estructuras de control, 
 	horas_trabajadores = [("Daniel", 22), ("Kike", 20), ("Ricardo", 25)]
 
 	def mejor_trabajador(lista):
+	
 		maximo = 0
 		mejor = ""
 
 		for empleado, horas in horas_trabajadores:
+	
 			if horas > maximo:
+
 				maximo = horas
 				mejor = empleado
 
@@ -872,10 +925,12 @@ Las funciones en Python pueden contener una variedad de estructuras de control, 
 	vasos = [' ','O',' ']
 
 	def shuffle_list(mi_lista):
+	
 		shuffle(mi_lista)
 		return mi_lista
 
 	def inicio():
+	
 		print("La bolita se encuentra en el vaso 2\n")
 		print('vaso 1: ')
 		print('vaso 2: O')
@@ -883,25 +938,35 @@ Las funciones en Python pueden contener una variedad de estructuras de control, 
 		print("\nMoviendo la bola por los diferentes vasos...\n")
 
 	def operar():
+	
 		resultado = int(input("¿En qué vaso está la bolita?: "))
 
 		while resultado != 1 and resultado != 2 and resultado != 3:
+	
 			print("Este vaso no existe")
 			resultado = int(input("¿En qué vaso está la bolita?: "))
 
 		comprobar(resultado)
 
 	def comprobar(resultado):
+	
 		i = 1
 
 		if vasos[resultado-1] == 'O':
+	
 			print("\n¡Has acertado!\n")
+	
 			for vaso in vasos:
+	
 				print(f"vaso {i}: {vaso}")
 				i += 1
+	
 		else:
+	
 			print("\nHas fallado :(\n")
+	
 			for vaso in vasos:
+	
 				print(f"vaso {i}: {vaso}")
 				i += 1
 
@@ -921,6 +986,7 @@ En el siguiente ejemplo, `a` y `b` son argumentos posicionales. La función `mif
 
 ```python
 def mifuncion(a, b):
+
     return sum((a, b)) * 0.05
 
 mifuncion(40,60) 
@@ -930,6 +996,7 @@ Sin embargo, si quisiéramos que esta función pudiera manejar más de dos núme
 
 ```python
 def mifuncion(a, b, c = 0):
+
     return sum((a, b, c)) * 0.05
 ```
 
@@ -939,6 +1006,7 @@ Aquí es donde **`*args`** resulta útil. Nos permite configurar la función par
 
 ```python
 def mifuncion(*args):
+
     return sum(args) * 0.05
 ```
 
@@ -950,14 +1018,21 @@ De manera similar, Python ofrece una forma de manejar un número arbitrario de a
 
 ```python
 def mifuncion(**kwargs):
+
     if 'fruta' in kwargs:
+
         print(f"Mi fruta favorita es la {kwargs['fruta']}")
+
     else:
+
         print("No se encontró la fruta")
     
     if 'verduras' in kwargs:
+
         print(f"Mi verdura favorita es la {kwargs['verduras']}")
+
     else:
+
         print("No se encontró la verdura")
 
 mifuncion(fruta = 'manzana', verduras = 'zanahoria')
@@ -969,6 +1044,7 @@ También podemos combinar **`*args`** y **`**kwargs`** en la misma función:
 
 ```python
 def mifuncion(*args, **kwargs):
+
     print(f"Tengo {args[0]} coneja llamada {kwargs['animal']}")
 
 mifuncion(1,2,3,4,fruta = "manzana",verdura = "zanahoria",animal = "Misifu")
@@ -1018,7 +1094,7 @@ Las expresiones lambda se utilizan comúnmente junto con las funciones `map()` y
 
 ```python
 people = ['Dr. Christopher Brooks', 'Dr. Kevyn Collins-Thompson',
-					'Dr. VG Vinod Vydiswaran', 'Dr. Daniel Romero']
+			'Dr. VG Vinod Vydiswaran', 'Dr. Daniel Romero']
 
 list(map(lambda person: person.split()[0] + ' ' + person.split()[-1], people))
 ```
@@ -1037,6 +1113,7 @@ Por ejemplo:
 x = 25
 
 def printer():
+
     x = 50
     return x
 
@@ -1058,10 +1135,12 @@ Este es el orden en el que Python buscará las variables. Aquí hay un ejemplo d
 nombre = "Esto es un string global"
 
 def prueba():
+
     # VARIABLE DE ENCIERRO LOCAL
     nombre = "Daniel"
 
     def hola():
+
         # VARIABLE LOCAL
         nombre = "Carlitos"
         print(f"Hola {nombre}")
@@ -1079,6 +1158,7 @@ Ahora, veamos qué sucede cuando reasignamos una variable global dentro de una f
 x = 50
 
 def prueba():
+
     global x
     print(f"Valor de x antes {x}")
     x = 200
@@ -1100,18 +1180,23 @@ Una forma cómoda de validar datos es utilizar bucles `while` para pedir al usua
 
 ```python
 def limite(eleccion):
+
     return int(eleccion) >= 1 and int(eleccion) <= 10
 
 def eleccion_usuario():
+
     eleccion = input("Numero de 1-10: ")
     
     while not eleccion.isdigit() or not limite(eleccion):
+
         eleccion = input("Numero de 1-10: ")
         
         if not eleccion.isdigit():
+
             print("El valor introducido no es un numero")
         
         if eleccion.isdigit() and not limite(eleccion):
+
             print("El numero introducido supero el limite")
     
     return int(eleccion)
@@ -1387,12 +1472,14 @@ s.sub_report()
 ```python
 # paquete78/some_main_script.py
 def main_report():
+
 	print("Hola soy una funcion dentro de mi script principal")
 ```
 
 ```python
 # paquete78/Subpaquetes/mysubscript.py
 def sub_report():
+
 	print("Hola soy una funcion dentro de mi subscript")
 ```
 
@@ -1407,8 +1494,11 @@ import two79
 print(f"Archivo 1 __name__ establecido a: {__name__}")
 
 if __name__ == "__main__":
+
 	print("Archivo 1 ejecutado directamente")
+
 else:
+
 	print("Archivo 1 ejecutado como importado a otro modulo")
 ```
 
@@ -1419,8 +1509,11 @@ import one79 as t
 print(f"Archivo 2 __name__ establecido a: {__name__}")
 
 if __name__ == "__main__":
+
 	print("Archivo 2 ejecutado directamente")
+
 else:
+
 	print("Archivo 2 ejecutado como importado a otro modulo")
 ```
 
@@ -1442,15 +1535,24 @@ Aquí tienes un ejemplo de cómo se utilizan estas palabras clave:
 
 ```python
 try:
+
     f.open("fichero",'w')
     f.write("Linea de prueba")
+
 except TypeError:
+
     print("Hubo un problema con el tipo")
+
 except OSError: 
+
     print("Hubo un error de OSError")
+
 except:
+
     print("Hubo un fallo en otro tipo de excepciones")
+
 finally:
+
     print("De todos modos seguí ejecutando el código")
 ```
 
@@ -1458,14 +1560,22 @@ En este otro ejemplo, pediremos constantemente un dato al usuario hasta que intr
 
 ```python
 def introducir_entero():
+
     while True:
+
         try:
+
             valor = int(input("Introduce un número entero: "))
+
         except:
+
             print("El valor introducido no es un número")
+
         else:
+
             print(f"El valor {valor} es un valor correcto")
             break
+
 introducir_entero()
 ```
 
@@ -1494,6 +1604,7 @@ Con `unittest`, puedes implementar un script en Python que analice los resultado
 
 ```python
 def prueba(texto):
+
     return texto.capitalize()
 ```
 
@@ -1504,12 +1615,15 @@ import cap85a
 import unittest
 
 class Test(unittest.TestCase):
+
     def test_1(self):
+
         texto = 'python'
         resultado = cap85a.prueba(texto)
         self.assertEqual(resultado,'Python')
 
 if __name__ == '__main__':
+
     unittest.main()
 ```
 
@@ -1525,6 +1639,7 @@ En Python, las funciones son objetos de primera clase. Esto significa que pueden
 
 ```python
 def funcion_saludo():
+
     return "Hola"
 
 copia = funcion_saludo
@@ -1541,14 +1656,18 @@ Un decorador es una función que toma otra función y extiende su comportamiento
 
 ```python
 def nuevo_decorador(funcion_original):
+
     def funcion_nueva():
+
         print("Antes de la funcion original")
         funcion_original()
         print("Despues de la funcion original")
+
     return funcion_nueva
 
 @nuevo_decorador
 def funcion_necesita_decorador():
+
     print("Necesita un nuevo decorador")
 
 funcion_necesita_decorador()
@@ -1570,7 +1689,9 @@ Una función generadora es una función que utiliza la palabra clave `yield`. Cu
 
 ```python
 def funcion_cubo_generador(n):
+
     for x in range(n):
+
         yield pow(x,3) 
 
 print(list(funcion_cubo_generador(10)))  # Imprime: [0, 1, 8, 27, 64, 125, 216, 343, 512, 729]
@@ -1684,12 +1805,18 @@ import os
 directorio = '/home/daniel/Desktop'
 
 for carpeta, sub_carpetas, archivos in os.walk(directorio):
+
     print(f"Estamos en la carpeta: {carpeta}")
     print("Las subcarpetas son: ")
+
     for sub_carpeta in sub_carpetas:
+
         print(f"\t{sub_carpeta}")
+
     print("Los archivos son: ")
+
     for archivo in archivos:
+
         print(f"\t{archivo}")
 ```
 
@@ -1850,12 +1977,14 @@ busqueda2 = re.findall("número",texto2)
 print("La palabra 'número' está en los siguientes índices:")
 
 for palabra in re.finditer('número',texto2):
+
     print(f"\t{palabra.span()}")
 
 # Para mostrar la palabra en vez del índice
 print("\nLa palabra 'número' está en los siguientes índices:")
 
 for palabra in re.finditer('número',texto2):
+
     print(f"\t{palabra.group()} -> {palabra.span()}")
 ```
 
@@ -1927,9 +2056,11 @@ Para evaluar la eficiencia de nuestro código, podemos medir el tiempo que una f
 import time
 
 def func_uno(n):
+
     return [str(num) for num in range(n)]
 
 def func_dos(n):
+
     return list(map(str, range(n)))
 
 # Paso 1: Registrar el tiempo de inicio
