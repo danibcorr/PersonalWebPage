@@ -149,7 +149,7 @@ def busqueda_binaria(lista: list[int], valor_buscar: int) -> int:
     return None
 ```
 
-# 3. Estructuras de Datos
+# 3. Estructuras de datos
 
 ## 3.1. Pilas
 
@@ -222,7 +222,7 @@ Una cola es una estructura de datos que organiza los elementos de manera secuenc
 A continuación, se presenta una implementación de una cola en Python:
 
 ```python
-class Cola:
+class Cola():
 
     def __init__(self, tam: int = None):
 
@@ -295,25 +295,25 @@ class Cola:
         print(self.lista)
 ```
 
-## 3.3. Nodo
+## 3.3. Nodos
 
 En el ámbito de la programación y, concretamente, en las estructuras de datos, un nodo es un elemento fundamental de una lista enlazada, un árbol o un grafo. Cada nodo es una estructura o registro que dispone de varios campos. Al menos uno de estos campos es un puntero o referencia a otro nodo. De esta manera, una vez conocido un nodo, a partir de esa referencia, es posible acceder a otros nodos de la estructura.
 
-## 3.4. Listas Enlazadas
+## 3.4. Listas enlazadas
 
 Las listas enlazadas son estructuras de datos similares a los arrays o listas en Python, con la diferencia de que el acceso a un elemento se realiza mediante un puntero. Una lista enlazada simple cuenta con un enlace por nodo. Este enlace apunta al siguiente nodo en la lista o al valor `None` si es el último nodo.
 
 A continuación, se presenta una implementación de una lista enlazada en Python:
 
 ```python
-class Nodo:
+class Nodo():
 
     def __init__(self, dato: int):
 
         self.dato = dato
         self.ptr = None
 
-class ListaEnlazada:
+class ListaEnlazada():
 
     def __init__(self):
 
@@ -396,14 +396,14 @@ class ListaEnlazada:
                 self.nodo_inicial = nuevo_nodo_inicial
 ```
 
-## 3.5. Listas Doblemente Enlazadas
+## 3.5. Listas doblemente enlazadas
 
 Una lista doblemente enlazada es una estructura de datos que consta de una secuencia de nodos. Cada nodo tiene dos campos de enlace: uno apunta al nodo siguiente y el otro al nodo anterior. Esta estructura permite recorrer la lista en ambos sentidos, desde el inicio hasta el final y viceversa. Además, facilita la eliminación de elementos y es dinámica.
 
 A continuación, se presenta una implementación de una lista doblemente enlazada en Python:
 
 ```python
-class Nodo:
+class Nodo():
 
     def __init__(self, dato: int):
 
@@ -735,4 +735,135 @@ class ListaDobleCircular():
                 del self.nodo_inicial
 
                 self.nodo_inicial = segundo
+```
+
+## 3.8. Árboles binarios
+
+Un árbol binario se define como una estructura de datos en la que cada nodo puede tener, como máximo, dos descendientes denominados hijo izquierdo y hijo derecho. Esta estructura es una forma eficaz de organizar y buscar datos.
+
+En términos de características, cada nodo de un árbol binario posee un valor y dos descendientes. El valor del hijo izquierdo de un nodo es siempre inferior al del nodo padre, mientras que el valor del hijo derecho es siempre superior. Cada nodo tiene un único progenitor, a excepción del nodo raíz, que carece de padre.
+
+Un árbol binario puede no contener nodos, es decir, estar vacío. Si un árbol binario contiene nodos, entonces se compone de una raíz y dos árboles binarios disjuntos, denominados subárbol izquierdo y subárbol derecho.
+
+Existen varios tipos de recorridos en los árboles binarios:
+
++ Recorrido en orden: Se visita primero el hijo izquierdo, luego la raíz y, finalmente, el hijo derecho.
++ Recorrido en preorden: Se visita primero la raíz, luego el hijo izquierdo y, finalmente, el hijo derecho.
++ Recorrido en postorden: Se visita primero el hijo izquierdo, luego el hijo derecho y, finalmente, la raíz. 
+
+A continuación, se presenta una implementación de un árbol binario en Python:
+
+```python
+class Nodo():
+    
+    def __init__(self, valor: int = None, padre: int = None, es_raiz: bool = False, es_izquierdo: bool = False, es_derecho: bool = False):
+        
+        # Valor del nodo
+        self.valor = valor   
+        # Nodo hijo izquierdo          
+        self.izquierdo = None   
+        # Nodo hijo derecho            
+        self.derecho = None            
+        # Nodo padre     
+        self.padre = padre                  
+        # Indica si el nodo es la raíz
+        self.es_raiz = es_raiz              
+        # Indica si el nodo es un hijo derecho
+        self.es_derecho = es_derecho        
+        # Indica si el nodo es un hijo izquierdo
+        self.es_izquierdo = es_izquierdo    
+
+class ArbolBinario():
+
+    def __init__(self):
+
+        # Nodo raíz del árbol
+        self.nodo_raiz = None              
+
+    def esta_vacio(self):
+
+        return self.nodo_raiz is None
+
+    def agregar_nodo(self, dato: int):
+
+        if self.esta_vacio():
+
+            self.nodo_raiz = Nodo(valor = dato, es_raiz = True)
+
+        else:
+
+            nodo = self._obtener_sitio(dato)
+
+            if dato <= nodo.valor:
+
+                nodo.izquierdo = Nodo(valor = dato, padre = nodo, es_izquierdo = True)
+
+            else:
+
+                nodo.derecho = Nodo(valor = dato, padre = nodo, es_derecho = True)
+
+    def _obtener_sitio(self, valor):
+
+        nodo = self.nodo_raiz
+
+        while nodo is not None:
+
+            temp = nodo
+
+            if valor <= nodo.valor:
+
+                nodo = nodo.izquierdo
+
+            else:
+
+                nodo = nodo.derecho
+
+        return temp
+
+    # Método para mostrar el árbol en orden (izquierda, raíz, derecha)
+    def mostrar_en_orden(self, nodo):
+
+        if nodo:
+
+            self.mostrar_en_orden(nodo.izquierdo)
+            print(nodo.valor)
+            self.mostrar_en_orden(nodo.derecho)
+
+    # Método para mostrar el árbol en postorden (izquierda, derecha, raíz)
+    def mostrar_en_postorden(self, nodo):
+
+        if nodo:
+
+            self.mostrar_en_postorden(nodo.izquierdo)
+            self.mostrar_en_postorden(nodo.derecho)
+            print(nodo.valor)
+
+    # Método para mostrar el árbol en preorden (raíz, izquierda, derecha)
+    def mostrar_en_preorden(self, nodo):
+
+        if nodo:
+
+            print(nodo.valor)
+            self.mostrar_en_preorden(nodo.izquierdo)
+            self.mostrar_en_preorden(nodo.derecho)
+
+    def buscar(self, nodo, valor):
+
+        if nodo == None:
+
+            return None
+
+        else:
+
+            if valor == nodo.valor:
+
+                return nodo
+
+            elif valor <= nodo.valor:
+
+                return self.buscar(nodo.izquierdo, valor)
+
+            else:
+
+                return self.buscar(nodo.derecho, valor)
 ```
