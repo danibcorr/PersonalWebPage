@@ -5,12 +5,61 @@ description: Realizado por Daniel Bazo Correa.
 # Bibliografía
 
 * [YouTube Cesar Ramos](https://www.youtube.com/@cesarramos2592)
+# 1. Notación Big O
 
-# 1. Métodos de ordenación
+La notación Big O ofrece una evaluación de la eficiencia de los algoritmos en términos de complejidad temporal y espacial. La complejidad temporal se refiere a la variación del tiempo requerido para un proceso en función del número de elementos de entrada. En contraste, la complejidad espacial se relaciona con el número de variables empleadas en las operaciones del algoritmo.
+
+A continuación, se presentan ejemplos de notaciones Big O:
+
++ **O(logN)**: Esta notación indica que el tiempo de ejecución crece logarítmicamente en relación con el tamaño de la entrada. Es típico de los algoritmos que dividen a la mitad el problema en cada paso, como la búsqueda binaria.
+
++ **O(NlogN)**: Esta notación es típica de los algoritmos que involucran una combinación de comportamiento lineal y logarítmico. Un ejemplo común de un algoritmo con esta complejidad es el algoritmo de ordenación rápida o *quicksort*.
+
++ **O(N)**: Esta notación indica que el tiempo de ejecución crece de manera lineal con el número de elementos de la estructura. Es típico de los algoritmos que realizan una única operación simple en cada elemento de la entrada, como un algoritmo que suma todos los elementos de una lista.
+
++ **O(N^2)**: Esta notación indica que el tiempo de ejecución crece cuadráticamente con el tamaño de la entrada. Es típico de los algoritmos que realizan una operación simple en cada par de elementos de la entrada, como un algoritmo de ordenación por burbuja.
+
++ **O(2^N)**: Esta notación indica que el tiempo de ejecución crece exponencialmente con el tamaño de la entrada. Es típico de los algoritmos que resuelven problemas mediante la generación de todas las posibles combinaciones de sus elementos, como el "problema del viajante".
+
++ **O(1)**: Como ya se mencionó, esta notación indica que el tiempo de ejecución es constante, independientemente del tamaño de la entrada. Es típico de los algoritmos que acceden a un número fijo de elementos de la entrada, sin importar su tamaño, como un algoritmo que devuelve el primer elemento de una lista.
+
+En situaciones donde se realizan múltiples operaciones con diferentes costes temporales, generalmente se selecciona el peor caso.
+
+Existen también casos como los algoritmos multipartes. Por ejemplo:
+
+```python
+def funcion():
+
+    for i in arrayA:
+
+        ...
+
+    for i in arrayB:
+
+        ...
+```
+
+En el ejemplo anterior, cada bucle tendría una complejidad de $$O(N)$$, pero al tratarse de arrays diferentes, la complejidad total de la función es $$O(A + B)$$, siendo A y B la cantidad de elementos de los arrays A y B respectivamente.
+
+```python
+def funcion():
+
+    for i in arrayA:
+
+        for j in arrayB:
+
+            ...
+```
+
+En este último ejemplo, se podría pensar que la complejidad sería $$O(N^2)$$, pero al igual que en el caso anterior, al tratarse de arrays diferentes, la complejidad total es $$O(A \cdot B)$$.
+
+Es importante destacar que en la notación Big O no es necesario utilizar la letra N, se puede expresar con cualquier otra letra dependiendo del contexto.
+
+# 2. Métodos de ordenación
 
 En este capítulo, vamos a explorar algunos de los métodos de ordenación más comunes en el campo de las estructuras de datos y algoritmos. 
 
-## 1.1. Ordenación de burbuja (*Bubble Sort*)
+## 2.1. Ordenación de burbuja (*Bubble Sort*)
 
 El método de ordenación de burbuja es uno de los algoritmos de ordenación más simples. Funciona comparando pares adyacentes de elementos en la lista y los intercambia si están en el orden incorrecto. Este proceso se repite hasta que no se requieren más intercambios, lo que indica que la lista está ordenada.
 
@@ -34,7 +83,7 @@ def ordenacion_burbuja(lista: list[int]) -> list[int]:
     return lista
 ```
 
-## 1.2. Ordenación por selección (*Selection Sort*)
+## 2.2. Ordenación por selección (*Selection Sort*)
 
 La ordenación por selección funciona seleccionando el elemento más pequeño de la lista y colocándolo al principio. Este proceso se repite para el resto de la lista, hasta que toda la lista está ordenada.
 
@@ -62,7 +111,7 @@ def ordenacion_seleccion(lista: list[int]) -> list[int]:
     return lista
 ```
 
-## 1.3. Ordenación por inserción (*Insertion Sort*)
+## 2.3. Ordenación por inserción (*Insertion Sort*)
 
 La ordenación por inserción es un algoritmo de ordenación que funciona de manera similar a cómo las personas ordenan las cartas en sus manos en un juego de cartas. La lista se divide en una parte ordenada y otra desordenada. Se toma un elemento de la parte desordenada y se inserta en la posición correcta en la parte ordenada. Este proceso se repite hasta que no quedan elementos en la parte desordenada.
 
@@ -90,11 +139,11 @@ def ordenacion_insercion(lista: list[int]) -> list[int]:
     return lista
 ```
 
-# 2. Métodos de búsqueda
+# 3. Métodos de búsqueda
 
 En este capítulo, vamos a explorar algunos de los métodos de búsqueda más comunes en el campo de las estructuras de datos y algoritmos. 
 
-## 2.1. Búsqueda lineal (*Linear Search*)
+## 3.1. Búsqueda lineal (*Linear Search*)
 
 La búsqueda lineal es el método de búsqueda más simple. Funciona recorriendo cada elemento de la lista uno por uno hasta que encuentra el elemento buscado o hasta que ha recorrido todos los elementos.
 
@@ -114,7 +163,7 @@ def busqueda_lineal(lista: list[int], valor_buscar: int) -> int:
     return None
 ```
 
-## 2.2. Búsqueda binaria (*Binary Search*)
+## 3.2. Búsqueda binaria (*Binary Search*)
 
 La búsqueda binaria es un método de búsqueda eficiente que funciona dividiendo repetidamente a la mitad la parte de la lista que podría contener el elemento buscado, hasta reducir las ubicaciones posibles a solo una.
 
@@ -149,9 +198,9 @@ def busqueda_binaria(lista: list[int], valor_buscar: int) -> int:
     return None
 ```
 
-# 3. Estructuras de datos
+# 4. Estructuras de datos
 
-## 3.1. Pilas
+## 4.1. Pilas
 
 Una pila es una estructura de datos que organiza los elementos de manera secuencial. El acceso a sus elementos sigue el principio LIFO (Last In, First Out), lo que significa que el último elemento añadido a la pila es el primero en ser retirado. Las operaciones fundamentales en una pila son: apilar (push), que añade un elemento a la pila, y desapilar (pop), que retira el último elemento añadido. Las pilas pueden ser de tamaño estático o dinámico.
 
@@ -215,7 +264,7 @@ class Pila:
         return len(self.lista)
 ```
 
-## 3.2. Colas
+## 4.2. Colas
 
 Una cola es una estructura de datos que organiza los elementos de manera secuencial. La operación de inserción (push) se realiza por un extremo y la operación de extracción (pop) por el otro. Esta estructura sigue el principio FIFO (First In, First Out).
 
@@ -295,11 +344,11 @@ class Cola():
         print(self.lista)
 ```
 
-## 3.3. Nodos
+## 4.3. Nodos
 
 En el ámbito de la programación y, concretamente, en las estructuras de datos, un nodo es un elemento fundamental de una lista enlazada, un árbol o un grafo. Cada nodo es una estructura o registro que dispone de varios campos. Al menos uno de estos campos es un puntero o referencia a otro nodo. De esta manera, una vez conocido un nodo, a partir de esa referencia, es posible acceder a otros nodos de la estructura.
 
-## 3.4. Listas enlazadas
+## 4.4. Listas enlazadas
 
 Las listas enlazadas son estructuras de datos similares a los arrays o listas en Python, con la diferencia de que el acceso a un elemento se realiza mediante un puntero. Una lista enlazada simple cuenta con un enlace por nodo. Este enlace apunta al siguiente nodo en la lista o al valor `None` si es el último nodo.
 
@@ -396,7 +445,7 @@ class ListaEnlazada():
                 self.nodo_inicial = nuevo_nodo_inicial
 ```
 
-## 3.5. Listas doblemente enlazadas
+## 4.5. Listas doblemente enlazadas
 
 Una lista doblemente enlazada es una estructura de datos que consta de una secuencia de nodos. Cada nodo tiene dos campos de enlace: uno apunta al nodo siguiente y el otro al nodo anterior. Esta estructura permite recorrer la lista en ambos sentidos, desde el inicio hasta el final y viceversa. Además, facilita la eliminación de elementos y es dinámica.
 
@@ -501,7 +550,7 @@ class ListaDobleEnlazada:
                 self.nodo_inicial = segundo
 ```
 
-## 3.6. Lista circular simple
+## 4.6. Lista circular simple
 
 Una lista circular simple es una estructura de datos en la que cada nodo tiene un enlace, similar al de las listas enlazadas simples, con la particularidad de que el enlace del último nodo apunta al primero. En una lista enlazada simple, los nuevos nodos pueden ser insertados eficientemente solo después de un nodo que ya se conoce.
 
@@ -605,7 +654,7 @@ class ListaCircular():
                 self.nodo_inicial = siguiente_nodo
 ```
 
-## 3.7. Lista circular doble
+## 4.7. Lista circular doble
 
 Una lista circular doble es una estructura de datos en la que cada nodo tiene dos enlaces, uno al nodo siguiente y otro al nodo anterior, similar a las listas doblemente enlazadas. La particularidad de esta estructura es que el enlace del último nodo apunta al primero y el enlace del primer nodo apunta al último, formando una estructura circular.
 
@@ -737,7 +786,7 @@ class ListaDobleCircular():
                 self.nodo_inicial = segundo
 ```
 
-## 3.8. Árboles binarios
+## 4.8. Árboles binarios
 
 Un árbol binario se define como una estructura de datos en la que cada nodo puede tener, como máximo, dos descendientes denominados hijo izquierdo y hijo derecho. Esta estructura es una forma eficaz de organizar y buscar datos.
 

@@ -11,7 +11,7 @@
 * [Linux](herramientas/linux.md)
 * [Anaconda](herramientas/anaconda.md)
 * [Estructuras de datos y algoritmos](herramientas/dsa/estructuras_de_datos_algoritmos.md)
-  
+  * [Preguntas entrevistas](herramientas/dsa/ejercicios.md)
 ## 🧩 Procesos y metodologías
 
 * [MLOps](ml-ops/ml_ops.md)
