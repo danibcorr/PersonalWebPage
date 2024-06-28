@@ -1,2 +1,0 @@
-# Implementación de papers
-
