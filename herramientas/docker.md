@@ -12,32 +12,61 @@ Las tecnologías de virtualización, como los contenedores y las máquinas virtu
 
 ## 1.1. Contenedores
 
-Un contenedor es una unidad de software que empaqueta una aplicación y todas sus dependencias, incluyendo archivos de configuración y variables de entorno, en un formato estándar. Esta característica permite que los contenedores sean portátiles y fáciles de compartir, optimizando el desarrollo y despliegue de aplicaciones y evitando problemas relacionados con versiones y dependencias.
+<figure><img src="https://th.bing.com/th/id/OIP.mmza7Dbne60bx5L6tXKI0wAAAA?rs=1&pid=ImgDetMain" alt=""><figcaption></figcaption></figure>
 
-Los contenedores se pueden almacenar en repositorios públicos o privados, como Docker Hub, que es un ejemplo destacado de repositorio público. Las imágenes de contenedores son significativamente más ligeras que las máquinas virtuales, ya que no incluyen un sistema operativo completo. En su lugar, los contenedores se basan en imágenes Linux que pueden soportar múltiples versiones simultáneamente, siendo su única dependencia el *runtime* de Docker.
+La virtualización ligera, también conocida como virtualización a nivel de sistema operativo, permite ejecutar aplicaciones en espacios de usuario dentro de instancias totalmente aisladas y en paralelo. Para ello, se construye un espacio privado por aplicación, denominado contenedor, donde se colocan todas las dependencias necesarias. Cada dependencia dentro de un contenedor existe y se ejecuta de forma aislada, sin interferir con otras aplicaciones, lo que facilita la administración.
 
-Un contenedor se compone de múltiples capas de imágenes, donde la capa base suele ser una distribución ligera de Linux, como Alpine o Debian. Sobre esta base, se añaden las dependencias del código y los componentes específicos de la aplicación.
+Para un programador, el principal propósito es tener una aplicación lista para ejecutarse. Sin embargo, este objetivo se complica cuando la aplicación se traslada del entorno de desarrollo a otra plataforma, como una de pruebas o la de despliegue final. Aquí surgen problemas de portabilidad debido a diferencias en sistemas operativos, instalaciones de bibliotecas, versiones del compilador y hardware específico.
+
+Un contenedor es una unidad de software que empaqueta una aplicación y todas sus dependencias, incluyendo archivos de configuración y variables de entorno, en un formato estándar. Esta característica permite que los contenedores sean portables y fáciles de compartir, optimizando el desarrollo y despliegue de aplicaciones y evitando problemas relacionados con versiones y dependencias.
+
+Los contenedores se pueden almacenar en repositorios públicos o privados, como Docker Hub, un destacado ejemplo de repositorio público. Los repositorios privados de Docker, comúnmente utilizados por empresas, permiten almacenar y compartir imágenes de Docker de manera segura, protegiendo la propiedad intelectual y manteniendo la seguridad y privacidad de las aplicaciones internas.
+
+La "caja" que contiene la aplicación y sus dependencias se denomina imagen. Una instancia de una imagen en ejecución se llama contenedor. Es importante notar que se pueden ejecutar muchos contenedores a partir de la misma imagen. Una imagen contiene todo lo necesario en el espacio de usuario: la aplicación y las bibliotecas dinámicas necesarias para su ejecución. Sin embargo, la imagen no incluye componentes del kernel del sistema operativo. Cuando se crea un contenedor a partir de una imagen, se ejecuta como un proceso en el sistema operativo de una plataforma anfitriona. El sistema operativo anfitrión se encarga de que el proceso contenedor se ejecute de forma aislada y con todos los recursos necesarios: red, almacenamiento, memoria y CPU.
+
+Las imágenes de contenedores son significativamente más ligeras que las máquinas virtuales, ya que no incluyen un sistema operativo completo. En su lugar, los contenedores se componen de múltiples capas de imágenes, donde la capa base suele ser una distribución ligera de Linux, como Alpine o Debian. Sobre esta base, se añaden las dependencias del código y los componentes específicos de la aplicación.
+
+El mundo de los contenedores se beneficia enormemente del kernel de Linux, que ofrece varios elementos cruciales que se detallarán a continuación.
+
+### 1.1.1. Namespaces
+
+Namespaces envuelven un recurso global ofrecido por el sistema operativo (como la red o los identificadores de proceso) en una abstracción que da la impresión a los procesos dentro de ese espacio de nombres de que poseen ese recurso exclusivamente. Algunos ejemplos son:
+
+- **pid**: son únicos en un contenedor, pero se repiten entre contenedores. Cada contenedor tiene su propio PID 1 (el proceso init).
+- **net**: cada espacio de nombres tiene su propia pila de protocolos y su propia IP.
+- **mnt**: cada espacio de nombres tiene su propio sistema de archivos.
+- **ipc**: cada espacio de nombres tiene sus propios recursos de comunicación entre procesos (tuberías, sockets).
+- **uts**: cada espacio de nombres tiene su propio nombre de host y de dominio.
+- **user**: cada espacio de nombres tiene identificadores propios para definir usuarios y grupos. Por ejemplo, el usuario root de cada contenedor es diferente del usuario root del anfitrión.
+
+### 1.1.2. cgroups
+
+Los Grupos de Control, o cgroups, organizan una jerarquía de procesos para controlar y configurar los recursos del sistema utilizados por un grupo, como CPU, memoria y acceso a dispositivos de entrada y salida.
+
+### 1.1.3. Union Filesystem
+
+El sistema de archivos Union permite que existan archivos y directorios definidos como capas (layers), de tal manera que múltiples capas pueden conformar un sistema de archivos virtual. Cuando un contenedor está en ejecución, está compuesto por muchas capas mezcladas, creando un sistema de archivos de solo lectura. Por encima de este sistema, al contenedor se le asigna una capa con acceso a escritura, que es efímera. Es importante notar que al apagar un contenedor, se pierden los cambios realizados en sus archivos.
 
 ## 1.2. Máquinas virtuales
 
-Una máquina virtual, por otro lado, virtualiza tanto la aplicación como el *kernel* del sistema operativo, lo que implica un mayor uso de recursos de memoria y almacenamiento en comparación con un contenedor. Cada máquina virtual incluye su propio sistema operativo completo, lo que resulta en un mayor consumo de recursos y tiempos de inicio más prolongados.
+Una máquina virtual virtualiza tanto la aplicación como el *kernel* del sistema operativo, lo que implica un mayor uso de recursos de memoria y almacenamiento en comparación con un contenedor. Cada máquina virtual incluye su propio sistema operativo completo, lo que resulta en un mayor consumo de recursos y tiempos de inicio más prolongados.
 
 ## 1.3. Comparación y usos
 
-Docker, una plataforma de contenedores ampliamente utilizada, representa una forma de virtualización que se centra únicamente en la aplicación. A diferencia de las máquinas virtuales, Docker utiliza el kernel del sistema operativo anfitrión, resultando en una solución más ligera y eficiente.
+Docker representa una forma de virtualización que se centra únicamente en la aplicación. A diferencia de las máquinas virtuales, Docker utiliza el kernel del sistema operativo anfitrión, resultando en una solución más ligera y eficiente.
 
-En entornos de desarrollo y producción, los contenedores ofrecen ventajas significativas para la implementación de servicios web y bases de datos. En estos casos, se recomienda utilizar contenedores separados para el servidor web y la base de datos, lo que facilita el mantenimiento. Además, es crucial configurar la persistencia de los contenedores para garantizar el acceso a un almacenamiento de datos consistente.
+En entornos de desarrollo y producción, los contenedores ofrecen ventajas significativas para la implementación de servicios web y bases de datos. En estos casos, se recomienda utilizar contenedores separados para el servidor web y la base de datos, lo que facilita el mantenimiento. Además, en casos donde se requieran almacenar información en una base de datos resultará crucial configurar la persistencia de los contenedores para garantizar el acceso a un almacenamiento de datos consistente. Con ello los datos permanecerán intactos a pesar de eliminar el contenedor.
 
-En el contexto de la infraestructura como servicio (IaaS), los proveedores ofrecen soluciones que abarcan desde la implementación de contenedores hasta la gestión de recursos y la garantía de disponibilidad del servicio.
+En el contexto de la infraestructura como servicio (IaaS), los proveedores ofrecen soluciones que abarcan desde la implementación de contenedores hasta la gestión de recursos y la garantía de disponibilidad del servicio. Algunas de estas infraestructuras las pueden proporcionar Google con GCP, Amazon con AWS o Microsoft con Azure.
 
-Herramientas como Docker Desktop permiten gestionar y ejecutar contenedores, acceder al sistema de archivos, utilizar la interfaz de línea de comandos (CLI) y Docker Compose, entre otras funcionalidades, facilitando el trabajo con contenedores en entornos de desarrollo. Estas herramientas son esenciales para aprovechar al máximo las ventajas de la virtualización basada en contenedores.
+Docker cuenta con herramientas como Docker Desktop que permiten gestionar y ejecutar contenedores, acceder al sistema de archivos, utilizar la interfaz de línea de comandos (CLI) y Docker Compose, entre otras funcionalidades, facilitando el trabajo con contenedores en entornos de desarrollo. Estas herramientas son esenciales para aprovechar al máximo las ventajas de la virtualización basada en contenedores.
 
 # 2. Comandos de Docker
 
 | Comando | Uso/función |
 |:-------:|:-----------:|
 | **docker images** | Devuelve un listado de todas las imágenes descargadas en la máquina. |
-| **docker pull nombre_imagen** | Descargar una imagen. Ejemplo: `docker pull nginx:version` para especificar la versión. |
+| **docker pull nombre_imagen** | Descargar una imagen de Docker, podemos visitar https://hub.docker.com/. |
 | **docker image rm nombre_imagen:tag** | Eliminar una imagen. |
 | **docker create nombre_imagen** | Crear un contenedor con esa imagen, devuelve el ID del contenedor creado. |
 | **docker create --name nombre_contenedor nombre_imagen** | Crear un contenedor con un nombre específico a partir de una imagen. |
@@ -78,6 +107,8 @@ Además, Docker proporciona comandos para capturar los logs de los contenedores 
 - `docker logs -f "nombre_contenedor"`: Muestra los logs del contenedor de forma continua.
 
 # 4. Docker Run
+
+<figure><img src="https://linuxiac.com/wp-content/uploads/2021/06/what-is-docker-container.png" alt=""><figcaption></figcaption></figure>
 
 El comando `docker run` es una combinación de dos comandos de Docker: `docker create` y `docker start`. Este comando realiza tres pasos:
 
@@ -202,7 +233,7 @@ volumes:
   mongo-data:
 ```
 
-# 9. Ambientes y Hot Reload
+# 9. Ambientes
 
 Los diferentes ambientes permiten separar la configuración de desarrollo de la de producción. Para ello, se crean un fichero `Dockerfile.dev` y `docker-compose-dev.yml`.
 

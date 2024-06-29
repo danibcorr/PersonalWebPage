@@ -5,7 +5,7 @@ description: Realizado por Daniel Bazo Correa.
 # Ejercicios básicos
 
 <details>
-<summary>Refactoriza para que "Hola desde la GPU" se imprima antes que "Hola desde la CPU".</summary>
+<summary>Orden ejecución, primero GPU luego CPU.</summary>
 
 ```c
 #include <stdio.h>
@@ -39,7 +39,7 @@ int main()
 
 
 <details>
-<summary>Refactoriza para que "Hola desde la GPU" se imprima dos veces, una antes de "Hola desde la CPU" y otra después.</summary>
+<summary>Orden ejecución, primero GPU, luego CPU y de nuevo la GPU.</summary>
 
 ```c
 #include <stdio.h>
@@ -77,13 +77,16 @@ int main()
 
 
 <details>
-<summary>Refactoriza el núcleo para que se ejecute en paralelo en 5 hilos, todos ejecutándose en un único bloque de hilos. Deberías ver el mensaje de salida impreso 5 veces después de compilar y ejecutar el código.</summary>
+<summary>Ejecutar 5 hilos en un único bloque para un Kernel.</summary>
 
 ```c
 #include <stdio.h>
 
 __global__ void firstParallel()
 {
+    /*
+    Se debería ver el mensaje de salida impreso 5 veces
+    */
     printf("Paralelismo.\n");
 }
 
@@ -104,13 +107,16 @@ int main()
 
 
 <details>
-<summary>Refactoriza el kernel para ejecutar en paralelo dentro de 5 bloques de hilos, cada uno conteniendo 5 hilos. Deberías ver el mensaje de salida impreso 25 veces ahora después de compilar y ejecutar.</summary>
+<summary>Ejecutar 5 hilos en 5 bloques diferentes de un Kernel.</summary>
 
 ```c
 #include <stdio.h>
 
 __global__ void firstParallel()
 {
+    /*
+    Se debería ver el mensaje de salida impreso 25 veces
+    */
     printf("Paralelismo.\n");
 }
 

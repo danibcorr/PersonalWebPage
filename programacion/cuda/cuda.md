@@ -605,5 +605,3 @@ def bucle(lista1, lista2, num_filas):
             
             lista3.append(np.mean(lista[fila], lista2[fila])) 
 ```
-
-## 2.2. Cupy

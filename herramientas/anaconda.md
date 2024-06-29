@@ -6,9 +6,9 @@ description: Realizado por Daniel Bazo Correa.
 
 **Anaconda** es una plataforma de código abierto que proporciona un entorno robusto para la ciencia de datos y el aprendizaje automático. Incluye una distribución de Python con una amplia gama de bibliotecas preinstaladas, un gestor de paquetes para facilitar la administración de dependencias, la capacidad de crear y gestionar entornos virtuales, y una integración fluida con los cuadernos Jupyter.
 
-# Comandos útiles de Anaconda
+# 1. Comandos útiles de Anaconda
 
-## Actualizar todos los paquetes de Conda
+## 1.1. Actualizar todos los paquetes de Conda
 
 Para mantener tu entorno Anaconda actualizado con las últimas versiones de los paquetes, puedes utilizar el siguiente comando:
 
@@ -16,7 +16,7 @@ Para mantener tu entorno Anaconda actualizado con las últimas versiones de los 
 conda update --all
 ```
 
-## Añadir entornos en los cuadernos Jupyter
+## 1.2. Añadir entornos en los cuadernos Jupyter
 
 Los entornos virtuales permiten aislar las dependencias necesarias para proyectos específicos. Para añadir un nuevo entorno a los cuadernos Jupyter, puedes seguir estos pasos:
 
