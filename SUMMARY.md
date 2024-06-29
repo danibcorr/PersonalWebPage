@@ -4,18 +4,16 @@
 
 * [Sobre mi](README.md)
 
-## 🏛️ Sistemas operativos
-
-* [Linux](sistemas-operativos/linux.md)
-  
 ## 🛠 Herramientas
 
 * [Anaconda](herramientas/anaconda.md)
 * [Docker](herramientas/docker.md)
 * [Git](herramientas/git.md)
-
+* [Kubernetes](herramientas/kubernetes.md)
+  
 ## 🧩 Procesos y metodologías
 
+* [Kubeflow](ml-ops/kubeflow.md)
 * [MLOps](ml-ops/ml_ops.md)
   
 ## 💻 Programación
@@ -36,9 +34,5 @@
 
 * Librerías
   * [Tensorflow](deep-learning/librerias/tensorflow.md)
+  * [PyTorch](deep-learning/librerias/pytorch.md)
   * [FastAI](deep-learning/librerias/fastai.md)
-* Implementación de papers
-  * Computación Visual
-    * [ResNet](deep-learning/implementacion-de-papers/CV/resnet.md)
-    * [GoogleLeNet](deep-learning/implementacion-de-papers/CV/googlelenet.md)
-    * [LeNet](deep-learning/implementacion-de-papers/CV/lenet.md)
